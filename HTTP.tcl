@@ -23,118 +23,110 @@ namespace eval IXIA {
    #         -- actName , activity name , such as "HTTPClient1"
    #         -- clrflag , flag to clear the action List, if it is 0, then clear the action list
    #         -- args ,  |key, value| , parameters of ixHttpCommand object  
-   #            - commandtype , Command type, can be one of "GET","DELETE","HEAD","POST","PUT".
-   #            - cmdname     , Command Name 
-   #            - pageobject  , page object , such as /1k.html  
-   #            - destination , destination ,web address ,such as http://10.70.80.90:90
-   #            - loopcount  ,loop count
-   #            - thinkinterval ,think interval 
+   #         -- commandtype , Command type, can be one of "GET","DELETE","HEAD","POST","PUT".
+   #         -- cmdname     , Command Name 
+   #         -- pageobject  , page object , such as /1k.html  
+   #         -- destination , destination ,web address ,such as http://10.70.80.90:90
+   #         -- loopcount  ,loop count
+   #         -- thinkinterval ,think interval 
    #Return:
    #         0 , if got success   
-   #          raise error or turn 1 if failed
+   #         raise error or turn 1 if failed
    #--
-   #	
+   #    
    proc configHttpClientAction { actName {clrflag 1} args} {
-      
-      variable  version_x
-      Deputs "version_x is $version_x"
-      # if { [regexp {^5.} $version_x ] == 0 } {
-         # error " only for 5.xx version !"
-         # return 1
-      # }
-      
       set tag "proc configHttpClientAction [info script]"
       Deputs "----- TAG: $tag -----"
       Deputs " clrflag = $clrflag"
       set actObj [ getActivity $actName ]
       set commandList1 [list  "GET" "DELETE" "HEAD" "POST"  "PUT"]
       set commandList2 [list "LoopBeginCommand" "THINK" "LoopEndCommand"]
-		if { $clrflag } {
-			$actObj agent.actionList.clear
-		}
+         if { $clrflag } {
+            $actObj agent.actionList.clear
+         }
 
-		foreach { key value } $args {
-			Deputs "config -$key--$value"
-			set key [string tolower $key]
-			switch -exact -- $key {
-				-commandtype { 
-				set commandtype $value 
-				}
-				-cmdname {
-				set cmdname  $value
-				}
-				-pageobject {
-				set pageobj $value
-				}
-				-destination { 
-				set destination $value 
-				}
-				-loopcount {
-				 set loopcount $value
-				}
-				-thinkinterval {
-				set thinkinterval $value
-				}
+         foreach { key value } $args {
+            Deputs "config -$key--$value"
+            set key [string tolower $key]
+            switch -exact -- $key {
+               -commandtype { 
+                  set commandtype $value 
+               }
+               -cmdname {
+                  set cmdname  $value
+               }
+               -pageobject {
+                  set pageobj $value
+               }
+               -destination { 
+                  set destination $value 
+               }
+               -loopcount {
+                  set loopcount $value
+               }
+               -thinkinterval {
+                  set thinkinterval $value
+               }
+            }
+         }
+         if { [lsearch $commandList1 $commandtype ] >=0 } { 
+            # my_ixHttpCommand is for version above 5.60
+            Deputs "config $commandtype start "
+            set my_ixHttpCommand [::IxLoad new ixHttpCommand]
+            $my_ixHttpCommand  config  -commandType $commandtype 
+            $my_ixHttpCommand  config  -cmdName $cmdname
+            
+            if { [info exists pageobj] } {
+               $my_ixHttpCommand  config  -pageObject $pageobj
+            }
+            if { [info exists destination ] } {
+               $my_ixHttpCommand  config  -destination $destination
+            }  
+            $actObj agent.actionList.appendItem -object $my_ixHttpCommand
+            Deputs "config $commandtype end "
+         }
 
-		}
-		}
-		if { [lsearch $commandList1 $commandtype ] >=0 } { 
-		# my_ixHttpCommand is for version above 5.60
-		Deputs "config $commandtype start "
-		set my_ixHttpCommand [::IxLoad new ixHttpCommand]
-		$my_ixHttpCommand  config  -commandType $commandtype 
-		$my_ixHttpCommand  config  -cmdName $cmdname
-		if { [info exists pageobj] } {
-		$my_ixHttpCommand  config  -pageObject $pageobj
-		} 
-		if { [info exists destination ] } {
-		   $my_ixHttpCommand  config  -destination $destination
-		 }  
-		$actObj agent.actionList.appendItem -object $my_ixHttpCommand
-		Deputs "config $commandtype end "
-		}
+         if { $commandtype == "LoopBeginCommand" } {
+            Deputs "config $commandtype start " 
+            set my_ixLoopBeginCommand [::IxLoad new ixLoopBeginCommand]
+            if { [info exists loopcount] == 0 } {
+               set loopcount 5
+            }
+            $my_ixLoopBeginCommand config \
+               -commandType                             $commandtype \
+               -LoopCount                               $loopcount \
+               -cmdName                                 $cmdname 
 
-		if { $commandtype == "LoopBeginCommand" } {
-		 Deputs "config $commandtype start " 
-		set my_ixLoopBeginCommand [::IxLoad new ixLoopBeginCommand]
-		if { [info exists loopcount] == 0 } {
-		set loopcount 5
-		}
-		$my_ixLoopBeginCommand config \
-		   -commandType                             $commandtype \
-		   -LoopCount                               $loopcount \
-		   -cmdName                                 $cmdname 
-
-		$actObj agent.actionList.appendItem -object $my_ixLoopBeginCommand 
-		Deputs "config $commandtype end "
-		}
-		Deputs "begin end"
-		if { $commandtype == "THINK" } {
-		 Deputs "config $commandtype start "
-		set my_ixThinkCommand [::IxLoad new ixThinkCommand]
-		if { [info exists thinkinterval] ==0 } { 
-		set thinkinterval 1000
-		}
-		$my_ixThinkCommand config \
-		   -commandType                             $commandtype \
-		   -minimumInterval                         $thinkinterval \
-		   -maximumInterval                         $thinkinterval \
-		   -cmdName                                 $cmdname 
-		$actObj agent.actionList.appendItem -object $my_ixThinkCommand
-		Deputs "config $commandtype end "
-		}
-		Deputs "think end"
-		if { $commandtype == "LoopEndCommand" } {
-		 Deputs "config $commandtype start "
-		set my_ixLoopEndCommand [::IxLoad new ixLoopEndCommand]
-		$my_ixLoopEndCommand config \
-				-commandType                             $commandtype \
-				-cmdName                                 $cmdname 
-
-		$actObj agent.actionList.appendItem -object $my_ixLoopEndCommand
-		Deputs "config $commandtype end "
-		}
-		Deputs "loop end end "
+            $actObj agent.actionList.appendItem -object $my_ixLoopBeginCommand 
+            Deputs "config $commandtype end "
+         }
+         Deputs "begin end"
+         if { $commandtype == "THINK" } {
+            Deputs "config $commandtype start "
+            set my_ixThinkCommand [::IxLoad new ixThinkCommand]
+            if { [info exists thinkinterval] ==0 } { 
+               set thinkinterval 1000
+            }
+            $my_ixThinkCommand config \
+               -commandType                             $commandtype \
+               -minimumInterval                         $thinkinterval \
+               -maximumInterval                         $thinkinterval \
+               -cmdName                                 $cmdname 
+            $actObj agent.actionList.appendItem -object $my_ixThinkCommand
+            Deputs "config $commandtype end "
+         }
+         Deputs "think end"
+         if { $commandtype == "LoopEndCommand" } {
+            Deputs "config $commandtype start "
+            set my_ixLoopEndCommand [::IxLoad new ixLoopEndCommand]
+            $my_ixLoopEndCommand config \
+               -commandType                             $commandtype \
+               -cmdName                                 $cmdname 
+   
+            $actObj agent.actionList.appendItem -object $my_ixLoopEndCommand
+            Deputs "config $commandtype end "
+         }
+         Deputs "loop end end "
          
       return 0
    }
