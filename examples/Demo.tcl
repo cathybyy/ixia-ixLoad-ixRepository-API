@@ -4,7 +4,7 @@ package require IxRepository
 
 IXIA::connect
 
-IXIA::loadRepository "C:/Ixia/Workspace/TclProxy/Configs/IxLoad/IxLoad-HTTP.rxf"
+IXIA::loadRepository "[pwd]/configs/HTTP.rxf"
 
 # set statlist [list http_client_throughput \
         # http_client_transactions \

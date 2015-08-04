@@ -5,7 +5,7 @@ package require IxRepository
 set restoreDir "Result/Configs"
 
 IXIA::connect
-IXIA::loadRepository "C:/Ixia/Workspace/TclProxy/Configs/IxLoad/IxLoad-HTTP.rxf"
+IXIA::loadRepository "[pwd]/configs/HTTP.rxf"
 IXIA::configNetwork Network1  -media copper  \
                         -auto_nego false  \
                         -speed 100m   \
