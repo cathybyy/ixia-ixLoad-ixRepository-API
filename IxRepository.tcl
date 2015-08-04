@@ -211,7 +211,7 @@ namespace eval IXIA {
     # Clear chassis chain in repository
     #--
     # Parameters: 
-    #       chassisChain, chassis chain obj
+    #        chassisChain, chassis chain obj
     # Return:
     #        0 if got success
     #        raise error if failed 
@@ -229,7 +229,7 @@ namespace eval IXIA {
     # Get test object
     #--
     #Parameters:
-    #      none
+    #        none
     # Return:
     #        Active Test object if got success
     #        raise error if failed 
@@ -248,42 +248,40 @@ namespace eval IXIA {
     # Get Activity object by given name
     #--
     #Parameters:
-    #    actName: activity name
+    #       actName: activity name
     #Return:
-    #        activity object if got success
-    #        raise error if failed 
+    #       activity object if got success
+    #       raise error if failed 
     #--
     proc getActivity { actName } {
-       set tag "proc GetActivity [info script]-->find <$actName> "
-       Deputs "----- TAG: $tag -----"
+        set tag "proc GetActivity [info script]-->find <$actName> "
+        Deputs "----- TAG: $tag -----"
  
-       set activeTest [ getActiveTest ]
+        set activeTest [ getActiveTest ]
     
-       set clientCnt [ $activeTest clientCommunityList.indexCount ]    
-       for { set index 0 } { $index < $clientCnt } { incr index } {
-          set actCnt [ $activeTest clientCommunityList($index).activityList.indexCount ]
-          for { set actIndex 0 } { $actIndex < $actCnt } { incr actIndex } {
-             set clientActName \
-                 [ $activeTest clientCommunityList($index).activityList($actIndex).cget -name ]
-             if { $clientActName == $actName } {
-                 return [ $activeTest clientCommunityList($index).activityList.getItem $actIndex ]
-             }
-          }
-       }
+        set clientCnt [ $activeTest clientCommunityList.indexCount ]    
+        for { set index 0 } { $index < $clientCnt } { incr index } {
+            set actCnt [ $activeTest clientCommunityList($index).activityList.indexCount ]
+            for { set actIndex 0 } { $actIndex < $actCnt } { incr actIndex } {
+                set clientActName [ $activeTest clientCommunityList($index).activityList($actIndex).cget -name ]
+                if { $clientActName == $actName } {
+                    return [ $activeTest clientCommunityList($index).activityList.getItem $actIndex ]
+                }
+            }
+        }
        
-       set serverCnt [ $activeTest serverCommunityList.indexCount ]
-       for { set index 0 } { $index < $serverCnt } { incr index } {
-          set actCnt [ $activeTest serverCommunityList($index).activityList.indexCount ] 
-          for { set actIndex 0 } { $actIndex < $actCnt } { incr actIndex } {
-             set serverActName \
-                 [ $activeTest serverCommunityList($index).activityList($actIndex).cget -name ]
-             if { $serverActName == $actName } {
-                 return [ $activeTest serverCommunityList($index).activityList.getItem $actIndex ]
-             }
-          }
-       }   
-       error "Activity not found..."
-         }
+        set serverCnt [ $activeTest serverCommunityList.indexCount ]
+        for { set index 0 } { $index < $serverCnt } { incr index } {
+            set actCnt [ $activeTest serverCommunityList($index).activityList.indexCount ] 
+            for { set actIndex 0 } { $actIndex < $actCnt } { incr actIndex } {
+                set serverActName [ $activeTest serverCommunityList($index).activityList($actIndex).cget -name ]
+                if { $serverActName == $actName } {
+                    return [ $activeTest serverCommunityList($index).activityList.getItem $actIndex ]
+                }
+            }
+        }   
+        error "Activity not found..."
+    }
          
     #--
     # Get DNSServerUrl in current rxf
@@ -324,26 +322,25 @@ namespace eval IXIA {
     #        raise error if failed
     #--
     proc getNetwork { networkName } {
-        
-       set tag "proc GetActivity [info script]"
-       Deputs "----- TAG: $tag -----"
+        set tag "proc GetActivity [info script]"
+        Deputs "----- TAG: $tag -----"
  
-       set activeTest [ getActiveTest ]
-       set clientCnt [ $activeTest clientCommunityList.indexCount ]    
-       for { set index 0 } { $index < $clientCnt } { incr index } {
-          set clientNetName [ $activeTest clientCommunityList($index).network.name ]
-          if { $networkName == $clientNetName } {
-             return [ $activeTest clientCommunityList($index).network ]
-          }
-       }      
-       set serverCnt [ $activeTest serverCommunityList.indexCount ]
-       for { set index 0 } { $index < $serverCnt } { incr index } {
-          set serverNetName [ $activeTest serverCommunityList($index).network.name ] 
-          if { $networkName == $serverNetName } {
-             return [ $activeTest serverCommunityList($index).network ]
-          }
-       }   
-       error "Network not found..."
+        set activeTest [ getActiveTest ]
+        set clientCnt [ $activeTest clientCommunityList.indexCount ]    
+        for { set index 0 } { $index < $clientCnt } { incr index } {
+            set clientNetName [ $activeTest clientCommunityList($index).network.name ]
+            if { $networkName == $clientNetName } {
+                return [ $activeTest clientCommunityList($index).network ]
+            }
+        }      
+        set serverCnt [ $activeTest serverCommunityList.indexCount ]
+        for { set index 0 } { $index < $serverCnt } { incr index } {
+            set serverNetName [ $activeTest serverCommunityList($index).network.name ] 
+            if { $networkName == $serverNetName } {
+                return [ $activeTest serverCommunityList($index).network ]
+            }
+        }   
+        error "Network not found..."
     }
     
     #--
@@ -702,46 +699,47 @@ namespace eval IXIA {
     #          raise error if failed
     #--
     proc getActivityRampupTime {actName args} {
-       set tag "proc getActivityRampupTime [info script]"
-       Deputs "----- TAG: $tag -----"
-       set actObj [ getActivity $actName ]
-       set timeline1 [$actObj cget -timeline]
-       set rampuptime [$timeline1 cget -rampUpTime]
-       return $rampuptime
+        set tag "proc getActivityRampupTime [info script]"
+        Deputs "----- TAG: $tag -----"
+        set actObj [ getActivity $actName ]
+        set timeline1 [$actObj cget -timeline]
+        set rampuptime [$timeline1 cget -rampUpTime]
+        return $rampuptime
     }
     
-     proc configActivitycustomPortMap {actName args} {
-         set tag "proc getActivitycustomPortMap [info script]"
-         Deputs "----- TAG: $tag -----"
-         set actObj [ getActivity $actName ]
-         set desObj [$actObj cget -destinations]
-         set mapObj [$desObj cget -customPortMap]
-         set Ipv4mapObj [$mapObj cget -submapsIPv4]
-         #set desRangList [$Ipv4mapObj cget -destinationRanges]
-         foreach { key value } $args {
-             set key [string tolower $key]
-             Deputs "config $key --$value"
-             switch -exact -- $key {
-                 -enable_id_list {
-                     foreach id $value {
-                         Deputs "enable destination ID $id"
-                         set desportIndex [$Ipv4mapObj destinationRanges.find exact -id $id]
-                         set desPortObj [$Ipv4mapObj destinationRanges.getItem $desportIndex]
-                         $desPortObj config -enable 1
-                     }
+    proc configActivitycustomPortMap {actName args} {
+        set tag "proc getActivitycustomPortMap [info script]"
+        Deputs "----- TAG: $tag -----"
+        set actObj [ getActivity $actName ]
+        set desObj [$actObj cget -destinations]
+        set mapObj [$desObj cget -customPortMap]
+        set Ipv4mapObj [$mapObj cget -submapsIPv4]
+        #set desRangList [$Ipv4mapObj cget -destinationRanges]
+        foreach { key value } $args {
+            set key [string tolower $key]
+            Deputs "config $key --$value"
+            switch -exact -- $key {
+                -enable_id_list {
+                    foreach id $value {
+                        Deputs "enable destination ID $id"
+                        set desportIndex [$Ipv4mapObj destinationRanges.find exact -id $id]
+                        set desPortObj [$Ipv4mapObj destinationRanges.getItem $desportIndex]
+                        $desPortObj config -enable 1
+                    }
                         
-                 }
-                 -disable_id_list {
-                     foreach id $value {
-                         Deputs "disable destination ID $id"
-                         set desportIndex [$Ipv4mapObj destinationRanges.find exact -id $id]
-                         set desPortObj [$Ipv4mapObj destinationRanges.getItem $desportIndex]
-                         $desPortObj config -enable 0
-                     }
-                 }       
-             }
-         }
-     }
+                }
+                -disable_id_list {
+                    foreach id $value {
+                        Deputs "disable destination ID $id"
+                        set desportIndex [$Ipv4mapObj destinationRanges.find exact -id $id]
+                        set desPortObj [$Ipv4mapObj destinationRanges.getItem $desportIndex]
+                        $desPortObj config -enable 0
+                    }
+                }       
+            }
+        }
+    }
+    
     #--
     #get the activity timelineType  
     #--
@@ -753,13 +751,13 @@ namespace eval IXIA {
     #          raise error if failed
     #--
     proc getActivityTimelineType {actName args} {
-       set tag "proc getActivityTimelineType [info script]"
-       Deputs "----- TAG: $tag -----"
+        set tag "proc getActivityTimelineType [info script]"
+        Deputs "----- TAG: $tag -----"
        
-       set actObj [ getActivity $actName ]
-       set timeline1 [$actObj cget -timeline]
-       set timelinetype [$timeline1 cget -timelineType]
-       return $timelinetype
+        set actObj [ getActivity $actName ]
+        set timeline1 [$actObj cget -timeline]
+        set timelinetype [$timeline1 cget -timelineType]
+        return $timelinetype
     }
     
     #--
@@ -772,16 +770,16 @@ namespace eval IXIA {
     #          Sustain time , if got success
     #          raise error if failed
     #--
-    proc getActivitySustainTime {actName } {
+    proc getActivitySustainTime {actName } {       
+        set tag "proc getActivitySustainTime [info script]"
+        Deputs "----- TAG: $tag -----"
        
-       set tag "proc getActivitySustainTime [info script]"
-       Deputs "----- TAG: $tag -----"
-       
-       set actObj [ getActivity $actName ]
-       set timeline1 [$actObj cget -timeline]
-       set sustaintime [$timeline1 cget -sustainTime]
-       return $sustaintime
+        set actObj [ getActivity $actName ]
+        set timeline1 [$actObj cget -timeline]
+        set sustaintime [$timeline1 cget -sustainTime]
+        return $sustaintime
     }
+    
     #--
     # getAdvSeg0Duration : get the activity rampuptime only when the timlinetype is advance mode
     #--
@@ -793,20 +791,21 @@ namespace eval IXIA {
     #          -1, error if failed 
     #--
     proc getAdvSeg0Duration {actName} {
-       set tag "proc getAdvSeg0Duration [info script]"
-       Deputs "----- TAG: $tag -----"
-       set actObj [ getActivity $actName ]
-       set timelineObj [$actObj cget -timeline]
-       set linetype [$timelineObj cget -timelineType]
-       if {$linetype == 1} {
-             set advanceObj [$timelineObj cget -advancedIteration]
-             set segment0Obj [$advanceObj segmentList.getItem 0]
-             set duration [$segment0Obj cget -duration] 
-             return $duration
+        set tag "proc getAdvSeg0Duration [info script]"
+        Deputs "----- TAG: $tag -----"
+        set actObj [ getActivity $actName ]
+        set timelineObj [$actObj cget -timeline]
+        set linetype [$timelineObj cget -timelineType]
+        if {$linetype == 1} {
+            set advanceObj [$timelineObj cget -advancedIteration]
+            set segment0Obj [$advanceObj segmentList.getItem 0]
+            set duration [$segment0Obj cget -duration] 
+            return $duration
        }
        Deputs " $actName linetype is 1!"
        return -1
     }
+    
     #--
     # getAdvSeg1Duration : get the activity sustain time  only when the timlinetype is advance mode
     #--
@@ -818,21 +817,20 @@ namespace eval IXIA {
     #          -1, error if failed 
     #--
     proc getAdvSeg1Duration {actName} {
+        set tag "proc getAdvSeg1Duration [info script]"
+        Deputs "----- TAG: $tag -----"
        
-       set tag "proc getAdvSeg1Duration [info script]"
-       Deputs "----- TAG: $tag -----"
-       
-       set actObj [ getActivity $actName ]
-       set timelineObj [$actObj cget -timeline]
-       set linetype [$timelineObj cget -timelineType]
-       if {$linetype == 1} {
-          set advanceObj [$timelineObj cget -advancedIteration]
-          set segment1Obj [$advanceObj segmentList.getItem 1]
-          set duration [$segment1Obj cget -duration]
-          return $duration
-       }
-       Deputs " $actName linetype is 1!"
-       return -1
+        set actObj [ getActivity $actName ]
+        set timelineObj [$actObj cget -timeline]
+        set linetype [$timelineObj cget -timelineType]
+        if {$linetype == 1} {
+            set advanceObj [$timelineObj cget -advancedIteration]
+            set segment1Obj [$advanceObj segmentList.getItem 1]
+            set duration [$segment1Obj cget -duration]
+            return $duration
+        }
+        Deputs " $actName linetype is 1!"
+        return -1
     }
    
     #--
@@ -858,104 +856,104 @@ namespace eval IXIA {
     #          raise error if failed 
     #--
     proc configActivityTimeline { actName args } {
-       set tag "proc configActivityTimeline [info script]"
-       Deputs "----- TAG: $tag -----"
+        set tag "proc configActivityTimeline [info script]"
+        Deputs "----- TAG: $tag -----"
  
-       set actObj [ getActivity $actName ]
-       set timelineObj [$actObj cget -timeline]
+        set actObj [ getActivity $actName ]
+        set timelineObj [$actObj cget -timeline]
   
-       # Param collection --       
-       foreach { key value } $args {
-          set key [string tolower $key]
-         Deputs "config $key --$value"
-          switch -exact -- $key {
-             -rampupvalue {
-                set rampUpValue $value
-                Deputs "rampUpValue is $value"
-                $timelineObj config -rampUpValue $value
-             }
-             -rampuptype {
-                set rampUpType $value
-                Deputs "rampUpType $value"
-                $timelineObj config -rampUpType $value
-             }
-             -offlinetime {
-                set offline $value
-                Deputs "offline $value"
-                 $timelineObj config  -offlineTime $value
-             }
-             -rampdowntime {
-                set rampDownTime $value
-                Deputs "  rampDownTime $value"
-                 #$timelineObj config   $value
-             }
-             -standbytime {
-                set standby $value
-                Deputs "standby $value"
-                $timelineObj config -standbyTime  $value
-             }
-             -rampdownvalue {
-                set rampDownValue $value
-                Deputs "timelineObj config  -rampDownTime $value"
-                $timelineObj config  -rampDownTime $value
-             }
-             -iterations {
-                set iterations $value
-                Deputs "timelineObj config -iterations  $value"
-                $timelineObj config -iterations  $value
-             }
-             -rampupinterval {
-                set rampUpInterval $value
-                Deputs "timelineObj config -rampUpInterval  $value"
-                $timelineObj config -rampUpInterval  $value
-             }
-             -sustaintime {
-                set sustain $value
-                Deputs "timelineObj config -sustainTime  $value"
-                $timelineObj config -sustainTime  $value
-             }
-             -name {
-                set name $value
-                Deputs "timelineObj config -name $value"
-                $timelineObj config -name $value
-             }
-             -timelinetype {
-                set type $value               
-                #config the timelineType ,0 is basic mode,1 is advance mode
-                Deputs "timelineObj config -timelineType $value "
-                $timelineObj config -timelineType $value
-                
-             }
-             -segment0duration {
-                $timelineObj config -timelineType 1
-                Deputs "timelineObj config -timelineType 1 "
-                set advanceObj [$timelineObj cget -advancedIteration]
-                set segment0Obj [$advanceObj segmentList.getItem 0]
-                #this is for advance mode, config the rampup time 
-                $segment0Obj config -duration  $value
-                Deputs "segment0Obj config -duration  $value "
-             }
-             -segment1duration {
-                $timelineObj config -timelineType 1
-                Deputs "timelineObj config -timelineType 1 "
-                set advanceObj [$timelineObj cget -advancedIteration]
-                set segment1Obj [$advanceObj segmentList.getItem 1]
-                #this is for advance mode ,config the duration time
-                $segment1Obj config -duration  $value               
-                Deputs "segment1Obj config -duration  $value "
-             }
-             -segment2duration {
-                $timelineObj config -timelineType 1
-                Deputs "timelineObj config -timelineType 1 "
-                set advanceObj [$timelineObj cget -advancedIteration]
-                set segment2Obj [$advanceObj segmentList.getItem 2]
-                #this is for advance mode ,config the duration time
-                $segment2Obj config -duration  $value               
-                Deputs "segment2Obj config -duration  $value "
-             }            
-          }
-       }
-       return 0
+        # Param collection --       
+        foreach { key value } $args {
+            set key [string tolower $key]
+            Deputs "config $key --$value"
+            switch -exact -- $key {
+                -rampupvalue {
+                    set rampUpValue $value
+                    Deputs "rampUpValue is $value"
+                    $timelineObj config -rampUpValue $value
+                }
+                -rampuptype {
+                    set rampUpType $value
+                    Deputs "rampUpType $value"
+                    $timelineObj config -rampUpType $value
+                }
+                -offlinetime {
+                    set offline $value
+                    Deputs "offline $value"
+                    $timelineObj config  -offlineTime $value
+                }
+                -rampdowntime {
+                    set rampDownTime $value
+                    Deputs "  rampDownTime $value"
+                    #$timelineObj config   $value
+                }
+                -standbytime {
+                    set standby $value
+                    Deputs "standby $value"
+                    $timelineObj config -standbyTime  $value
+                }
+                -rampdownvalue {
+                    set rampDownValue $value
+                    Deputs "timelineObj config  -rampDownTime $value"
+                    $timelineObj config  -rampDownTime $value
+                }
+                -iterations {
+                    set iterations $value
+                    Deputs "timelineObj config -iterations  $value"
+                    $timelineObj config -iterations  $value
+                }
+                -rampupinterval {
+                    set rampUpInterval $value
+                    Deputs "timelineObj config -rampUpInterval  $value"
+                    $timelineObj config -rampUpInterval  $value
+                }
+                -sustaintime {
+                    set sustain $value
+                    Deputs "timelineObj config -sustainTime  $value"
+                    $timelineObj config -sustainTime  $value
+                }
+                -name {
+                    set name $value
+                    Deputs "timelineObj config -name $value"
+                    $timelineObj config -name $value
+                }
+                -timelinetype {
+                    set type $value               
+                    #config the timelineType ,0 is basic mode,1 is advance mode
+                    Deputs "timelineObj config -timelineType $value "
+                    $timelineObj config -timelineType $value
+                   
+                }
+                -segment0duration {
+                    $timelineObj config -timelineType 1
+                    Deputs "timelineObj config -timelineType 1 "
+                    set advanceObj [$timelineObj cget -advancedIteration]
+                    set segment0Obj [$advanceObj segmentList.getItem 0]
+                    #this is for advance mode, config the rampup time 
+                    $segment0Obj config -duration  $value
+                    Deputs "segment0Obj config -duration  $value "
+                }
+                -segment1duration {
+                    $timelineObj config -timelineType 1
+                    Deputs "timelineObj config -timelineType 1 "
+                    set advanceObj [$timelineObj cget -advancedIteration]
+                    set segment1Obj [$advanceObj segmentList.getItem 1]
+                    #this is for advance mode ,config the duration time
+                    $segment1Obj config -duration  $value               
+                    Deputs "segment1Obj config -duration  $value "
+                }
+                -segment2duration {
+                    $timelineObj config -timelineType 1
+                    Deputs "timelineObj config -timelineType 1 "
+                    set advanceObj [$timelineObj cget -advancedIteration]
+                    set segment2Obj [$advanceObj segmentList.getItem 2]
+                    #this is for advance mode ,config the duration time
+                    $segment2Obj config -duration  $value               
+                    Deputs "segment2Obj config -duration  $value "
+                }            
+            }
+        }
+        return 0
     }
     
    
@@ -978,40 +976,40 @@ namespace eval IXIA {
     #--
     #    
     proc configObjective { actName args } {
-       set tag "proc configObjective [info script]"
-       Deputs "----- TAG: $tag -----"
+        set tag "proc configObjective [info script]"
+        Deputs "----- TAG: $tag -----"
  
-       set actObj [ getActivity $actName ]
+        set actObj [ getActivity $actName ]
        
-       # Param collection --         
-       foreach { key value } $args {
-          set key [string tolower $key]
-          Deputs "config $key --$value"
-          switch -exact -- $key {
-             -enableconstraint {
-                set enable_constraint $value
-               $actObj config -enableConstraint $value
-               Deputs "$actObj config -enableConstraint $value"
-             }
-             -constraintvalue {
-               $actObj config -constraintValue $value
-               Deputs "$actObj config -constraintValue $value"
-             }
-             -userobjectivetype {
-               $actObj config -userObjectiveType $value
-               Deputs "$actObj config -userObjectiveType $value"
-             }
-             -userobjectivevalue {
-               $actObj config -userObjectiveValue $value
-               Deputs "$actObj config -userObjectiveValue $value"
-             }
-          }
-       }
+        # Param collection --         
+        foreach { key value } $args {
+            set key [string tolower $key]
+            Deputs "config $key --$value"
+            switch -exact -- $key {
+                -enableconstraint {
+                    set enable_constraint $value
+                    $actObj config -enableConstraint $value
+                       Deputs "$actObj config -enableConstraint $value"
+                }
+                -constraintvalue {
+                    $actObj config -constraintValue $value
+                    Deputs "$actObj config -constraintValue $value"
+                }
+                -userobjectivetype {
+                    $actObj config -userObjectiveType $value
+                    Deputs "$actObj config -userObjectiveType $value"
+                }
+                -userobjectivevalue {
+                    $actObj config -userObjectiveValue $value
+                    Deputs "$actObj config -userObjectiveValue $value"
+                }
+            }
+        }
        
-       if {[info exists enable_constraint] == 0} {
-          $actObj config -enableConstraint false
-       }
-       return 0
+        if {[info exists enable_constraint] == 0} {
+            $actObj config -enableConstraint false
+        }
+        return 0
     }
     
     #--
@@ -1057,7 +1055,10 @@ namespace eval IXIA {
             -statsRequired                               true \
             -showNetworkDiagnosticsAfterRunStops         false \
             -showNetworkDiagnosticsFromApplyConfig       false \
-            -enableForceOwnership             true
+            -enableForceOwnership                        true \
+            -enableResetPorts                            true \
+            -enableReleaseConfigAfterRun                 true
+        
         set activeTest [ getActiveTest ]
         $activeTest clearGridStats
         
@@ -1435,16 +1436,16 @@ namespace eval IXIA {
     proc IxDebugOff {} {
         set IXIA::Debug 0
     }
-   
 }
 
 # -- Changes made on v1.2.a
 set currDir [file dirname [info script]]
 
+source [file join $currDir "utils.tcl"]
+source [file join $currDir "stats.tcl"]
 source [file join $currDir "HTTP.tcl"]
 source [file join $currDir "RTSP.tcl"]
 source [file join $currDir "SIP.tcl"]
 source [file join $currDir "DNS.tcl"]
-source [file join $currDir "stats.tcl"]
 source [file join $currDir "AppReplay.tcl"]
 # -- Changes end

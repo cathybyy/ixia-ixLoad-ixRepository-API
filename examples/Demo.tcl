@@ -1,6 +1,5 @@
 lappend ::auto_path {C:\Ixia\Workspace\ixia-ixLoad-ixRepository-API}
 
-package require IxStats
 package require IxRepository
 
 IXIA::connect

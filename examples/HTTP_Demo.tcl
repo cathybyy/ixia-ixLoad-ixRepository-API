@@ -1,6 +1,5 @@
 lappend ::auto_path {C:\Ixia\Workspace\ixia-ixLoad-ixRepository-API}
 
-package require IxStats
 package require IxRepository
 
 set restoreDir "Result/Configs"
@@ -53,7 +52,7 @@ IXIA::configNetwork Network2  -mac 00:02:02:02:02:02 \
                         -vlan_id 100 \
                         -ip 192.168.1.10 \
                         -ipcount 1 \
-                        -ipincrby 0.0.0.0  \
+                        -ipincrby 0.0.0.1  \
                         -netmask 24  \
                         -gateway 192.168.1.1  \
                         -gratuitous_arp true  \

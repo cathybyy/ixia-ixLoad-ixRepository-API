@@ -21,14 +21,14 @@ namespace eval IXIA {
    #--
    #Parameters:
    #         -- actName , activity name , such as "HTTPClient1"
-   #         -- clrflag , flag to clear the action List, if it is 0, then clear the action list
+   #         -- clrflag , flag to clear the action List, if it is 1, then clear the action list
    #         -- args ,  |key, value| , parameters of ixHttpCommand object  
-   #         -- commandtype , Command type, can be one of "GET","DELETE","HEAD","POST","PUT".
-   #         -- cmdname     , Command Name 
-   #         -- pageobject  , page object , such as /1k.html  
-   #         -- destination , destination ,web address ,such as http://10.70.80.90:90
-   #         -- loopcount  ,loop count
-   #         -- thinkinterval ,think interval 
+   #           - commandtype , Command type, can be one of "GET","DELETE","HEAD","POST","PUT".
+   #           - cmdname     , Command Name 
+   #           - pageobject  , page object , such as /1k.html  
+   #           - destination , destination ,web address ,such as http://10.70.80.90:90
+   #           - loopcount  ,loop count
+   #           - thinkinterval ,think interval 
    #Return:
    #         0 , if got success   
    #         raise error or turn 1 if failed
@@ -251,16 +251,16 @@ namespace eval IXIA {
    #--
    #
    proc configHttpServerWebPage {actName {clrflag 1} args} {
-       set tag "proc configHttpServerWebPage [info script]"
+      set tag "proc configHttpServerWebPage [info script]"
       Deputs "----- TAG: $tag -----"
 
       set actObj [ getActivity $actName ]
       Deputs " clrflag = $clrflag"
       if { $clrflag == 0} {
-          $actObj agent.webPageList.clear
+         $actObj agent.webPageList.clear
       }
       set my_PageObject1 [::IxLoad new PageObject]
-       foreach { key value } $args {
+      foreach { key value } $args {
          set key [string tolower $key]
          switch -exact -- $key {
             -page {
@@ -276,5 +276,4 @@ namespace eval IXIA {
       $actObj agent.webPageList.appendItem -object $my_PageObject1
       return 0 
    }
-
 }
