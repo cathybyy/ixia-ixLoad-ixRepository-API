@@ -63,5 +63,5 @@ IXIA::configHttpServerAgent HTTPServer1  -httpPort 81  \
 IXIA::configHttpServerWebPage HTTPServer1 0 -page /1k.html  \
                         -chunkSize 1024  
 IXIA::configHttpServerWebPage HTTPServer1 1 -page /4k.html  \
-                        -chunkSize 1024  
+                        -chunkSize 1024
 IXIA::save [file join [pwd] $restoreDir/IxLoad-HTTP.rxf]
