@@ -27,7 +27,6 @@ namespace eval IXIA {
         if { [ catch {
                 set versionKey     [ registry keys $productKey ]
         } err ] } {
-                Deputs "Product: $product didn't install on System"
                 return ""
         }        
         
@@ -40,18 +39,23 @@ namespace eval IXIA {
         return             "[ registry get $installInfo  HOMEDIR ]/TclScripts/bin/ixiawish.tcl"   
     }    
     
-    if { [ GetEnvTcl IxOS ] ne ""} {
+    # IxOS is optional 
+    set ixPath [ GetEnvTcl IxOS ]
+    if { [file exists $ixPath] == 1 } {
         source [ GetEnvTcl IxOS ]
         package require IxTclHal
         package require Mpexpr
     }
     
-    if { [ GetEnvTcl IxLoad ] ne ""} {
-        source [ GetEnvTcl IxLoad ]
-        package require IxLoad
+    # Must make sure IxLoad is installed properly
+    set ixPath [ GetEnvTcl IxLoad ]
+    if { [file exists $ixPath] == 1 } {
+        source $ixPath
     } else {
         error "IxLoad doesn't install properly on this system"
     }
+    
+    package require IxLoad
     package require statCollectorUtils
     
     variable NS                 statCollectorUtils
@@ -181,23 +185,18 @@ namespace eval IXIA {
        
         if { [ info exists chassis ] } {
             set chassisChain [ $IXIA::repository cget -chassisChain ]
-            $chassisChain refresh
             set chasList [$chassisChain getChassisNames]
-          
-            # search the new chassis in the chassis list,
-            # if it is in the chassis list , then will not add it to the chassis list ,
-            # otherwise will add the chassis in the chassis list
-            #add by celia on version 1.1 to add chassis in the chassiscChain start
+            foreach chasName $chasList {
+                # Removed all Chassises in current configuration, otherwise we may get
+                # refresh error message in run 
+                $chassisChain deleteChassisByName $chasName
+            }
+            
+            # Add new Chassises into chassisChain
             foreach chas $chassis {            
-                Deputs "chas = $chas"
-                if {[lsearch $chasList $chas]!=-1} {
-                    Deputs "the chas has been in the chassisChain!"
-                    continue
-                }
-                Deputs "add chas in the chassischain!"
+                Deputs "add chas = $chas into the chassischain!"
                 $chassisChain addChassis $chas
             } 
-            #add by celia on version 1.1 to add chassis in the chassiscChain end
         }
        
         if { [ info exists user ] } {
@@ -515,9 +514,6 @@ namespace eval IXIA {
                 -mtu                                     1500 \
                 -enabled                                 true \
                 -incrementBy                             $macincrby
-        } else {
-            set mac_r1 [$ip_r1 getLowerRelatedRange "MacRange"]
-            $mac_r1 config    -enabled                   false  
         }
           
         if {[info exists vlan_id]} {
@@ -670,11 +666,18 @@ namespace eval IXIA {
         if { [ info exists portList ] } { 
             Deputs " info exists portList -<$portList> "
             
+            set chassisChain [ $IXIA::repository cget -chassisChain ]
+            set chasList [$chassisChain getChassisNames]
+            
             $network portList.clear
             foreach port $portList {
-            Deputs "port:$port"
-                if { [ regexp {\d+\/(\d+)\/(\d+)} $port result cardId portId ] } {
-                    set chasId 1
+                Deputs "port:$port"
+                if { [ regexp {(.*)\/(\d+)\/(\d+)} $port result chassis cardId portId ] } {
+                    if {[lsearch $chasList $chassis]!=-1} {
+                        set chasId [expr [lsearch $chasList $chassis] + 1]
+                    } else {
+                        set chasId 1
+                    }
                     $network portList.appendItem \
                         -chassisId $chasId \
                         -cardId $cardId \
