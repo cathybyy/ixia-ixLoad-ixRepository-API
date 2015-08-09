@@ -1444,11 +1444,39 @@ namespace eval IXIA {
 # -- Changes made on v1.2.a
 set currDir [file dirname [info script]]
 
-source [file join $currDir "utils.tcl"]
-source [file join $currDir "stats.tcl"]
-source [file join $currDir "HTTP.tcl"]
-source [file join $currDir "RTSP.tcl"]
-source [file join $currDir "SIP.tcl"]
-source [file join $currDir "DNS.tcl"]
-source [file join $currDir "AppReplay.tcl"]
+if { [ catch {
+    source [file join $currDir "utils.tcl"]
+} err ] } {
+    puts "load package fail...$err"
+}
+if { [ catch {
+    source [file join $currDir "stats.tcl"]
+} err ] } {
+    puts "load package fail...$err"
+}
+if { [ catch {
+    source [file join $currDir "HTTP.tcl"]
+} err ] } {
+    puts "load package fail...$err"
+}
+if { [ catch {
+    source [file join $currDir "RTSP.tcl"]
+} err ] } {
+    puts "load package fail...$err"
+}
+if { [ catch {
+    source [file join $currDir "SIP.tcl"]
+} err ] } {
+    puts "load package fail...$err"
+}
+if { [ catch {
+    source [file join $currDir "DNS.tcl"]
+} err ] } {
+    puts "load package fail...$err"
+}
+if { [ catch {
+    source [file join $currDir "AppReplay.tcl"]
+} err ] } {
+    puts "load package fail...$err"
+}
 # -- Changes end
