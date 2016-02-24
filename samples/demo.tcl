@@ -6,8 +6,8 @@ package require IxRepository
 puts "Connecting to Serveer..."
 IXIA::connect
 
-puts "Loading configuration file: [pwd]/configs/HTTP.rxf"
-IXIA::loadRepository "[pwd]/configs/HTTP.rxf"
+puts "Loading configuration file: [pwd]/configs/HTTP-172.rxf"
+IXIA::loadRepository "[pwd]/configs/HTTP-172.rxf"
 
 # set statlist [list http_client_throughput \
         # http_client_transactions \

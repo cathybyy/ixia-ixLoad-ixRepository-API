@@ -1,0 +1,1264 @@
+<?xml version="1.0" ?>
+<root ver="[21, [1, [0, [0]]]]" type="ixRepository">
+ <_smSessionXml ver="[0, [1, [0, [0]]]]" type="ixSMSessionXML">
+  <xml type="str">&lt;rpf&gt;&#13;&#10;  &lt;Ixia.Aptixia.StackManager.SMSession type=&quot;Ixia.Aptixia.StackManager.SMSession&quot; objectid=&quot;8b04d8a4-7e90-4247-8b3c-6f2ad65e92f4&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;    &lt;doWaitLinkUp type=&quot;Bool&quot;&gt;0&lt;/doWaitLinkUp&gt;&#13;&#10;    &lt;doGratArp type=&quot;Bool&quot;&gt;0&lt;/doGratArp&gt;&#13;&#10;    &lt;subscribeToGratArpNotifications type=&quot;Bool&quot;&gt;0&lt;/subscribeToGratArpNotifications&gt;&#13;&#10;    &lt;doInterfaceCheck type=&quot;Bool&quot;&gt;0&lt;/doInterfaceCheck&gt;&#13;&#10;    &lt;rebootPortsBeforeConfigure type=&quot;Bool&quot;&gt;0&lt;/rebootPortsBeforeConfigure&gt;&#13;&#10;    &lt;testDuration type=&quot;Int&quot;&gt;10000&lt;/testDuration&gt;&#13;&#10;    &lt;checkLinkState type=&quot;Bool&quot;&gt;0&lt;/checkLinkState&gt;&#13;&#10;    &lt;portGroupList type=&quot;ListNode&quot;&gt;&#13;&#10;      &lt;Ixia.Aptixia.StackManager.PortGroup type=&quot;Ixia.Aptixia.StackManager.PortGroup&quot; objectid=&quot;54a8e589-a5c8-4ddb-b314-66e468526da4&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;        &lt;name type=&quot;String&quot;&gt;Network1&lt;/name&gt;&#13;&#10;        &lt;category type=&quot;String&quot; /&gt;&#13;&#10;        &lt;stack type=&quot;Ixia.Aptixia.StackManager.L1EthernetPlugin&quot; objectid=&quot;e6ff6bcb-5b0d-4271-a445-21276f0ce87d&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;autoNegotiate type=&quot;Bool&quot;&gt;1&lt;/autoNegotiate&gt;&#13;&#10;          &lt;speed type=&quot;String&quot;&gt;k100FD&lt;/speed&gt;&#13;&#10;          &lt;advertise10Half type=&quot;Bool&quot;&gt;1&lt;/advertise10Half&gt;&#13;&#10;          &lt;advertise10Full type=&quot;Bool&quot;&gt;1&lt;/advertise10Full&gt;&#13;&#10;          &lt;advertise100Half type=&quot;Bool&quot;&gt;1&lt;/advertise100Half&gt;&#13;&#10;          &lt;advertise100Full type=&quot;Bool&quot;&gt;1&lt;/advertise100Full&gt;&#13;&#10;          &lt;advertise1000Full type=&quot;Bool&quot;&gt;1&lt;/advertise1000Full&gt;&#13;&#10;          &lt;cardDualPhy type=&quot;Ixia.Aptixia.StackManager.DualPhyPlugin&quot; objectid=&quot;461bdc16-3288-485b-98c0-dd73858b1b91&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;medium type=&quot;String&quot;&gt;auto&lt;/medium&gt;&#13;&#10;          &lt;/cardDualPhy&gt;&#13;&#10;          &lt;cardElm type=&quot;Ixia.Aptixia.StackManager.EthernetELMPlugin&quot; objectid=&quot;2e16e9dd-e98b-4da7-b135-d69d830c1ff5&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;negotiateMasterSlave type=&quot;Bool&quot;&gt;1&lt;/negotiateMasterSlave&gt;&#13;&#10;            &lt;negotiationType type=&quot;String&quot;&gt;master&lt;/negotiationType&gt;&#13;&#10;          &lt;/cardElm&gt;&#13;&#10;          &lt;enableFlowControl type=&quot;Bool&quot;&gt;0&lt;/enableFlowControl&gt;&#13;&#10;          &lt;directedAddress type=&quot;String&quot;&gt;01:80:C2:00:00:01&lt;/directedAddress&gt;&#13;&#10;          &lt;dataCenter type=&quot;Ixia.Aptixia.StackManager.DataCenterSettings&quot; objectid=&quot;d90c204a-9042-4a24-b96c-49f60e44783c&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;dcSupported type=&quot;Bool&quot;&gt;1&lt;/dcSupported&gt;&#13;&#10;            &lt;dcEnabled type=&quot;Bool&quot;&gt;0&lt;/dcEnabled&gt;&#13;&#10;            &lt;dcFlowControl type=&quot;Ixia.Aptixia.StackManager.DataCenterSettingsSkeleton+eFlowControlType&quot;&gt;0&lt;/dcFlowControl&gt;&#13;&#10;            &lt;dcMode type=&quot;Ixia.Aptixia.StackManager.DataCenterSettingsSkeleton+eDataCenterMode&quot;&gt;2&lt;/dcMode&gt;&#13;&#10;            &lt;dcPfcMapping type=&quot;IntList&quot; /&gt;&#13;&#10;            &lt;dcPfcPauseEnable type=&quot;Bool&quot;&gt;0&lt;/dcPfcPauseEnable&gt;&#13;&#10;            &lt;dcPfcPauseDelay type=&quot;Int&quot;&gt;1&lt;/dcPfcPauseDelay&gt;&#13;&#10;          &lt;/dataCenter&gt;&#13;&#10;          &lt;childrenList type=&quot;ListNode&quot;&gt;&#13;&#10;            &lt;Ixia.Aptixia.StackManager.L2EthernetPlugin type=&quot;Ixia.Aptixia.StackManager.L2EthernetPlugin&quot; objectid=&quot;d67b1358-8030-439f-acc6-dd2c15b67aca&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;              &lt;macRangeList type=&quot;ListNode&quot;&gt;&#13;&#10;                &lt;Ixia.Aptixia.StackManager.MacRange type=&quot;Ixia.Aptixia.StackManager.MacRange&quot; objectid=&quot;b1fc9b81-0f56-4954-9f77-bcc16d76dd1b&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;                  &lt;enabled type=&quot;Bool&quot;&gt;1&lt;/enabled&gt;&#13;&#10;                  &lt;name type=&quot;String&quot;&gt;MAC-R1&lt;/name&gt;&#13;&#10;                  &lt;mac type=&quot;String&quot;&gt;00:0A:0A:00:01:00&lt;/mac&gt;&#13;&#10;                  &lt;incrementBy type=&quot;String&quot;&gt;00:00:00:00:00:01&lt;/incrementBy&gt;&#13;&#10;                  &lt;mtu type=&quot;Int&quot;&gt;1500&lt;/mtu&gt;&#13;&#10;                  &lt;count type=&quot;Int&quot;&gt;1&lt;/count&gt;&#13;&#10;                  &lt;vlanRange type=&quot;Ixia.Aptixia.StackManager.VlanIdRange&quot; objectid=&quot;7903f957-705e-499e-92d5-616dfb8d96f2&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;                    &lt;name type=&quot;String&quot;&gt;VLAN-R1&lt;/name&gt;&#13;&#10;                    &lt;enabled type=&quot;Bool&quot;&gt;1&lt;/enabled&gt;&#13;&#10;                    &lt;firstId type=&quot;Int&quot;&gt;100&lt;/firstId&gt;&#13;&#10;                    &lt;incrementStep type=&quot;Int&quot;&gt;1&lt;/incrementStep&gt;&#13;&#10;                    &lt;increment type=&quot;Int&quot;&gt;1&lt;/increment&gt;&#13;&#10;                    &lt;uniqueCount type=&quot;Int&quot;&gt;1&lt;/uniqueCount&gt;&#13;&#10;                    &lt;priority type=&quot;Int&quot;&gt;1&lt;/priority&gt;&#13;&#10;                    &lt;tpid type=&quot;String&quot;&gt;0x8100&lt;/tpid&gt;&#13;&#10;                    &lt;innerEnable type=&quot;Bool&quot;&gt;0&lt;/innerEnable&gt;&#13;&#10;                    &lt;innerFirstId type=&quot;Int&quot;&gt;1&lt;/innerFirstId&gt;&#13;&#10;                    &lt;innerIncrementStep type=&quot;Int&quot;&gt;1&lt;/innerIncrementStep&gt;&#13;&#10;                    &lt;innerIncrement type=&quot;Int&quot;&gt;1&lt;/innerIncrement&gt;&#13;&#10;                    &lt;innerUniqueCount type=&quot;Int&quot;&gt;4094&lt;/innerUniqueCount&gt;&#13;&#10;                    &lt;innerPriority type=&quot;Int&quot;&gt;1&lt;/innerPriority&gt;&#13;&#10;                    &lt;idIncrMode type=&quot;Int&quot;&gt;2&lt;/idIncrMode&gt;&#13;&#10;                    &lt;innerTpid type=&quot;String&quot;&gt;0x8100&lt;/innerTpid&gt;&#13;&#10;                  &lt;/vlanRange&gt;&#13;&#10;                &lt;/Ixia.Aptixia.StackManager.MacRange&gt;&#13;&#10;              &lt;/macRangeList&gt;&#13;&#10;              &lt;vlanRangeList type=&quot;ListNode&quot;&gt;&#13;&#10;                &lt;Ixia.Aptixia.StackManager.VlanIdRange type=&quot;Ixia.Aptixia.StackManager.VlanIdRange&quot; objectid=&quot;7903f957-705e-499e-92d5-616dfb8d96f2&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;              &lt;/vlanRangeList&gt;&#13;&#10;              &lt;childrenList type=&quot;ListNode&quot;&gt;&#13;&#10;                &lt;Ixia.Aptixia.StackManager.IpV4V6Plugin type=&quot;Ixia.Aptixia.StackManager.IpV4V6Plugin&quot; objectid=&quot;346a1c05-25d3-484a-9a2a-9921edffc6f4&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;                  &lt;rangeList type=&quot;ListNode&quot;&gt;&#13;&#10;                    &lt;Ixia.Aptixia.StackManager.IpV4V6Range type=&quot;Ixia.Aptixia.StackManager.IpV4V6Range&quot; objectid=&quot;bb61b2ad-a7eb-459d-90fa-91bfc7211981&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;                      &lt;enabled type=&quot;Bool&quot;&gt;1&lt;/enabled&gt;&#13;&#10;                      &lt;name type=&quot;String&quot;&gt;IP-R1&lt;/name&gt;&#13;&#10;                      &lt;ipType type=&quot;String&quot;&gt;IPv4&lt;/ipType&gt;&#13;&#10;                      &lt;ipAddress type=&quot;String&quot;&gt;192.168.0.1&lt;/ipAddress&gt;&#13;&#10;                      &lt;prefix type=&quot;Int&quot;&gt;16&lt;/prefix&gt;&#13;&#10;                      &lt;incrementBy type=&quot;String&quot;&gt;0.0.0.1&lt;/incrementBy&gt;&#13;&#10;                      &lt;count type=&quot;Int&quot;&gt;1&lt;/count&gt;&#13;&#10;                      &lt;autoCountEnabled type=&quot;Bool&quot;&gt;0&lt;/autoCountEnabled&gt;&#13;&#10;                      &lt;gatewayAddress type=&quot;String&quot;&gt;0.0.0.0&lt;/gatewayAddress&gt;&#13;&#10;                      &lt;gatewayIncrement type=&quot;String&quot;&gt;0.0.0.0&lt;/gatewayIncrement&gt;&#13;&#10;                      &lt;gatewayIncrementMode type=&quot;String&quot;&gt;perSubnet&lt;/gatewayIncrementMode&gt;&#13;&#10;                      &lt;enableGatewayArp type=&quot;Bool&quot;&gt;0&lt;/enableGatewayArp&gt;&#13;&#10;                      &lt;generateStatistics type=&quot;Bool&quot;&gt;0&lt;/generateStatistics&gt;&#13;&#10;                      &lt;mss type=&quot;Int&quot;&gt;1460&lt;/mss&gt;&#13;&#10;                      &lt;randomizeAddress type=&quot;Bool&quot;&gt;0&lt;/randomizeAddress&gt;&#13;&#10;                      &lt;randomizeSeed type=&quot;Int&quot;&gt;2958354237&lt;/randomizeSeed&gt;&#13;&#10;                      &lt;autoMacGeneration type=&quot;Bool&quot;&gt;1&lt;/autoMacGeneration&gt;&#13;&#10;                      &lt;macRange type=&quot;Ixia.Aptixia.StackManager.MacRange&quot; objectid=&quot;b1fc9b81-0f56-4954-9f77-bcc16d76dd1b&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;                      &lt;vlanRange type=&quot;Ixia.Aptixia.StackManager.VlanIdRange&quot; objectid=&quot;7903f957-705e-499e-92d5-616dfb8d96f2&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;                      &lt;atmRange type=&quot;Ixia.Aptixia.StackManager.AtmRange&quot; objectid=&quot;00000000-0000-0000-0000-000000000000&quot; /&gt;&#13;&#10;                      &lt;pvcRange type=&quot;Ixia.Aptixia.StackManager.PvcRange&quot; objectid=&quot;00000000-0000-0000-0000-000000000000&quot; /&gt;&#13;&#10;                      &lt;autoIpTypeEnabled type=&quot;Bool&quot;&gt;0&lt;/autoIpTypeEnabled&gt;&#13;&#10;                    &lt;/Ixia.Aptixia.StackManager.IpV4V6Range&gt;&#13;&#10;                  &lt;/rangeList&gt;&#13;&#10;                  &lt;rangeGroups type=&quot;ListNode&quot;&gt;&#13;&#10;                    &lt;Ixia.Aptixia.StackManager.RangeGroup type=&quot;Ixia.Aptixia.StackManager.RangeGroup&quot; objectid=&quot;3c54b5b0-9e47-46a8-a327-489be6064ef8&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;                      &lt;name type=&quot;String&quot;&gt;DistGroup1&lt;/name&gt;&#13;&#10;                      &lt;distribType type=&quot;Ixia.Aptixia.StackManager.RangeGroupSkeleton+eDistributionType&quot;&gt;0&lt;/distribType&gt;&#13;&#10;                      &lt;rangeList type=&quot;ListNode&quot;&gt;&#13;&#10;                        &lt;Ixia.Aptixia.StackManager.IpV4V6Range type=&quot;Ixia.Aptixia.StackManager.IpV4V6Range&quot; objectid=&quot;bb61b2ad-a7eb-459d-90fa-91bfc7211981&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;                      &lt;/rangeList&gt;&#13;&#10;                    &lt;/Ixia.Aptixia.StackManager.RangeGroup&gt;&#13;&#10;                  &lt;/rangeGroups&gt;&#13;&#10;                  &lt;childrenList type=&quot;ListNode&quot; /&gt;&#13;&#10;                  &lt;extensionList type=&quot;ListNode&quot; /&gt;&#13;&#10;                  &lt;dscMode type=&quot;Bool&quot;&gt;0&lt;/dscMode&gt;&#13;&#10;                  &lt;name type=&quot;String&quot;&gt;IP-1&lt;/name&gt;&#13;&#10;                &lt;/Ixia.Aptixia.StackManager.IpV4V6Plugin&gt;&#13;&#10;              &lt;/childrenList&gt;&#13;&#10;              &lt;extensionList type=&quot;ListNode&quot; /&gt;&#13;&#10;              &lt;dscMode type=&quot;Bool&quot;&gt;0&lt;/dscMode&gt;&#13;&#10;              &lt;name type=&quot;String&quot;&gt;MAC/VLAN-1&lt;/name&gt;&#13;&#10;            &lt;/Ixia.Aptixia.StackManager.L2EthernetPlugin&gt;&#13;&#10;          &lt;/childrenList&gt;&#13;&#10;          &lt;extensionList type=&quot;ListNode&quot; /&gt;&#13;&#10;          &lt;dscMode type=&quot;Bool&quot;&gt;0&lt;/dscMode&gt;&#13;&#10;          &lt;name type=&quot;String&quot;&gt;Ethernet-1&lt;/name&gt;&#13;&#10;        &lt;/stack&gt;&#13;&#10;        &lt;globalPluginList type=&quot;ListNode&quot;&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.IxLoadSettingsPlugin type=&quot;Ixia.Aptixia.StackManager.IxLoadSettingsPlugin&quot; objectid=&quot;b09161b2-5c9c-40aa-af6a-d7d9a3034ab6&quot; version=&quot;1.0.0&quot;&gt;&#13;&#10;            &lt;teardownInterfaceWithUser type=&quot;Bool&quot;&gt;0&lt;/teardownInterfaceWithUser&gt;&#13;&#10;            &lt;interfaceBehavior type=&quot;Int&quot;&gt;0&lt;/interfaceBehavior&gt;&#13;&#10;            &lt;name type=&quot;String&quot;&gt;Settings-1&lt;/name&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.IxLoadSettingsPlugin&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.FilterPlugin type=&quot;Ixia.Aptixia.StackManager.FilterPlugin&quot; objectid=&quot;9e4db542-cc70-4507-8033-859151971a54&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;auto type=&quot;Bool&quot;&gt;1&lt;/auto&gt;&#13;&#10;            &lt;all type=&quot;Bool&quot;&gt;0&lt;/all&gt;&#13;&#10;            &lt;pppoecontrol type=&quot;Bool&quot;&gt;0&lt;/pppoecontrol&gt;&#13;&#10;            &lt;pppoenetwork type=&quot;Bool&quot;&gt;0&lt;/pppoenetwork&gt;&#13;&#10;            &lt;isis type=&quot;Bool&quot;&gt;0&lt;/isis&gt;&#13;&#10;            &lt;ip type=&quot;String&quot; /&gt;&#13;&#10;            &lt;tcp type=&quot;String&quot; /&gt;&#13;&#10;            &lt;udp type=&quot;String&quot; /&gt;&#13;&#10;            &lt;mac type=&quot;String&quot; /&gt;&#13;&#10;            &lt;icmp type=&quot;String&quot; /&gt;&#13;&#10;            &lt;name type=&quot;String&quot;&gt;Filter-1&lt;/name&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.FilterPlugin&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.GratArpPlugin type=&quot;Ixia.Aptixia.StackManager.GratArpPlugin&quot; objectid=&quot;d71b9c6b-f3c4-475c-bb97-08f144fbe3c1&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;enabled type=&quot;Bool&quot;&gt;1&lt;/enabled&gt;&#13;&#10;            &lt;forwardGratArp type=&quot;Bool&quot;&gt;0&lt;/forwardGratArp&gt;&#13;&#10;            &lt;rateControlEnabled type=&quot;Bool&quot;&gt;0&lt;/rateControlEnabled&gt;&#13;&#10;            &lt;maxFramesPerSecond type=&quot;Int&quot;&gt;0&lt;/maxFramesPerSecond&gt;&#13;&#10;            &lt;name type=&quot;String&quot;&gt;GratARP-1&lt;/name&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.GratArpPlugin&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.TCPPlugin type=&quot;Ixia.Aptixia.StackManager.TCPPlugin&quot; objectid=&quot;2c016aea-d911-4967-8a88-9d5ee1f69c36&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;bestPerfSettings type=&quot;Bool&quot;&gt;0&lt;/bestPerfSettings&gt;&#13;&#10;            &lt;accept_ra_all type=&quot;Bool&quot;&gt;0&lt;/accept_ra_all&gt;&#13;&#10;            &lt;tcp_abort_on_overflow type=&quot;Bool&quot;&gt;0&lt;/tcp_abort_on_overflow&gt;&#13;&#10;            &lt;tcp_adv_win_scale type=&quot;Int&quot;&gt;2&lt;/tcp_adv_win_scale&gt;&#13;&#10;            &lt;tcp_app_win type=&quot;Int&quot;&gt;31&lt;/tcp_app_win&gt;&#13;&#10;            &lt;tcp_bic type=&quot;Int&quot;&gt;0&lt;/tcp_bic&gt;&#13;&#10;            &lt;tcp_bic_fast_convergence type=&quot;Int&quot;&gt;1&lt;/tcp_bic_fast_convergence&gt;&#13;&#10;            &lt;tcp_bic_low_window type=&quot;Int&quot;&gt;14&lt;/tcp_bic_low_window&gt;&#13;&#10;            &lt;tcp_dsack type=&quot;Bool&quot;&gt;1&lt;/tcp_dsack&gt;&#13;&#10;            &lt;tcp_ecn type=&quot;Bool&quot;&gt;0&lt;/tcp_ecn&gt;&#13;&#10;            &lt;tcp_fack type=&quot;Bool&quot;&gt;1&lt;/tcp_fack&gt;&#13;&#10;            &lt;tcp_fin_timeout type=&quot;Int&quot;&gt;60&lt;/tcp_fin_timeout&gt;&#13;&#10;            &lt;tcp_frto type=&quot;Int&quot;&gt;0&lt;/tcp_frto&gt;&#13;&#10;            &lt;tcp_keepalive_intvl type=&quot;Int&quot;&gt;75&lt;/tcp_keepalive_intvl&gt;&#13;&#10;            &lt;tcp_keepalive_probes type=&quot;Int&quot;&gt;9&lt;/tcp_keepalive_probes&gt;&#13;&#10;            &lt;tcp_keepalive_time type=&quot;Int&quot;&gt;7200&lt;/tcp_keepalive_time&gt;&#13;&#10;            &lt;tcp_low_latency type=&quot;Int&quot;&gt;0&lt;/tcp_low_latency&gt;&#13;&#10;            &lt;tcp_max_orphans type=&quot;Int&quot;&gt;8192&lt;/tcp_max_orphans&gt;&#13;&#10;            &lt;tcp_max_syn_backlog type=&quot;Int&quot;&gt;1024&lt;/tcp_max_syn_backlog&gt;&#13;&#10;            &lt;tcp_max_tw_buckets type=&quot;Int&quot;&gt;180000&lt;/tcp_max_tw_buckets&gt;&#13;&#10;            &lt;tcp_mem_low type=&quot;Int&quot;&gt;24576&lt;/tcp_mem_low&gt;&#13;&#10;            &lt;tcp_mem_pressure type=&quot;Int&quot;&gt;32768&lt;/tcp_mem_pressure&gt;&#13;&#10;            &lt;tcp_mem_high type=&quot;Int&quot;&gt;49152&lt;/tcp_mem_high&gt;&#13;&#10;            &lt;tcp_moderate_rcvbuf type=&quot;Int&quot;&gt;0&lt;/tcp_moderate_rcvbuf&gt;&#13;&#10;            &lt;tcp_no_metrics_save type=&quot;Bool&quot;&gt;0&lt;/tcp_no_metrics_save&gt;&#13;&#10;            &lt;tcp_orphan_retries type=&quot;Int&quot;&gt;0&lt;/tcp_orphan_retries&gt;&#13;&#10;            &lt;tcp_reordering type=&quot;Int&quot;&gt;3&lt;/tcp_reordering&gt;&#13;&#10;            &lt;tcp_retrans_collapse type=&quot;Bool&quot;&gt;1&lt;/tcp_retrans_collapse&gt;&#13;&#10;            &lt;tcp_retries1 type=&quot;Int&quot;&gt;3&lt;/tcp_retries1&gt;&#13;&#10;            &lt;tcp_retries2 type=&quot;Int&quot;&gt;5&lt;/tcp_retries2&gt;&#13;&#10;            &lt;tcp_rfc1337 type=&quot;Bool&quot;&gt;0&lt;/tcp_rfc1337&gt;&#13;&#10;            &lt;tcp_rmem_min type=&quot;Int&quot;&gt;4096&lt;/tcp_rmem_min&gt;&#13;&#10;            &lt;tcp_rmem_default type=&quot;Int&quot;&gt;4096&lt;/tcp_rmem_default&gt;&#13;&#10;            &lt;tcp_rmem_max type=&quot;Int&quot;&gt;262144&lt;/tcp_rmem_max&gt;&#13;&#10;            &lt;tcp_sack type=&quot;Bool&quot;&gt;1&lt;/tcp_sack&gt;&#13;&#10;            &lt;tcp_stdurg type=&quot;Bool&quot;&gt;0&lt;/tcp_stdurg&gt;&#13;&#10;            &lt;tcp_synack_retries type=&quot;Int&quot;&gt;5&lt;/tcp_synack_retries&gt;&#13;&#10;            &lt;tcp_syn_retries type=&quot;Int&quot;&gt;5&lt;/tcp_syn_retries&gt;&#13;&#10;            &lt;tcp_timestamps type=&quot;Bool&quot;&gt;1&lt;/tcp_timestamps&gt;&#13;&#10;            &lt;tcp_tw_recycle type=&quot;Bool&quot;&gt;1&lt;/tcp_tw_recycle&gt;&#13;&#10;            &lt;tcp_tw_reuse type=&quot;Bool&quot;&gt;0&lt;/tcp_tw_reuse&gt;&#13;&#10;            &lt;tcp_vegas_alpha type=&quot;Int&quot;&gt;2&lt;/tcp_vegas_alpha&gt;&#13;&#10;            &lt;tcp_vegas_beta type=&quot;Int&quot;&gt;6&lt;/tcp_vegas_beta&gt;&#13;&#10;            &lt;tcp_vegas_cong_avoid type=&quot;Int&quot;&gt;0&lt;/tcp_vegas_cong_avoid&gt;&#13;&#10;            &lt;tcp_vegas_gamma type=&quot;Int&quot;&gt;2&lt;/tcp_vegas_gamma&gt;&#13;&#10;            &lt;tcp_westwood type=&quot;Int&quot;&gt;0&lt;/tcp_westwood&gt;&#13;&#10;            &lt;tcp_window_scaling type=&quot;Bool&quot;&gt;0&lt;/tcp_window_scaling&gt;&#13;&#10;            &lt;ip_no_pmtu_disc type=&quot;Bool&quot;&gt;1&lt;/ip_no_pmtu_disc&gt;&#13;&#10;            &lt;tcp_wmem_min type=&quot;Int&quot;&gt;4096&lt;/tcp_wmem_min&gt;&#13;&#10;            &lt;tcp_wmem_default type=&quot;Int&quot;&gt;4096&lt;/tcp_wmem_default&gt;&#13;&#10;            &lt;tcp_wmem_max type=&quot;Int&quot;&gt;262144&lt;/tcp_wmem_max&gt;&#13;&#10;            &lt;tcp_ipfrag_time type=&quot;Int&quot;&gt;30&lt;/tcp_ipfrag_time&gt;&#13;&#10;            &lt;tcp_port_min type=&quot;Int&quot;&gt;1024&lt;/tcp_port_min&gt;&#13;&#10;            &lt;tcp_port_max type=&quot;Int&quot;&gt;65535&lt;/tcp_port_max&gt;&#13;&#10;            &lt;tcp_rto_min type=&quot;Int&quot;&gt;200&lt;/tcp_rto_min&gt;&#13;&#10;            &lt;tcp_rto_max type=&quot;Int&quot;&gt;120000&lt;/tcp_rto_max&gt;&#13;&#10;            &lt;tcp_tw_rfc1323_strict type=&quot;Bool&quot;&gt;0&lt;/tcp_tw_rfc1323_strict&gt;&#13;&#10;            &lt;udp_port_randomization type=&quot;Bool&quot;&gt;0&lt;/udp_port_randomization&gt;&#13;&#10;            &lt;disable_min_max_buffer_size type=&quot;Bool&quot;&gt;1&lt;/disable_min_max_buffer_size&gt;&#13;&#10;            &lt;llm_hdr_gap type=&quot;Int&quot;&gt;8&lt;/llm_hdr_gap&gt;&#13;&#10;            &lt;llm_hdr_gap_ns type=&quot;Int&quot;&gt;10&lt;/llm_hdr_gap_ns&gt;&#13;&#10;            &lt;inter_packet_granular_delay type=&quot;Double&quot;&gt;0&lt;/inter_packet_granular_delay&gt;&#13;&#10;            &lt;delayed_acks type=&quot;Bool&quot;&gt;1&lt;/delayed_acks&gt;&#13;&#10;            &lt;accept_ra_default type=&quot;Bool&quot;&gt;0&lt;/accept_ra_default&gt;&#13;&#10;            &lt;rps_needed type=&quot;Bool&quot;&gt;0&lt;/rps_needed&gt;&#13;&#10;            &lt;delayed_acks_segments type=&quot;Int&quot;&gt;0&lt;/delayed_acks_segments&gt;&#13;&#10;            &lt;delayed_acks_timeout type=&quot;Int&quot;&gt;0&lt;/delayed_acks_timeout&gt;&#13;&#10;            &lt;tcp_large_icwnd type=&quot;Int&quot;&gt;0&lt;/tcp_large_icwnd&gt;&#13;&#10;            &lt;tcp_mgmt_rmem type=&quot;Int&quot;&gt;87380&lt;/tcp_mgmt_rmem&gt;&#13;&#10;            &lt;tcp_mgmt_wmem type=&quot;Int&quot;&gt;32768&lt;/tcp_mgmt_wmem&gt;&#13;&#10;            &lt;adjust_tcp_buffers type=&quot;Bool&quot;&gt;1&lt;/adjust_tcp_buffers&gt;&#13;&#10;            &lt;name type=&quot;String&quot;&gt;TCP-1&lt;/name&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.TCPPlugin&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.DnsPlugin type=&quot;Ixia.Aptixia.StackManager.DnsPlugin&quot; objectid=&quot;3f68ea4e-63e5-4b69-9a50-b1a97ba754f3&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;domain type=&quot;String&quot; /&gt;&#13;&#10;            &lt;timeout type=&quot;Int&quot;&gt;30&lt;/timeout&gt;&#13;&#10;            &lt;nameServerList type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;searchList type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;hostList type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;name type=&quot;String&quot;&gt;DNS-1&lt;/name&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.DnsPlugin&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.MeshingPlugin type=&quot;Ixia.Aptixia.StackManager.MeshingPlugin&quot; objectid=&quot;53278b20-cc99-4e01-af09-d506437e2438&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;trafficMaps type=&quot;ListNode&quot;&gt;&#13;&#10;              &lt;Ixia.Aptixia.StackManager.MeshingTrafficMap type=&quot;Ixia.Aptixia.StackManager.MeshingTrafficMap&quot; objectid=&quot;e82aa43c-e6ee-464f-b658-007bc6c5b56f&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;                &lt;name type=&quot;String&quot;&gt;HTTPClient1!Traffic2_HTTPServer1&lt;/name&gt;&#13;&#10;                &lt;configMapFilename type=&quot;String&quot;&gt;HTTPClient1Script.configmap&lt;/configMapFilename&gt;&#13;&#10;                &lt;sourceActivityId type=&quot;Int&quot;&gt;0&lt;/sourceActivityId&gt;&#13;&#10;                &lt;ipPreference type=&quot;Ixia.Aptixia.StackManager.MeshingTrafficMapSkeleton+eIpPreference&quot;&gt;2&lt;/ipPreference&gt;&#13;&#10;                &lt;portRangesString type=&quot;String&quot; /&gt;&#13;&#10;                &lt;meshingType type=&quot;Ixia.Aptixia.StackManager.MeshingTrafficMapSkeleton+eMeshingType&quot;&gt;2&lt;/meshingType&gt;&#13;&#10;              &lt;/Ixia.Aptixia.StackManager.MeshingTrafficMap&gt;&#13;&#10;            &lt;/trafficMaps&gt;&#13;&#10;            &lt;activityRangeMapInfoList type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;name type=&quot;String&quot;&gt;Meshing-2&lt;/name&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.MeshingPlugin&gt;&#13;&#10;        &lt;/globalPluginList&gt;&#13;&#10;        &lt;portList type=&quot;Ixia.RpFramework.Server.Core.ShadowedPropertyStringList&quot;&gt;&#13;&#10;          &lt;String&gt;172.16.174.137;1;1&lt;/String&gt;&#13;&#10;        &lt;/portList&gt;&#13;&#10;        &lt;typeSpecificData type=&quot;ListNode&quot;&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.IPSecPortGroupData type=&quot;Ixia.Aptixia.StackManager.IPSecPortGroupData&quot; objectid=&quot;9f9a8078-c381-4386-aaa4-842dbab29d0e&quot; version=&quot;6.70.0&quot;&gt;&#13;&#10;            &lt;role type=&quot;String&quot;&gt;Initiator&lt;/role&gt;&#13;&#10;            &lt;associates type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;overrideGlobalOptions type=&quot;Bool&quot;&gt;0&lt;/overrideGlobalOptions&gt;&#13;&#10;            &lt;useMaxInitiationRate type=&quot;Bool&quot;&gt;0&lt;/useMaxInitiationRate&gt;&#13;&#10;            &lt;maxInitiationRate type=&quot;Int&quot;&gt;50&lt;/maxInitiationRate&gt;&#13;&#10;            &lt;useMaxPendingTunnels type=&quot;Bool&quot;&gt;0&lt;/useMaxPendingTunnels&gt;&#13;&#10;            &lt;maxPendingTunnels type=&quot;Int&quot;&gt;50&lt;/maxPendingTunnels&gt;&#13;&#10;            &lt;teardownRate type=&quot;Int&quot;&gt;10&lt;/teardownRate&gt;&#13;&#10;            &lt;enableESPPerStreamStats type=&quot;Bool&quot;&gt;0&lt;/enableESPPerStreamStats&gt;&#13;&#10;            &lt;enableESPReplayStats type=&quot;Bool&quot;&gt;0&lt;/enableESPReplayStats&gt;&#13;&#10;            &lt;activities type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;pcpuLogLevel type=&quot;String&quot;&gt;0&lt;/pcpuLogLevel&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.IPSecPortGroupData&gt;&#13;&#10;        &lt;/typeSpecificData&gt;&#13;&#10;        &lt;virtualMode type=&quot;Bool&quot;&gt;0&lt;/virtualMode&gt;&#13;&#10;        &lt;allowedVirtualModeTypes type=&quot;Ixia.RpFramework.Server.Core.ShadowedPropertyStringList&quot; /&gt;&#13;&#10;        &lt;doOwnership type=&quot;Bool&quot;&gt;0&lt;/doOwnership&gt;&#13;&#10;        &lt;branchToNicMap type=&quot;ListNode&quot; /&gt;&#13;&#10;        &lt;cpuAggregation type=&quot;Bool&quot;&gt;0&lt;/cpuAggregation&gt;&#13;&#10;        &lt;activePort type=&quot;String&quot; /&gt;&#13;&#10;        &lt;networkLayersManager type=&quot;Ixia.Aptixia.StackManager.NetworkLayersManager&quot; objectid=&quot;a27633a2-8795-41b8-a514-1084617ed759&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;      &lt;/Ixia.Aptixia.StackManager.PortGroup&gt;&#13;&#10;      &lt;Ixia.Aptixia.StackManager.PortGroup type=&quot;Ixia.Aptixia.StackManager.PortGroup&quot; objectid=&quot;26d829db-f268-4207-8179-019f0d7cc4c7&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;        &lt;name type=&quot;String&quot;&gt;Network2&lt;/name&gt;&#13;&#10;        &lt;category type=&quot;String&quot; /&gt;&#13;&#10;        &lt;stack type=&quot;Ixia.Aptixia.StackManager.L1EthernetPlugin&quot; objectid=&quot;2e03a601-f86a-4d5f-9036-9fe4ac2c6f24&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;autoNegotiate type=&quot;Bool&quot;&gt;1&lt;/autoNegotiate&gt;&#13;&#10;          &lt;speed type=&quot;String&quot;&gt;k100FD&lt;/speed&gt;&#13;&#10;          &lt;advertise10Half type=&quot;Bool&quot;&gt;1&lt;/advertise10Half&gt;&#13;&#10;          &lt;advertise10Full type=&quot;Bool&quot;&gt;1&lt;/advertise10Full&gt;&#13;&#10;          &lt;advertise100Half type=&quot;Bool&quot;&gt;1&lt;/advertise100Half&gt;&#13;&#10;          &lt;advertise100Full type=&quot;Bool&quot;&gt;1&lt;/advertise100Full&gt;&#13;&#10;          &lt;advertise1000Full type=&quot;Bool&quot;&gt;1&lt;/advertise1000Full&gt;&#13;&#10;          &lt;cardDualPhy type=&quot;Ixia.Aptixia.StackManager.DualPhyPlugin&quot; objectid=&quot;71a48b08-fc90-4120-863a-bb00ee48f071&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;medium type=&quot;String&quot;&gt;auto&lt;/medium&gt;&#13;&#10;          &lt;/cardDualPhy&gt;&#13;&#10;          &lt;cardElm type=&quot;Ixia.Aptixia.StackManager.EthernetELMPlugin&quot; objectid=&quot;5f72c2fa-9960-4cb6-b179-3e9882351cd8&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;negotiateMasterSlave type=&quot;Bool&quot;&gt;1&lt;/negotiateMasterSlave&gt;&#13;&#10;            &lt;negotiationType type=&quot;String&quot;&gt;master&lt;/negotiationType&gt;&#13;&#10;          &lt;/cardElm&gt;&#13;&#10;          &lt;enableFlowControl type=&quot;Bool&quot;&gt;0&lt;/enableFlowControl&gt;&#13;&#10;          &lt;directedAddress type=&quot;String&quot;&gt;01:80:C2:00:00:01&lt;/directedAddress&gt;&#13;&#10;          &lt;dataCenter type=&quot;Ixia.Aptixia.StackManager.DataCenterSettings&quot; objectid=&quot;a1960595-eb6e-428d-93c1-d2b13a7d3968&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;dcSupported type=&quot;Bool&quot;&gt;1&lt;/dcSupported&gt;&#13;&#10;            &lt;dcEnabled type=&quot;Bool&quot;&gt;0&lt;/dcEnabled&gt;&#13;&#10;            &lt;dcFlowControl type=&quot;Ixia.Aptixia.StackManager.DataCenterSettingsSkeleton+eFlowControlType&quot;&gt;0&lt;/dcFlowControl&gt;&#13;&#10;            &lt;dcMode type=&quot;Ixia.Aptixia.StackManager.DataCenterSettingsSkeleton+eDataCenterMode&quot;&gt;2&lt;/dcMode&gt;&#13;&#10;            &lt;dcPfcMapping type=&quot;IntList&quot; /&gt;&#13;&#10;            &lt;dcPfcPauseEnable type=&quot;Bool&quot;&gt;0&lt;/dcPfcPauseEnable&gt;&#13;&#10;            &lt;dcPfcPauseDelay type=&quot;Int&quot;&gt;1&lt;/dcPfcPauseDelay&gt;&#13;&#10;          &lt;/dataCenter&gt;&#13;&#10;          &lt;childrenList type=&quot;ListNode&quot;&gt;&#13;&#10;            &lt;Ixia.Aptixia.StackManager.L2EthernetPlugin type=&quot;Ixia.Aptixia.StackManager.L2EthernetPlugin&quot; objectid=&quot;d281729f-794e-4dc8-a467-e7832d73f174&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;              &lt;macRangeList type=&quot;ListNode&quot;&gt;&#13;&#10;                &lt;Ixia.Aptixia.StackManager.MacRange type=&quot;Ixia.Aptixia.StackManager.MacRange&quot; objectid=&quot;31401972-1ce6-4bc4-b6aa-88ac45aaf123&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;                  &lt;enabled type=&quot;Bool&quot;&gt;1&lt;/enabled&gt;&#13;&#10;                  &lt;name type=&quot;String&quot;&gt;MAC-R2&lt;/name&gt;&#13;&#10;                  &lt;mac type=&quot;String&quot;&gt;00:0A:0A:00:0A:00&lt;/mac&gt;&#13;&#10;                  &lt;incrementBy type=&quot;String&quot;&gt;00:00:00:00:00:01&lt;/incrementBy&gt;&#13;&#10;                  &lt;mtu type=&quot;Int&quot;&gt;1500&lt;/mtu&gt;&#13;&#10;                  &lt;count type=&quot;Int&quot;&gt;1&lt;/count&gt;&#13;&#10;                  &lt;vlanRange type=&quot;Ixia.Aptixia.StackManager.VlanIdRange&quot; objectid=&quot;cca01ed3-7ed4-4720-ae76-413f9f24a419&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;                    &lt;name type=&quot;String&quot;&gt;VLAN-R2&lt;/name&gt;&#13;&#10;                    &lt;enabled type=&quot;Bool&quot;&gt;1&lt;/enabled&gt;&#13;&#10;                    &lt;firstId type=&quot;Int&quot;&gt;100&lt;/firstId&gt;&#13;&#10;                    &lt;incrementStep type=&quot;Int&quot;&gt;1&lt;/incrementStep&gt;&#13;&#10;                    &lt;increment type=&quot;Int&quot;&gt;1&lt;/increment&gt;&#13;&#10;                    &lt;uniqueCount type=&quot;Int&quot;&gt;1&lt;/uniqueCount&gt;&#13;&#10;                    &lt;priority type=&quot;Int&quot;&gt;1&lt;/priority&gt;&#13;&#10;                    &lt;tpid type=&quot;String&quot;&gt;0x8100&lt;/tpid&gt;&#13;&#10;                    &lt;innerEnable type=&quot;Bool&quot;&gt;0&lt;/innerEnable&gt;&#13;&#10;                    &lt;innerFirstId type=&quot;Int&quot;&gt;1&lt;/innerFirstId&gt;&#13;&#10;                    &lt;innerIncrementStep type=&quot;Int&quot;&gt;1&lt;/innerIncrementStep&gt;&#13;&#10;                    &lt;innerIncrement type=&quot;Int&quot;&gt;1&lt;/innerIncrement&gt;&#13;&#10;                    &lt;innerUniqueCount type=&quot;Int&quot;&gt;4094&lt;/innerUniqueCount&gt;&#13;&#10;                    &lt;innerPriority type=&quot;Int&quot;&gt;1&lt;/innerPriority&gt;&#13;&#10;                    &lt;idIncrMode type=&quot;Int&quot;&gt;2&lt;/idIncrMode&gt;&#13;&#10;                    &lt;innerTpid type=&quot;String&quot;&gt;0x8100&lt;/innerTpid&gt;&#13;&#10;                  &lt;/vlanRange&gt;&#13;&#10;                &lt;/Ixia.Aptixia.StackManager.MacRange&gt;&#13;&#10;              &lt;/macRangeList&gt;&#13;&#10;              &lt;vlanRangeList type=&quot;ListNode&quot;&gt;&#13;&#10;                &lt;Ixia.Aptixia.StackManager.VlanIdRange type=&quot;Ixia.Aptixia.StackManager.VlanIdRange&quot; objectid=&quot;cca01ed3-7ed4-4720-ae76-413f9f24a419&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;              &lt;/vlanRangeList&gt;&#13;&#10;              &lt;childrenList type=&quot;ListNode&quot;&gt;&#13;&#10;                &lt;Ixia.Aptixia.StackManager.IpV4V6Plugin type=&quot;Ixia.Aptixia.StackManager.IpV4V6Plugin&quot; objectid=&quot;ce4191ca-8fae-4993-bdec-36355fb9eb0a&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;                  &lt;rangeList type=&quot;ListNode&quot;&gt;&#13;&#10;                    &lt;Ixia.Aptixia.StackManager.IpV4V6Range type=&quot;Ixia.Aptixia.StackManager.IpV4V6Range&quot; objectid=&quot;91a11d2e-7c41-44d1-9761-856482f980ec&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;                      &lt;enabled type=&quot;Bool&quot;&gt;1&lt;/enabled&gt;&#13;&#10;                      &lt;name type=&quot;String&quot;&gt;IP-R2&lt;/name&gt;&#13;&#10;                      &lt;ipType type=&quot;String&quot;&gt;IPv4&lt;/ipType&gt;&#13;&#10;                      &lt;ipAddress type=&quot;String&quot;&gt;192.168.0.100&lt;/ipAddress&gt;&#13;&#10;                      &lt;prefix type=&quot;Int&quot;&gt;16&lt;/prefix&gt;&#13;&#10;                      &lt;incrementBy type=&quot;String&quot;&gt;0.0.0.1&lt;/incrementBy&gt;&#13;&#10;                      &lt;count type=&quot;Int&quot;&gt;1&lt;/count&gt;&#13;&#10;                      &lt;autoCountEnabled type=&quot;Bool&quot;&gt;0&lt;/autoCountEnabled&gt;&#13;&#10;                      &lt;gatewayAddress type=&quot;String&quot;&gt;0.0.0.0&lt;/gatewayAddress&gt;&#13;&#10;                      &lt;gatewayIncrement type=&quot;String&quot;&gt;0.0.0.0&lt;/gatewayIncrement&gt;&#13;&#10;                      &lt;gatewayIncrementMode type=&quot;String&quot;&gt;perSubnet&lt;/gatewayIncrementMode&gt;&#13;&#10;                      &lt;enableGatewayArp type=&quot;Bool&quot;&gt;0&lt;/enableGatewayArp&gt;&#13;&#10;                      &lt;generateStatistics type=&quot;Bool&quot;&gt;0&lt;/generateStatistics&gt;&#13;&#10;                      &lt;mss type=&quot;Int&quot;&gt;1460&lt;/mss&gt;&#13;&#10;                      &lt;randomizeAddress type=&quot;Bool&quot;&gt;0&lt;/randomizeAddress&gt;&#13;&#10;                      &lt;randomizeSeed type=&quot;Int&quot;&gt;2997081513&lt;/randomizeSeed&gt;&#13;&#10;                      &lt;autoMacGeneration type=&quot;Bool&quot;&gt;1&lt;/autoMacGeneration&gt;&#13;&#10;                      &lt;macRange type=&quot;Ixia.Aptixia.StackManager.MacRange&quot; objectid=&quot;31401972-1ce6-4bc4-b6aa-88ac45aaf123&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;                      &lt;vlanRange type=&quot;Ixia.Aptixia.StackManager.VlanIdRange&quot; objectid=&quot;cca01ed3-7ed4-4720-ae76-413f9f24a419&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;                      &lt;atmRange type=&quot;Ixia.Aptixia.StackManager.AtmRange&quot; objectid=&quot;00000000-0000-0000-0000-000000000000&quot; /&gt;&#13;&#10;                      &lt;pvcRange type=&quot;Ixia.Aptixia.StackManager.PvcRange&quot; objectid=&quot;00000000-0000-0000-0000-000000000000&quot; /&gt;&#13;&#10;                      &lt;autoIpTypeEnabled type=&quot;Bool&quot;&gt;0&lt;/autoIpTypeEnabled&gt;&#13;&#10;                    &lt;/Ixia.Aptixia.StackManager.IpV4V6Range&gt;&#13;&#10;                  &lt;/rangeList&gt;&#13;&#10;                  &lt;rangeGroups type=&quot;ListNode&quot;&gt;&#13;&#10;                    &lt;Ixia.Aptixia.StackManager.RangeGroup type=&quot;Ixia.Aptixia.StackManager.RangeGroup&quot; objectid=&quot;1a39f42b-d2ca-4ece-9413-93a61165f24d&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;                      &lt;name type=&quot;String&quot;&gt;DistGroup1&lt;/name&gt;&#13;&#10;                      &lt;distribType type=&quot;Ixia.Aptixia.StackManager.RangeGroupSkeleton+eDistributionType&quot;&gt;0&lt;/distribType&gt;&#13;&#10;                      &lt;rangeList type=&quot;ListNode&quot;&gt;&#13;&#10;                        &lt;Ixia.Aptixia.StackManager.IpV4V6Range type=&quot;Ixia.Aptixia.StackManager.IpV4V6Range&quot; objectid=&quot;91a11d2e-7c41-44d1-9761-856482f980ec&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;                      &lt;/rangeList&gt;&#13;&#10;                    &lt;/Ixia.Aptixia.StackManager.RangeGroup&gt;&#13;&#10;                  &lt;/rangeGroups&gt;&#13;&#10;                  &lt;childrenList type=&quot;ListNode&quot; /&gt;&#13;&#10;                  &lt;extensionList type=&quot;ListNode&quot; /&gt;&#13;&#10;                  &lt;dscMode type=&quot;Bool&quot;&gt;0&lt;/dscMode&gt;&#13;&#10;                  &lt;name type=&quot;String&quot;&gt;IP-2&lt;/name&gt;&#13;&#10;                &lt;/Ixia.Aptixia.StackManager.IpV4V6Plugin&gt;&#13;&#10;              &lt;/childrenList&gt;&#13;&#10;              &lt;extensionList type=&quot;ListNode&quot; /&gt;&#13;&#10;              &lt;dscMode type=&quot;Bool&quot;&gt;0&lt;/dscMode&gt;&#13;&#10;              &lt;name type=&quot;String&quot;&gt;MAC/VLAN-2&lt;/name&gt;&#13;&#10;            &lt;/Ixia.Aptixia.StackManager.L2EthernetPlugin&gt;&#13;&#10;          &lt;/childrenList&gt;&#13;&#10;          &lt;extensionList type=&quot;ListNode&quot; /&gt;&#13;&#10;          &lt;dscMode type=&quot;Bool&quot;&gt;0&lt;/dscMode&gt;&#13;&#10;          &lt;name type=&quot;String&quot;&gt;Ethernet-2&lt;/name&gt;&#13;&#10;        &lt;/stack&gt;&#13;&#10;        &lt;globalPluginList type=&quot;ListNode&quot;&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.IxLoadSettingsPlugin type=&quot;Ixia.Aptixia.StackManager.IxLoadSettingsPlugin&quot; objectid=&quot;9715e763-4857-451e-b459-798377ebb1b7&quot; version=&quot;1.0.0&quot;&gt;&#13;&#10;            &lt;teardownInterfaceWithUser type=&quot;Bool&quot;&gt;0&lt;/teardownInterfaceWithUser&gt;&#13;&#10;            &lt;interfaceBehavior type=&quot;Int&quot;&gt;0&lt;/interfaceBehavior&gt;&#13;&#10;            &lt;name type=&quot;String&quot;&gt;Settings-2&lt;/name&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.IxLoadSettingsPlugin&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.FilterPlugin type=&quot;Ixia.Aptixia.StackManager.FilterPlugin&quot; objectid=&quot;50a0a8d8-3fe8-4937-b74d-670a1bb30aaf&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;auto type=&quot;Bool&quot;&gt;1&lt;/auto&gt;&#13;&#10;            &lt;all type=&quot;Bool&quot;&gt;0&lt;/all&gt;&#13;&#10;            &lt;pppoecontrol type=&quot;Bool&quot;&gt;0&lt;/pppoecontrol&gt;&#13;&#10;            &lt;pppoenetwork type=&quot;Bool&quot;&gt;0&lt;/pppoenetwork&gt;&#13;&#10;            &lt;isis type=&quot;Bool&quot;&gt;0&lt;/isis&gt;&#13;&#10;            &lt;ip type=&quot;String&quot; /&gt;&#13;&#10;            &lt;tcp type=&quot;String&quot; /&gt;&#13;&#10;            &lt;udp type=&quot;String&quot; /&gt;&#13;&#10;            &lt;mac type=&quot;String&quot; /&gt;&#13;&#10;            &lt;icmp type=&quot;String&quot; /&gt;&#13;&#10;            &lt;name type=&quot;String&quot;&gt;Filter-2&lt;/name&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.FilterPlugin&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.GratArpPlugin type=&quot;Ixia.Aptixia.StackManager.GratArpPlugin&quot; objectid=&quot;71c0de75-0452-4095-a3be-c4fba6e6fd93&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;enabled type=&quot;Bool&quot;&gt;1&lt;/enabled&gt;&#13;&#10;            &lt;forwardGratArp type=&quot;Bool&quot;&gt;0&lt;/forwardGratArp&gt;&#13;&#10;            &lt;rateControlEnabled type=&quot;Bool&quot;&gt;0&lt;/rateControlEnabled&gt;&#13;&#10;            &lt;maxFramesPerSecond type=&quot;Int&quot;&gt;0&lt;/maxFramesPerSecond&gt;&#13;&#10;            &lt;name type=&quot;String&quot;&gt;GratARP-2&lt;/name&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.GratArpPlugin&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.TCPPlugin type=&quot;Ixia.Aptixia.StackManager.TCPPlugin&quot; objectid=&quot;db6d40b9-9d2c-4410-b533-e0c71d1ba496&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;bestPerfSettings type=&quot;Bool&quot;&gt;0&lt;/bestPerfSettings&gt;&#13;&#10;            &lt;accept_ra_all type=&quot;Bool&quot;&gt;0&lt;/accept_ra_all&gt;&#13;&#10;            &lt;tcp_abort_on_overflow type=&quot;Bool&quot;&gt;0&lt;/tcp_abort_on_overflow&gt;&#13;&#10;            &lt;tcp_adv_win_scale type=&quot;Int&quot;&gt;2&lt;/tcp_adv_win_scale&gt;&#13;&#10;            &lt;tcp_app_win type=&quot;Int&quot;&gt;31&lt;/tcp_app_win&gt;&#13;&#10;            &lt;tcp_bic type=&quot;Int&quot;&gt;0&lt;/tcp_bic&gt;&#13;&#10;            &lt;tcp_bic_fast_convergence type=&quot;Int&quot;&gt;1&lt;/tcp_bic_fast_convergence&gt;&#13;&#10;            &lt;tcp_bic_low_window type=&quot;Int&quot;&gt;14&lt;/tcp_bic_low_window&gt;&#13;&#10;            &lt;tcp_dsack type=&quot;Bool&quot;&gt;1&lt;/tcp_dsack&gt;&#13;&#10;            &lt;tcp_ecn type=&quot;Bool&quot;&gt;0&lt;/tcp_ecn&gt;&#13;&#10;            &lt;tcp_fack type=&quot;Bool&quot;&gt;1&lt;/tcp_fack&gt;&#13;&#10;            &lt;tcp_fin_timeout type=&quot;Int&quot;&gt;60&lt;/tcp_fin_timeout&gt;&#13;&#10;            &lt;tcp_frto type=&quot;Int&quot;&gt;0&lt;/tcp_frto&gt;&#13;&#10;            &lt;tcp_keepalive_intvl type=&quot;Int&quot;&gt;75&lt;/tcp_keepalive_intvl&gt;&#13;&#10;            &lt;tcp_keepalive_probes type=&quot;Int&quot;&gt;9&lt;/tcp_keepalive_probes&gt;&#13;&#10;            &lt;tcp_keepalive_time type=&quot;Int&quot;&gt;7200&lt;/tcp_keepalive_time&gt;&#13;&#10;            &lt;tcp_low_latency type=&quot;Int&quot;&gt;0&lt;/tcp_low_latency&gt;&#13;&#10;            &lt;tcp_max_orphans type=&quot;Int&quot;&gt;8192&lt;/tcp_max_orphans&gt;&#13;&#10;            &lt;tcp_max_syn_backlog type=&quot;Int&quot;&gt;1024&lt;/tcp_max_syn_backlog&gt;&#13;&#10;            &lt;tcp_max_tw_buckets type=&quot;Int&quot;&gt;180000&lt;/tcp_max_tw_buckets&gt;&#13;&#10;            &lt;tcp_mem_low type=&quot;Int&quot;&gt;24576&lt;/tcp_mem_low&gt;&#13;&#10;            &lt;tcp_mem_pressure type=&quot;Int&quot;&gt;32768&lt;/tcp_mem_pressure&gt;&#13;&#10;            &lt;tcp_mem_high type=&quot;Int&quot;&gt;49152&lt;/tcp_mem_high&gt;&#13;&#10;            &lt;tcp_moderate_rcvbuf type=&quot;Int&quot;&gt;0&lt;/tcp_moderate_rcvbuf&gt;&#13;&#10;            &lt;tcp_no_metrics_save type=&quot;Bool&quot;&gt;0&lt;/tcp_no_metrics_save&gt;&#13;&#10;            &lt;tcp_orphan_retries type=&quot;Int&quot;&gt;0&lt;/tcp_orphan_retries&gt;&#13;&#10;            &lt;tcp_reordering type=&quot;Int&quot;&gt;3&lt;/tcp_reordering&gt;&#13;&#10;            &lt;tcp_retrans_collapse type=&quot;Bool&quot;&gt;1&lt;/tcp_retrans_collapse&gt;&#13;&#10;            &lt;tcp_retries1 type=&quot;Int&quot;&gt;3&lt;/tcp_retries1&gt;&#13;&#10;            &lt;tcp_retries2 type=&quot;Int&quot;&gt;5&lt;/tcp_retries2&gt;&#13;&#10;            &lt;tcp_rfc1337 type=&quot;Bool&quot;&gt;0&lt;/tcp_rfc1337&gt;&#13;&#10;            &lt;tcp_rmem_min type=&quot;Int&quot;&gt;4096&lt;/tcp_rmem_min&gt;&#13;&#10;            &lt;tcp_rmem_default type=&quot;Int&quot;&gt;4096&lt;/tcp_rmem_default&gt;&#13;&#10;            &lt;tcp_rmem_max type=&quot;Int&quot;&gt;262144&lt;/tcp_rmem_max&gt;&#13;&#10;            &lt;tcp_sack type=&quot;Bool&quot;&gt;1&lt;/tcp_sack&gt;&#13;&#10;            &lt;tcp_stdurg type=&quot;Bool&quot;&gt;0&lt;/tcp_stdurg&gt;&#13;&#10;            &lt;tcp_synack_retries type=&quot;Int&quot;&gt;5&lt;/tcp_synack_retries&gt;&#13;&#10;            &lt;tcp_syn_retries type=&quot;Int&quot;&gt;5&lt;/tcp_syn_retries&gt;&#13;&#10;            &lt;tcp_timestamps type=&quot;Bool&quot;&gt;1&lt;/tcp_timestamps&gt;&#13;&#10;            &lt;tcp_tw_recycle type=&quot;Bool&quot;&gt;1&lt;/tcp_tw_recycle&gt;&#13;&#10;            &lt;tcp_tw_reuse type=&quot;Bool&quot;&gt;0&lt;/tcp_tw_reuse&gt;&#13;&#10;            &lt;tcp_vegas_alpha type=&quot;Int&quot;&gt;2&lt;/tcp_vegas_alpha&gt;&#13;&#10;            &lt;tcp_vegas_beta type=&quot;Int&quot;&gt;6&lt;/tcp_vegas_beta&gt;&#13;&#10;            &lt;tcp_vegas_cong_avoid type=&quot;Int&quot;&gt;0&lt;/tcp_vegas_cong_avoid&gt;&#13;&#10;            &lt;tcp_vegas_gamma type=&quot;Int&quot;&gt;2&lt;/tcp_vegas_gamma&gt;&#13;&#10;            &lt;tcp_westwood type=&quot;Int&quot;&gt;0&lt;/tcp_westwood&gt;&#13;&#10;            &lt;tcp_window_scaling type=&quot;Bool&quot;&gt;0&lt;/tcp_window_scaling&gt;&#13;&#10;            &lt;ip_no_pmtu_disc type=&quot;Bool&quot;&gt;1&lt;/ip_no_pmtu_disc&gt;&#13;&#10;            &lt;tcp_wmem_min type=&quot;Int&quot;&gt;4096&lt;/tcp_wmem_min&gt;&#13;&#10;            &lt;tcp_wmem_default type=&quot;Int&quot;&gt;4096&lt;/tcp_wmem_default&gt;&#13;&#10;            &lt;tcp_wmem_max type=&quot;Int&quot;&gt;262144&lt;/tcp_wmem_max&gt;&#13;&#10;            &lt;tcp_ipfrag_time type=&quot;Int&quot;&gt;30&lt;/tcp_ipfrag_time&gt;&#13;&#10;            &lt;tcp_port_min type=&quot;Int&quot;&gt;1024&lt;/tcp_port_min&gt;&#13;&#10;            &lt;tcp_port_max type=&quot;Int&quot;&gt;65535&lt;/tcp_port_max&gt;&#13;&#10;            &lt;tcp_rto_min type=&quot;Int&quot;&gt;200&lt;/tcp_rto_min&gt;&#13;&#10;            &lt;tcp_rto_max type=&quot;Int&quot;&gt;120000&lt;/tcp_rto_max&gt;&#13;&#10;            &lt;tcp_tw_rfc1323_strict type=&quot;Bool&quot;&gt;0&lt;/tcp_tw_rfc1323_strict&gt;&#13;&#10;            &lt;udp_port_randomization type=&quot;Bool&quot;&gt;0&lt;/udp_port_randomization&gt;&#13;&#10;            &lt;disable_min_max_buffer_size type=&quot;Bool&quot;&gt;1&lt;/disable_min_max_buffer_size&gt;&#13;&#10;            &lt;llm_hdr_gap type=&quot;Int&quot;&gt;8&lt;/llm_hdr_gap&gt;&#13;&#10;            &lt;llm_hdr_gap_ns type=&quot;Int&quot;&gt;10&lt;/llm_hdr_gap_ns&gt;&#13;&#10;            &lt;inter_packet_granular_delay type=&quot;Double&quot;&gt;0&lt;/inter_packet_granular_delay&gt;&#13;&#10;            &lt;delayed_acks type=&quot;Bool&quot;&gt;1&lt;/delayed_acks&gt;&#13;&#10;            &lt;accept_ra_default type=&quot;Bool&quot;&gt;0&lt;/accept_ra_default&gt;&#13;&#10;            &lt;rps_needed type=&quot;Bool&quot;&gt;0&lt;/rps_needed&gt;&#13;&#10;            &lt;delayed_acks_segments type=&quot;Int&quot;&gt;0&lt;/delayed_acks_segments&gt;&#13;&#10;            &lt;delayed_acks_timeout type=&quot;Int&quot;&gt;0&lt;/delayed_acks_timeout&gt;&#13;&#10;            &lt;tcp_large_icwnd type=&quot;Int&quot;&gt;0&lt;/tcp_large_icwnd&gt;&#13;&#10;            &lt;tcp_mgmt_rmem type=&quot;Int&quot;&gt;87380&lt;/tcp_mgmt_rmem&gt;&#13;&#10;            &lt;tcp_mgmt_wmem type=&quot;Int&quot;&gt;32768&lt;/tcp_mgmt_wmem&gt;&#13;&#10;            &lt;adjust_tcp_buffers type=&quot;Bool&quot;&gt;1&lt;/adjust_tcp_buffers&gt;&#13;&#10;            &lt;name type=&quot;String&quot;&gt;TCP-2&lt;/name&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.TCPPlugin&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.DnsPlugin type=&quot;Ixia.Aptixia.StackManager.DnsPlugin&quot; objectid=&quot;ec5720ea-5149-4ebd-b539-3c1a67cd412f&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;domain type=&quot;String&quot; /&gt;&#13;&#10;            &lt;timeout type=&quot;Int&quot;&gt;30&lt;/timeout&gt;&#13;&#10;            &lt;nameServerList type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;searchList type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;hostList type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;name type=&quot;String&quot;&gt;DNS-2&lt;/name&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.DnsPlugin&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.MeshingPlugin type=&quot;Ixia.Aptixia.StackManager.MeshingPlugin&quot; objectid=&quot;ee6e36ea-29be-460c-a633-1f531a2ce958&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;trafficMaps type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;activityRangeMapInfoList type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;name type=&quot;String&quot;&gt;Meshing-1&lt;/name&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.MeshingPlugin&gt;&#13;&#10;        &lt;/globalPluginList&gt;&#13;&#10;        &lt;portList type=&quot;Ixia.RpFramework.Server.Core.ShadowedPropertyStringList&quot;&gt;&#13;&#10;          &lt;String&gt;172.16.174.137;2;1&lt;/String&gt;&#13;&#10;        &lt;/portList&gt;&#13;&#10;        &lt;typeSpecificData type=&quot;ListNode&quot;&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.IPSecPortGroupData type=&quot;Ixia.Aptixia.StackManager.IPSecPortGroupData&quot; objectid=&quot;0d46308f-2221-4c69-8216-46963672a1c8&quot; version=&quot;6.70.0&quot;&gt;&#13;&#10;            &lt;role type=&quot;String&quot;&gt;Initiator&lt;/role&gt;&#13;&#10;            &lt;associates type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;overrideGlobalOptions type=&quot;Bool&quot;&gt;0&lt;/overrideGlobalOptions&gt;&#13;&#10;            &lt;useMaxInitiationRate type=&quot;Bool&quot;&gt;0&lt;/useMaxInitiationRate&gt;&#13;&#10;            &lt;maxInitiationRate type=&quot;Int&quot;&gt;50&lt;/maxInitiationRate&gt;&#13;&#10;            &lt;useMaxPendingTunnels type=&quot;Bool&quot;&gt;0&lt;/useMaxPendingTunnels&gt;&#13;&#10;            &lt;maxPendingTunnels type=&quot;Int&quot;&gt;50&lt;/maxPendingTunnels&gt;&#13;&#10;            &lt;teardownRate type=&quot;Int&quot;&gt;10&lt;/teardownRate&gt;&#13;&#10;            &lt;enableESPPerStreamStats type=&quot;Bool&quot;&gt;0&lt;/enableESPPerStreamStats&gt;&#13;&#10;            &lt;enableESPReplayStats type=&quot;Bool&quot;&gt;0&lt;/enableESPReplayStats&gt;&#13;&#10;            &lt;activities type=&quot;ListNode&quot; /&gt;&#13;&#10;            &lt;pcpuLogLevel type=&quot;String&quot;&gt;0&lt;/pcpuLogLevel&gt;&#13;&#10;          &lt;/Ixia.Aptixia.StackManager.IPSecPortGroupData&gt;&#13;&#10;        &lt;/typeSpecificData&gt;&#13;&#10;        &lt;virtualMode type=&quot;Bool&quot;&gt;0&lt;/virtualMode&gt;&#13;&#10;        &lt;allowedVirtualModeTypes type=&quot;Ixia.RpFramework.Server.Core.ShadowedPropertyStringList&quot; /&gt;&#13;&#10;        &lt;doOwnership type=&quot;Bool&quot;&gt;0&lt;/doOwnership&gt;&#13;&#10;        &lt;branchToNicMap type=&quot;ListNode&quot; /&gt;&#13;&#10;        &lt;cpuAggregation type=&quot;Bool&quot;&gt;0&lt;/cpuAggregation&gt;&#13;&#10;        &lt;activePort type=&quot;String&quot; /&gt;&#13;&#10;        &lt;networkLayersManager type=&quot;Ixia.Aptixia.StackManager.NetworkLayersManager&quot; objectid=&quot;69e6265b-1849-42b8-918f-aa106b2b198f&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;      &lt;/Ixia.Aptixia.StackManager.PortGroup&gt;&#13;&#10;    &lt;/portGroupList&gt;&#13;&#10;    &lt;externalProperties type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyManager&quot; objectid=&quot;b0b115a1-2096-44b3-aff0-08856bc91f91&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;      &lt;properties type=&quot;ListNode&quot;&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;d1d022d2-c130-4a03-b68e-6741345c8b0b&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;IxCatLTEUEUeRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;54a4b8cf-d398-43f7-a812-7c6446f909d4&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;SixRdRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;d8f6fbc9-d5c8-40ef-b568-0c489be54717&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;L2tpRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;2cbc20b9-6103-495a-b3ec-3c7a298d0840&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;DHCPServerRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;0c7b6ae1-fc23-4616-9c9b-ce2a8dc60259&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;MobileSubscribersRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;dcd5490e-c964-42ce-b18f-b10f03d7aa7e&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;IPSecRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;cfcd47e5-7168-48bc-b90d-468543a76bd9&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;EGTPSgsnS3RangeUe&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;86eaf3ad-0a59-4685-aca6-df399f41bf53&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;EGTPRange_SGW&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;243574a8-cc14-4507-8d02-8521328d14d4&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;EmulatedRouterRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;cbe7da29-47d9-4933-834b-48d2d0f3d88e&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;PppoxRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;343188ca-a145-4a05-b93c-e9c4157c694c&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;GTPNGAPRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;137dec4c-1d25-4df7-ad6a-bc40d28f6e53&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;IxCatRNCIuPSUeRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;8459e630-7e7e-4544-aa9d-2e781d376e72&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;GTPNGUERange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;28bd2a30-ef4d-48b0-834d-25a771a4e5fc&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;EGTPUERange_S5S8_SGW&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;3390865d-b309-4a00-958a-7dffd48a9c12&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;GTPGRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;eb96f4e9-7d5e-43bd-819f-ef8b5eb2d4bd&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;EGTPPcrfRange_S5S8_PGW&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;9f57fd4d-4974-4df2-a64d-6bafe329172a&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;DSLiteRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;7fb77cf1-c97e-4944-8567-45f45fc758c9&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;EGTPSGSNRangeUe&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;e95c2256-148f-4744-bfe1-b29b33ac898d&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;SlaacRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;fae999ef-d47b-4c27-b606-e9d8023f8967&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;EGTPUERange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;dbb0b8fd-6187-4ca0-b8bf-3be48b2363cb&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;PSTNDigitalRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;a0285a6e-c2c1-4606-9754-03ed2ee4d542&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;DHCPRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;ee0789fd-3804-435e-95e7-e3faa1b46263&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;AtmRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;3e01c1bd-75f8-4e04-9044-71cebf8a23a6&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;IxCatMMEApnRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;0c6a8392-b088-4dba-a102-c57f45144c96&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;IxCatENodeBUuApnRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;b67debc5-2214-40c7-be47-cc71d152b9d6&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;GTPSUERange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;68bc7550-1a28-469b-9c4d-44f10cf3b820&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;IpV4V6Range&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;205d2c2b-6ea2-43e0-8f51-9e2c13d54f6a&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;MacRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;c44edc09-b844-4821-9aa9-4341e8f6921f&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;DualStackIPRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;e88f9c86-5030-488d-a0bb-dbf3bee2bfaa&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;EGTPUERange_S2a_TWAN&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;ab93cc6e-2119-49f8-b46b-978e0c3ea664&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;IxCatSGSNIuPSApnRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;b2f8ea41-f69a-420f-8244-49c21db0409f&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;IxCatENodeBSimUeRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;5ba78938-b762-41cc-8397-123528c04cd4&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;S6dRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;911ca839-55d1-4dc7-b31d-9780941ed400&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;UERangeBase&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;a4797e2d-fcdc-4517-8a51-a13c679742d9&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;EGTPMmeS10RangeUe&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;023f23ff-b3ac-467d-8cc3-f1019e333aa4&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;S6aRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;c0f1c273-807e-4292-ae84-167c970cbdfe&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;BmScRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;ba41fac0-a91d-4272-a3f6-515d91ae82a7&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;MBmsGwRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalPropertyInfo type=&quot;Ixia.Aptixia.StackManager.ExternalPropertyInfo&quot; objectid=&quot;9918fddb-9ec3-4a46-88c0-29711b622600&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;targetType type=&quot;String&quot;&gt;PptpRange&lt;/targetType&gt;&#13;&#10;          &lt;valueType type=&quot;String&quot;&gt;ExternalValueBoolean&lt;/valueType&gt;&#13;&#10;          &lt;description type=&quot;String&quot;&gt;Enable collection of interface statistics on this range&lt;/description&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalPropertyInfo&gt;&#13;&#10;      &lt;/properties&gt;&#13;&#10;      &lt;values type=&quot;ListNode&quot;&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalProperty type=&quot;Ixia.Aptixia.StackManager.ExternalProperty&quot; objectid=&quot;aef632c9-49bd-4c92-b1aa-81519915147b&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;target type=&quot;Ixia.Aptixia.StackManager.IpV4V6Range&quot; objectid=&quot;bb61b2ad-a7eb-459d-90fa-91bfc7211981&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;          &lt;value type=&quot;Ixia.Aptixia.StackManager.ExternalValueBoolean&quot; objectid=&quot;89502feb-a11f-4a13-96a3-e53844e6e225&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;value type=&quot;Bool&quot;&gt;0&lt;/value&gt;&#13;&#10;          &lt;/value&gt;&#13;&#10;          &lt;enabled type=&quot;Bool&quot;&gt;1&lt;/enabled&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalProperty&gt;&#13;&#10;        &lt;Ixia.Aptixia.StackManager.ExternalProperty type=&quot;Ixia.Aptixia.StackManager.ExternalProperty&quot; objectid=&quot;43161c5c-1202-4f60-83ca-976451ed1853&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;          &lt;propertyName type=&quot;String&quot;&gt;Publish Statistics&lt;/propertyName&gt;&#13;&#10;          &lt;target type=&quot;Ixia.Aptixia.StackManager.IpV4V6Range&quot; objectid=&quot;91a11d2e-7c41-44d1-9761-856482f980ec&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;          &lt;value type=&quot;Ixia.Aptixia.StackManager.ExternalValueBoolean&quot; objectid=&quot;9ed43e09-d7cb-43b7-95d1-c6a6490e3534&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;            &lt;value type=&quot;Bool&quot;&gt;0&lt;/value&gt;&#13;&#10;          &lt;/value&gt;&#13;&#10;          &lt;enabled type=&quot;Bool&quot;&gt;1&lt;/enabled&gt;&#13;&#10;        &lt;/Ixia.Aptixia.StackManager.ExternalProperty&gt;&#13;&#10;      &lt;/values&gt;&#13;&#10;    &lt;/externalProperties&gt;&#13;&#10;    &lt;availableNetworkTimelines type=&quot;ListNode&quot; /&gt;&#13;&#10;    &lt;typeSpecificData type=&quot;ListNode&quot;&gt;&#13;&#10;      &lt;Ixia.Aptixia.StackManager.MacSessionData type=&quot;Ixia.Aptixia.StackManager.MacSessionData&quot; objectid=&quot;663ba3b7-292f-44a9-8f42-8280c7a05ec9&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;        &lt;duplicateCheckingScope type=&quot;Ixia.Aptixia.StackManager.MacSessionDataSkeleton+eMacValidationOptions&quot;&gt;2&lt;/duplicateCheckingScope&gt;&#13;&#10;      &lt;/Ixia.Aptixia.StackManager.MacSessionData&gt;&#13;&#10;      &lt;Ixia.Aptixia.StackManager.IpSessionData type=&quot;Ixia.Aptixia.StackManager.IpSessionData&quot; objectid=&quot;1e11ff9c-cb2e-4c12-9010-7ba9a54d3c25&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;        &lt;duplicateCheckingScope type=&quot;Ixia.Aptixia.StackManager.IpSessionDataSkeleton+eIpValidationOptions&quot;&gt;2&lt;/duplicateCheckingScope&gt;&#13;&#10;        &lt;enableGatewayArp type=&quot;Bool&quot;&gt;0&lt;/enableGatewayArp&gt;&#13;&#10;        &lt;gatewayArpRequestRate type=&quot;Int&quot;&gt;300&lt;/gatewayArpRequestRate&gt;&#13;&#10;        &lt;maxOutstandingGatewayArpRequests type=&quot;Int&quot;&gt;300&lt;/maxOutstandingGatewayArpRequests&gt;&#13;&#10;        &lt;ignoreUnresolvedIPs type=&quot;Bool&quot;&gt;0&lt;/ignoreUnresolvedIPs&gt;&#13;&#10;        &lt;sendAllRequests type=&quot;Bool&quot;&gt;0&lt;/sendAllRequests&gt;&#13;&#10;        &lt;individualARPTimeOut type=&quot;Int&quot;&gt;500&lt;/individualARPTimeOut&gt;&#13;&#10;      &lt;/Ixia.Aptixia.StackManager.IpSessionData&gt;&#13;&#10;      &lt;Ixia.Aptixia.StackManager.IxLoadSessionData type=&quot;Ixia.Aptixia.StackManager.IxLoadSessionData&quot; objectid=&quot;5e817ae8-fdcd-452d-a024-933b2c8fcb24&quot; version=&quot;1.0.0&quot;&gt;&#13;&#10;        &lt;portGroupList type=&quot;ListNode&quot;&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.PortGroup type=&quot;Ixia.Aptixia.StackManager.PortGroup&quot; objectid=&quot;26d829db-f268-4207-8179-019f0d7cc4c7&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;          &lt;Ixia.Aptixia.StackManager.PortGroup type=&quot;Ixia.Aptixia.StackManager.PortGroup&quot; objectid=&quot;54a8e589-a5c8-4ddb-b314-66e468526da4&quot; version=&quot;6.70.420&quot; /&gt;&#13;&#10;        &lt;/portGroupList&gt;&#13;&#10;      &lt;/Ixia.Aptixia.StackManager.IxLoadSessionData&gt;&#13;&#10;      &lt;Ixia.Aptixia.StackManager.IPSecSessionData type=&quot;Ixia.Aptixia.StackManager.IPSecSessionData&quot; objectid=&quot;33f91e7d-a4ea-4d95-9301-86f02f583aee&quot; version=&quot;6.70.0&quot;&gt;&#13;&#10;        &lt;ipsecTunnelSetup type=&quot;Ixia.Aptixia.StackManager.IPSecTunnelSetup&quot; objectid=&quot;1e8ae635-bca1-4038-bd0e-46c802728e19&quot; version=&quot;6.70.0&quot;&gt;&#13;&#10;          &lt;tunnelSetupTimeout type=&quot;Int&quot;&gt;30&lt;/tunnelSetupTimeout&gt;&#13;&#10;          &lt;tunnelRetransmissionTimeout type=&quot;Int&quot;&gt;30&lt;/tunnelRetransmissionTimeout&gt;&#13;&#10;          &lt;numRetries type=&quot;Int&quot;&gt;0&lt;/numRetries&gt;&#13;&#10;          &lt;retryInterval type=&quot;Int&quot;&gt;10&lt;/retryInterval&gt;&#13;&#10;          &lt;retryDelay type=&quot;Int&quot;&gt;10&lt;/retryDelay&gt;&#13;&#10;          &lt;testType type=&quot;String&quot;&gt;P2D&lt;/testType&gt;&#13;&#10;          &lt;sendCiscoVid type=&quot;Bool&quot;&gt;0&lt;/sendCiscoVid&gt;&#13;&#10;          &lt;useMaxInitiationRate type=&quot;Bool&quot;&gt;0&lt;/useMaxInitiationRate&gt;&#13;&#10;          &lt;useMaxPendingTunnels type=&quot;Bool&quot;&gt;0&lt;/useMaxPendingTunnels&gt;&#13;&#10;          &lt;enableRekey type=&quot;Bool&quot;&gt;1&lt;/enableRekey&gt;&#13;&#10;          &lt;rekeyRetries type=&quot;Int&quot;&gt;3&lt;/rekeyRetries&gt;&#13;&#10;          &lt;rekeyFuzzPercentage type=&quot;Int&quot;&gt;0&lt;/rekeyFuzzPercentage&gt;&#13;&#10;          &lt;rekeyMargin type=&quot;Int&quot;&gt;10&lt;/rekeyMargin&gt;&#13;&#10;        &lt;/ipsecTunnelSetup&gt;&#13;&#10;        &lt;ipsecCertificates type=&quot;Ixia.Aptixia.StackManager.IPSecCertificates&quot; objectid=&quot;aab91a41-8d56-4a42-ac81-50dccaf4d806&quot; version=&quot;6.70.0&quot;&gt;&#13;&#10;          &lt;uniqueCert type=&quot;Bool&quot;&gt;0&lt;/uniqueCert&gt;&#13;&#10;          &lt;certSource type=&quot;String&quot;&gt;kNewCert&lt;/certSource&gt;&#13;&#10;          &lt;caURL type=&quot;String&quot; /&gt;&#13;&#10;          &lt;caDN type=&quot;String&quot; /&gt;&#13;&#10;          &lt;certSubjectDN type=&quot;String&quot; /&gt;&#13;&#10;          &lt;certSubjectAltDN type=&quot;String&quot; /&gt;&#13;&#10;          &lt;remoteIkeId type=&quot;String&quot; /&gt;&#13;&#10;          &lt;bitSize type=&quot;String&quot;&gt;k512&lt;/bitSize&gt;&#13;&#10;          &lt;saveCert type=&quot;Bool&quot;&gt;1&lt;/saveCert&gt;&#13;&#10;          &lt;cacheCertFolder type=&quot;String&quot;&gt;C:\Program Files\Ixia\CachedCerts&lt;/cacheCertFolder&gt;&#13;&#10;          &lt;certParentFolder type=&quot;String&quot;&gt;C:\Program Files\Ixia\CachedCerts&lt;/certParentFolder&gt;&#13;&#10;          &lt;certNumber type=&quot;String&quot; /&gt;&#13;&#10;          &lt;caCertNumber type=&quot;String&quot; /&gt;&#13;&#10;          &lt;earlyExpDate type=&quot;String&quot; /&gt;&#13;&#10;          &lt;lateExpDate type=&quot;String&quot; /&gt;&#13;&#10;          &lt;usePerRangeCertNameExp type=&quot;Bool&quot;&gt;0&lt;/usePerRangeCertNameExp&gt;&#13;&#10;          &lt;checkCrl type=&quot;Bool&quot;&gt;0&lt;/checkCrl&gt;&#13;&#10;          &lt;crlOverrideEnable type=&quot;Bool&quot;&gt;0&lt;/crlOverrideEnable&gt;&#13;&#10;          &lt;crlOverrideUrl type=&quot;String&quot; /&gt;&#13;&#10;          &lt;checkOcsp type=&quot;Bool&quot;&gt;0&lt;/checkOcsp&gt;&#13;&#10;          &lt;ocspOverrideEnable type=&quot;Bool&quot;&gt;0&lt;/ocspOverrideEnable&gt;&#13;&#10;          &lt;ocspOverrideUrl type=&quot;String&quot; /&gt;&#13;&#10;          &lt;unknownIsRevoked type=&quot;Bool&quot;&gt;0&lt;/unknownIsRevoked&gt;&#13;&#10;          &lt;certProto type=&quot;String&quot;&gt;kSCEP&lt;/certProto&gt;&#13;&#10;        &lt;/ipsecCertificates&gt;&#13;&#10;        &lt;ipsecCertManager type=&quot;Ixia.Aptixia.StackManager.IPSecCertManager&quot; objectid=&quot;99e16ac7-9488-46bd-9315-739f438c1b05&quot; version=&quot;6.70.0&quot;&gt;&#13;&#10;          &lt;caURL type=&quot;String&quot; /&gt;&#13;&#10;          &lt;caDN type=&quot;String&quot;&gt;CN=RootCA,C=RO,L=Bucharest,O=Ixia,OU=IxLoad,IP:201.121.87.2,email:ixia@ixiacom.com&lt;/caDN&gt;&#13;&#10;          &lt;certSubjectDN type=&quot;String&quot;&gt;CN=IxiaVPN,C=RO,L=Bucharest,O=Ixia&lt;/certSubjectDN&gt;&#13;&#10;          &lt;keyGenAlgo type=&quot;String&quot;&gt;kRSA_512&lt;/keyGenAlgo&gt;&#13;&#10;          &lt;cacheCertFolder type=&quot;String&quot;&gt;C:\Program Files\Ixia\CachedCerts&lt;/cacheCertFolder&gt;&#13;&#10;          &lt;caKeyFile type=&quot;String&quot;&gt;C:\Program Files\Ixia\ca-priv.key&lt;/caKeyFile&gt;&#13;&#10;          &lt;caCrtFile type=&quot;String&quot;&gt;C:\Program Files\Ixia\ca-cert.crt&lt;/caCrtFile&gt;&#13;&#10;          &lt;certNumber type=&quot;Int&quot;&gt;1&lt;/certNumber&gt;&#13;&#10;          &lt;certProto type=&quot;String&quot;&gt;kSCEP&lt;/certProto&gt;&#13;&#10;          &lt;createRootCA type=&quot;Bool&quot;&gt;0&lt;/createRootCA&gt;&#13;&#10;          &lt;uniqueCert type=&quot;Bool&quot;&gt;0&lt;/uniqueCert&gt;&#13;&#10;          &lt;descFilePath type=&quot;String&quot;&gt;C:\Program Files\Ixia\CachedCerts\sample.desc&lt;/descFilePath&gt;&#13;&#10;          &lt;useDescFile type=&quot;Bool&quot;&gt;0&lt;/useDescFile&gt;&#13;&#10;        &lt;/ipsecCertManager&gt;&#13;&#10;        &lt;eapSimTuples type=&quot;ListNode&quot; /&gt;&#13;&#10;        &lt;eapAkaTuples type=&quot;ListNode&quot; /&gt;&#13;&#10;        &lt;maxInitiationRate type=&quot;Int&quot;&gt;50&lt;/maxInitiationRate&gt;&#13;&#10;        &lt;maxPendingTunnels type=&quot;Int&quot;&gt;50&lt;/maxPendingTunnels&gt;&#13;&#10;        &lt;negotiationStartDelay type=&quot;Int&quot;&gt;0&lt;/negotiationStartDelay&gt;&#13;&#10;        &lt;teardownRate type=&quot;Int&quot;&gt;10&lt;/teardownRate&gt;&#13;&#10;        &lt;burstInitiation type=&quot;Bool&quot;&gt;0&lt;/burstInitiation&gt;&#13;&#10;        &lt;parallelInitiation type=&quot;Bool&quot;&gt;0&lt;/parallelInitiation&gt;&#13;&#10;        &lt;enableExtraPortLogging type=&quot;Bool&quot;&gt;0&lt;/enableExtraPortLogging&gt;&#13;&#10;        &lt;enableWildcardTsi type=&quot;Bool&quot;&gt;0&lt;/enableWildcardTsi&gt;&#13;&#10;        &lt;enableWildcardTsr type=&quot;Bool&quot;&gt;0&lt;/enableWildcardTsr&gt;&#13;&#10;        &lt;enablePlutoWildcardTsi type=&quot;Bool&quot;&gt;0&lt;/enablePlutoWildcardTsi&gt;&#13;&#10;        &lt;enablePlutoModeCfgWildcardTsr type=&quot;Bool&quot;&gt;1&lt;/enablePlutoModeCfgWildcardTsr&gt;&#13;&#10;        &lt;enablePlutoS2SWildcardTsr type=&quot;Bool&quot;&gt;0&lt;/enablePlutoS2SWildcardTsr&gt;&#13;&#10;      &lt;/Ixia.Aptixia.StackManager.IPSecSessionData&gt;&#13;&#10;    &lt;/typeSpecificData&gt;&#13;&#10;    &lt;statViewManager type=&quot;Ixia.Aptixia.StackManager.StatViewManager&quot; objectid=&quot;7256ce27-286c-475d-b198-09b4ae306f73&quot; version=&quot;6.70.420&quot;&gt;&#13;&#10;      &lt;enableStats type=&quot;Bool&quot;&gt;0&lt;/enableStats&gt;&#13;&#10;      &lt;enableOverviewStats type=&quot;Bool&quot;&gt;0&lt;/enableOverviewStats&gt;&#13;&#10;      &lt;enablePerSessionStats type=&quot;Bool&quot;&gt;0&lt;/enablePerSessionStats&gt;&#13;&#10;    &lt;/statViewManager&gt;&#13;&#10;    &lt;waitForLinkUp type=&quot;Bool&quot;&gt;0&lt;/waitForLinkUp&gt;&#13;&#10;    &lt;overloadProtection type=&quot;Bool&quot;&gt;1&lt;/overloadProtection&gt;&#13;&#10;  &lt;/Ixia.Aptixia.StackManager.SMSession&gt;&#13;&#10;&lt;/rpf&gt;</xml>
+ </_smSessionXml>
+ <_composerConfig ver="[0, [1, [0, [0]]]]" type="ixComposerConfig">
+  <xml type="str"></xml>
+ </_composerConfig>
+ <_quickTestConfig ver="[0, [1, [0, [0]]]]" type="ixQuickTestConfig">
+  <xml type="str">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&#13;&#10;&lt;Config&gt;&#13;&#10;  &lt;configs Version=&quot;5.0&quot; /&gt;&#13;&#10;&lt;/Config&gt;</xml>
+ </_quickTestConfig>
+ <lastApiUniqueId type="int">12741</lastApiUniqueId>
+ <version type="str">6.70.0.287</version>
+ <name type="str">HTTP-Save.rxf</name>
+ <comment type="str"></comment>
+ <path type="str">Z:\Ixia\Workspace\ixia-ixLoad-ixRepository-API\samples\configs</path>
+ <last type="str">HTTP-172.rxf</last>
+ <activeTest type="str">Test1</activeTest>
+ <chassisChain ver="[1, [1, [0, [0]]]]" oid="3" type="ixChassisChain">
+  <chassisList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixChassisSequenceContainer" itemtype="ixChassis">
+   <item ver="[1, [1, [0, [0]]]]" oid="0" type="ixChassis">
+    <name type="str">172.16.174.137</name>
+    <id type="int">1</id>
+    <hiddenCards type="NoneType">None</hiddenCards>
+   </item>
+  </chassisList>
+  <_apiUniqueId type="int">12642</_apiUniqueId>
+  <chassisMap type="dict">
+   <item>
+    <key type="int">1</key>
+    <value ref="0"/>
+   </item>
+  </chassisMap>
+  <hiddenChassis type="NoneType">None</hiddenChassis>
+ </chassisChain>
+ <AfmPortPacketRewriteConfigList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixAfmPortPacketRewriteConfigList" itemtype="ixAfmPortPacketRewriteConfig"/>
+ <networkList ver="[0, [0, [1, [0, [3, [0, [0, [0], [0]], [0]]]]]]]" type="ixRepositoryNetworkList" itemtype="ixNullNetwork"/>
+ <dutList ver="[0, [0, [1, [0, [3, [0, [0, [0], [0]], [0]]]]]]]" type="ixDutList" itemtype="ixDut"/>
+ <trafficList ver="[0, [0, [1, [0, [3, [0, [0, [0], [0]], [0]]]]]]]" type="ixTrafficList" itemtype="ixActivityModel"/>
+ <testList ver="[0, [0, [1, [0, [3, [0, [0, [0], [0]], [0]]]]]]]" type="ixTestList" itemtype="ixTestEnvelope">
+  <item ver="[18, [1, [0, [0]]]]" type="ixTestEnvelope">
+   <name type="str">Test1</name>
+   <comment type="str"></comment>
+   <enableForceOwnership type="bool">False</enableForceOwnership>
+   <enableResetPorts type="bool">False</enableResetPorts>
+   <statsRequired type="bool">True</statsRequired>
+   <enableConditionalView type="bool">False</enableConditionalView>
+   <conditionalViewType type="int">0</conditionalViewType>
+   <conditionalViewList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixConditionalViewList" itemtype="ixConditionalView"/>
+   <enableReleaseConfigAfterRun type="bool">False</enableReleaseConfigAfterRun>
+   <csvInterval type="int">2</csvInterval>
+   <networkFailureThreshold type="int">0</networkFailureThreshold>
+   <captureViewOptions ver="[1, [1, [0, [0]]]]" oid="9" type="ixViewOptions">
+    <runMode type="int">1</runMode>
+    <collectScheme type="int">0</collectScheme>
+    <allocatedBufferMemoryPercentage type="long">30</allocatedBufferMemoryPercentage>
+    <captureRunAfter type="int">0</captureRunAfter>
+    <captureRunDuration type="int">0</captureRunDuration>
+    <_apiUniqueId type="int">12594</_apiUniqueId>
+   </captureViewOptions>
+   <scenarioList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixScenarioList" itemtype="ixScenario">
+    <item ver="[3, [1, [0, [0]]]]" type="ixScenario">
+     <name type="str">Scenario1</name>
+     <columnList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixTrafficColumnList" itemtype="ixTrafficColumn">
+      <item ver="[0, [1, [0, [0]]]]" type="ixTrafficColumn">
+       <name type="str">Originate</name>
+       <elementList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixScenarioElementList" itemtype="ixScenarioElement">
+	<item ver="[1, [22, [0, [1, [0, [0]]]]]]" oid="1" type="ixNetTraffic">
+	 <name type="str">Traffic1@Network1</name>
+	 <column type="NoneType">None</column>
+	 <scenarioElementType type="str">netTraffic</scenarioElementType>
+	 <enable type="bool">True</enable>
+	 <role type="str">Client</role>
+	 <networkType type="str">ethernet</networkType>
+	 <activityFunction type="str">ipTrafficAgent</activityFunction>
+	 <activeRole type="str">Client</activeRole>
+	 <networkActivityList ver="[0, [0, [0, [3, [0, [0, [0], [0]], [0]]]]]]" type="ixNetworkActivityList" itemtype="ixNetworkActivity"/>
+	 <activityGroupList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixActivityGroupList" itemtype="ixActivityGroup"/>
+	 <traffic ver="[6, [1, [0, [0]]]]" type="ixActivityModel">
+	  <resourceSyncTimeStamp type="NoneType">None</resourceSyncTimeStamp>
+	  <name type="str">Traffic1</name>
+	  <role type="str">Client</role>
+	  <activityFunction type="str">ipTrafficAgent</activityFunction>
+	  <payload type="NoneType">None</payload>
+	  <agentList ver="[2, [0, [0, [3, [0, [0, [0], [0]], [0]]]]]]" type="_agentListSequenceContainer" itemtype="ixAgent">
+	   <item ver="[32, [0, [0, [0, [5, [1, [0, [0]]]]], [0, [0]]]], [5, [0, [0, [5, [1, [0, [0]]]]], [0, [0]]]]]" oid="14" type="HTTP_Client_plugin">
+	    <enable type="int">1</enable>
+	    <name type="str">HTTPClient1</name>
+	    <activityFunction type="str">ipTrafficAgent</activityFunction>
+	    <needToRefreshStatViews type="bool">False</needToRefreshStatViews>
+	    <activeRole type="NoneType">None</activeRole>
+	    <cmdListLoops type="int">0</cmdListLoops>
+	    <cmdPercentagePool ver="[0, [1, [0, [0]]]]" type="ixCommandPercentagePool">
+	     <seed type="int">1</seed>
+	     <percentageCommandList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixCommandPercentageInfoList" itemtype="ixCommandPercentageInfo"/>
+	     <_apiUniqueId type="int">12596</_apiUniqueId>
+	    </cmdPercentagePool>
+	    <sources ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixSourceList" itemtype="ixSource"/>
+	    <destinations ver="[1, [3, [0, [0, [0], [0]], [0]]]]" type="ixDestinationList" itemtype="ixDestination">
+	     <item ver="[0, [3, [1, [0, [0]]]]]" type="ixAgentDestination">
+	      <name type="str">Traffic2_HTTPServer1</name>
+	      <portMapPolicy type="str">portPairs</portMapPolicy>
+	      <sameAs type="str"></sameAs>
+	      <validPortMapPolicies type="list">
+	       <item type="str">portPairs</item>
+	       <item type="str">portMesh</item>
+	       <item type="str">customMesh</item>
+	      </validPortMapPolicies>
+	      <inUse type="bool">True</inUse>
+	      <customPortMap type="NoneType">None</customPortMap>
+	      <sourceCommunity ref="1"/>
+	      <destinationCommunity ver="[1, [22, [0, [1, [0, [0]]]]]]" oid="17" type="ixNetTraffic">
+	       <name type="str">Traffic2@Network2</name>
+	       <column type="NoneType">None</column>
+	       <scenarioElementType type="str">netTraffic</scenarioElementType>
+	       <enable type="int">1</enable>
+	       <role type="str">Server</role>
+	       <networkType type="str">ethernet</networkType>
+	       <activityFunction type="str">ipTrafficAgent</activityFunction>
+	       <activeRole type="str">Server</activeRole>
+	       <networkActivityList ver="[0, [0, [0, [3, [0, [0, [0], [0]], [0]]]]]]" type="ixNetworkActivityList" itemtype="ixNetworkActivity"/>
+	       <activityGroupList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixActivityGroupList" itemtype="ixActivityGroup"/>
+	       <traffic ver="[6, [1, [0, [0]]]]" type="ixActivityModel">
+		<resourceSyncTimeStamp type="NoneType">None</resourceSyncTimeStamp>
+		<name type="str">Traffic2</name>
+		<role type="str">Server</role>
+		<activityFunction type="str">ipTrafficAgent</activityFunction>
+		<payload type="NoneType">None</payload>
+		<agentList ver="[2, [0, [0, [3, [0, [0, [0], [0]], [0]]]]]]" type="_agentListSequenceContainer" itemtype="ixAgent">
+		 <item ver="[17, [0, [0, [0, [5, [1, [0, [0]]]], [0]], [0, [0]]]], [2, [0, [0, [5, [1, [0, [0]]]], [0]], [0, [0]]]]]" oid="7" type="HTTP_Server_plugin">
+		  <enable type="int">1</enable>
+		  <name type="str">HTTPServer1</name>
+		  <activityFunction type="str">ipTrafficAgent</activityFunction>
+		  <needToRefreshStatViews type="bool">False</needToRefreshStatViews>
+		  <activeRole type="NoneType">None</activeRole>
+		  <loopValue type="int">1</loopValue>
+		  <cmdListLoops type="int">0</cmdListLoops>
+		  <cmdPercentagePool type="NoneType">None</cmdPercentagePool>
+		  <sources ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixSourceList" itemtype="ixSource"/>
+		  <destinations ver="[1, [3, [0, [0, [0], [0]], [0]]]]" type="ixDestinationList" itemtype="ixDestination"/>
+		  <flowPercentage type="float">100.0</flowPercentage>
+		  <httpPort type="str">80</httpPort>
+		  <httpsPort type="str">443</httpsPort>
+		  <requestTimeout type="int">300</requestTimeout>
+		  <minResponseDelay type="int">0</minResponseDelay>
+		  <maxResponseDelay type="int">0</maxResponseDelay>
+		  <acceptSslConnections type="int">0</acceptSslConnections>
+		  <enablesslRecordSize type="int">0</enablesslRecordSize>
+		  <validateCertificate type="int">0</validateCertificate>
+		  <sslRecordSize type="str">16384</sslRecordSize>
+		  <urlStatsCount type="int">10</urlStatsCount>
+		  <rstTimeout type="int">100</rstTimeout>
+		  <enableEsm type="int">0</enableEsm>
+		  <esm type="int">1460</esm>
+		  <enableTos type="int">0</enableTos>
+		  <enableVlanPriority type="int">0</enableVlanPriority>
+		  <vlanPriority type="int">0</vlanPriority>
+		  <enableIntegrityCheck type="int">0</enableIntegrityCheck>
+		  <tos type="int">0</tos>
+		  <precedenceTOS type="int">0</precedenceTOS>
+		  <delayTOS type="int">0</delayTOS>
+		  <throughputTOS type="int">0</throughputTOS>
+		  <reliabilityTOS type="int">0</reliabilityTOS>
+		  <enablePerServerPerURLstat type="int">0</enablePerServerPerURLstat>
+		  <responseHeaderList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixResponseHeaderList" itemtype="ixResponseHeader">
+		   <item ver="[0, [1, [0, [0]]]]" type="ixResponseHeader">
+		    <name type="str">200_OK</name>
+		    <description type="str">OK</description>
+		    <code type="str">200</code>
+		    <mimeType type="str">text/plain</mimeType>
+		    <dateMode type="int">2</dateMode>
+		    <dateTimeValue type="str">2015/07/29 09:31:51</dateTimeValue>
+		    <dateIncrementEnable type="bool">False</dateIncrementEnable>
+		    <dateIncrementBy type="int">5</dateIncrementBy>
+		    <dateIncrementFor type="int">1</dateIncrementFor>
+		    <dateZone type="str">GMT</dateZone>
+		    <expirationMode type="int">0</expirationMode>
+		    <expirationDateTimeValue type="str">2015/08/28 09:31:51</expirationDateTimeValue>
+		    <expirationAfterRequestValue type="int">3600</expirationAfterRequestValue>
+		    <expirationAfterLastModifiedValue type="int">3600</expirationAfterLastModifiedValue>
+		    <lastModifiedMode type="int">1</lastModifiedMode>
+		    <lastModifiedDateTimeValue type="str">2015/07/29 09:31:51</lastModifiedDateTimeValue>
+		    <lastModifiedIncrementEnable type="bool">False</lastModifiedIncrementEnable>
+		    <lastModifiedIncrementBy type="int">5</lastModifiedIncrementBy>
+		    <lastModifiedIncrementFor type="int">1</lastModifiedIncrementFor>
+		    <responseList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixwebHttpResponseList" itemtype="_httpResponseString"/>
+		    <readOnly type="bool">True</readOnly>
+		    <enableCustomPutResponse type="bool">False</enableCustomPutResponse>
+		    <_apiUniqueId type="int">12623</_apiUniqueId>
+		   </item>
+		   <item ver="[0, [1, [0, [0]]]]" type="ixResponseHeader">
+		    <name type="str">404_PageNotFound</name>
+		    <description type="str">Page not found</description>
+		    <code type="int">404</code>
+		    <mimeType type="str">text/plain</mimeType>
+		    <dateMode type="int">2</dateMode>
+		    <dateTimeValue type="str">2015/07/29 09:31:51</dateTimeValue>
+		    <dateIncrementEnable type="bool">False</dateIncrementEnable>
+		    <dateIncrementBy type="int">5</dateIncrementBy>
+		    <dateIncrementFor type="int">1</dateIncrementFor>
+		    <dateZone type="str">GMT</dateZone>
+		    <expirationMode type="int">0</expirationMode>
+		    <expirationDateTimeValue type="str">2015/08/28 09:31:51</expirationDateTimeValue>
+		    <expirationAfterRequestValue type="int">3600</expirationAfterRequestValue>
+		    <expirationAfterLastModifiedValue type="int">3600</expirationAfterLastModifiedValue>
+		    <lastModifiedMode type="int">1</lastModifiedMode>
+		    <lastModifiedDateTimeValue type="str">2015/07/29 09:31:51</lastModifiedDateTimeValue>
+		    <lastModifiedIncrementEnable type="bool">False</lastModifiedIncrementEnable>
+		    <lastModifiedIncrementBy type="int">5</lastModifiedIncrementBy>
+		    <lastModifiedIncrementFor type="int">1</lastModifiedIncrementFor>
+		    <responseList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixwebHttpResponseList" itemtype="_httpResponseString"/>
+		    <readOnly type="bool">True</readOnly>
+		    <enableCustomPutResponse type="bool">False</enableCustomPutResponse>
+		    <_apiUniqueId type="int">12624</_apiUniqueId>
+		   </item>
+		  </responseHeaderList>
+		  <cookieList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixCookieList" itemtype="ixCookieObject">
+		   <item ver="[0, [1, [0, [0]]]]" type="ixCookieObject">
+		    <name type="str">UserCookie</name>
+		    <description type="str">Name of User</description>
+		    <type type="int">2</type>
+		    <mode type="int">3</mode>
+		    <cookieContentList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixCookieContentList" itemtype="ixCookieContent">
+		     <item ver="[0, [1, [0, [0]]]]" type="ixCookieContent">
+		      <name type="str">firstName</name>
+		      <value type="str">Joe</value>
+		      <path type="str"></path>
+		      <maxAge type="str"></maxAge>
+		      <domain type="str"></domain>
+		      <other type="str"></other>
+		     </item>
+		     <item ver="[0, [1, [0, [0]]]]" type="ixCookieContent">
+		      <name type="str">lastName</name>
+		      <value type="str">Smith</value>
+		      <path type="str"></path>
+		      <maxAge type="str"></maxAge>
+		      <domain type="str"></domain>
+		      <other type="str"></other>
+		     </item>
+		    </cookieContentList>
+		    <readOnly type="bool">True</readOnly>
+		    <_apiUniqueId type="int">12638</_apiUniqueId>
+		   </item>
+		   <item ver="[0, [1, [0, [0]]]]" type="ixCookieObject">
+		    <name type="str">LoginCookie</name>
+		    <description type="str">Login name and password</description>
+		    <type type="int">2</type>
+		    <mode type="int">2</mode>
+		    <cookieContentList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixCookieContentList" itemtype="ixCookieContent">
+		     <item ver="[0, [1, [0, [0]]]]" type="ixCookieContent">
+		      <name type="str">name</name>
+		      <value type="str">joesmith</value>
+		      <path type="str"></path>
+		      <maxAge type="str"></maxAge>
+		      <domain type="str"></domain>
+		      <other type="str"></other>
+		     </item>
+		     <item ver="[0, [1, [0, [0]]]]" type="ixCookieContent">
+		      <name type="str">password</name>
+		      <value type="str">foobar</value>
+		      <path type="str"></path>
+		      <maxAge type="str"></maxAge>
+		      <domain type="str"></domain>
+		      <other type="str"></other>
+		     </item>
+		    </cookieContentList>
+		    <readOnly type="bool">True</readOnly>
+		    <_apiUniqueId type="int">12639</_apiUniqueId>
+		   </item>
+		  </cookieList>
+		  <webPageList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixWebPageList" itemtype="ixWebPageObject">
+		   <item ver="[1, [1, [0, [0]]]]" type="ixWebPageObject">
+		    <page type="str">/1b.html</page>
+		    <response ver="[0, [1, [0, [0]]]]" oid="2" type="ixResponseHeader">
+		     <name type="str">200_OK</name>
+		     <description type="str">OK</description>
+		     <code type="str">200</code>
+		     <mimeType type="str">text/plain</mimeType>
+		     <dateMode type="int">2</dateMode>
+		     <dateTimeValue type="str">2015/07/29 09:31:51</dateTimeValue>
+		     <dateIncrementEnable type="bool">False</dateIncrementEnable>
+		     <dateIncrementBy type="int">5</dateIncrementBy>
+		     <dateIncrementFor type="int">1</dateIncrementFor>
+		     <dateZone type="str">GMT</dateZone>
+		     <expirationMode type="int">0</expirationMode>
+		     <expirationDateTimeValue type="str">2015/08/28 09:31:51</expirationDateTimeValue>
+		     <expirationAfterRequestValue type="int">3600</expirationAfterRequestValue>
+		     <expirationAfterLastModifiedValue type="int">3600</expirationAfterLastModifiedValue>
+		     <lastModifiedMode type="int">1</lastModifiedMode>
+		     <lastModifiedDateTimeValue type="str">2015/07/29 09:31:51</lastModifiedDateTimeValue>
+		     <lastModifiedIncrementEnable type="bool">False</lastModifiedIncrementEnable>
+		     <lastModifiedIncrementBy type="int">5</lastModifiedIncrementBy>
+		     <lastModifiedIncrementFor type="int">1</lastModifiedIncrementFor>
+		     <responseList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixwebHttpResponseList" itemtype="_httpResponseString"/>
+		     <readOnly type="bool">True</readOnly>
+		     <enableCustomPutResponse type="bool">False</enableCustomPutResponse>
+		     <_apiUniqueId type="int">12635</_apiUniqueId>
+		    </response>
+		    <payloadType type="str">range</payloadType>
+		    <payloadSize type="str">1-1</payloadSize>
+		    <payloadFile type="str">&lt;specify file&gt;</payloadFile>
+		    <cookie type="NoneType">None</cookie>
+		    <customPayloadId type="int">-1</customPayloadId>
+		    <Md5Option type="int">3</Md5Option>
+		    <chunkSize type="str">1</chunkSize>
+		    <_apiUniqueId type="int">12625</_apiUniqueId>
+		   </item>
+		   <item ver="[1, [1, [0, [0]]]]" type="ixWebPageObject">
+		    <page type="str">/4k.html</page>
+		    <response ref="2"/>
+		    <payloadType type="str">range</payloadType>
+		    <payloadSize type="str">4096-4096</payloadSize>
+		    <payloadFile type="str">&lt;specify file&gt;</payloadFile>
+		    <cookie type="NoneType">None</cookie>
+		    <customPayloadId type="int">-1</customPayloadId>
+		    <Md5Option type="int">3</Md5Option>
+		    <chunkSize type="str">512-1024</chunkSize>
+		    <_apiUniqueId type="int">12626</_apiUniqueId>
+		   </item>
+		   <item ver="[1, [1, [0, [0]]]]" type="ixWebPageObject">
+		    <page type="str">/8k.html</page>
+		    <response ref="2"/>
+		    <payloadType type="str">range</payloadType>
+		    <payloadSize type="str">8192-8192</payloadSize>
+		    <payloadFile type="str">&lt;specify file&gt;</payloadFile>
+		    <cookie type="NoneType">None</cookie>
+		    <customPayloadId type="int">-1</customPayloadId>
+		    <Md5Option type="int">3</Md5Option>
+		    <chunkSize type="str">512-1024</chunkSize>
+		    <_apiUniqueId type="int">12627</_apiUniqueId>
+		   </item>
+		   <item ver="[1, [1, [0, [0]]]]" type="ixWebPageObject">
+		    <page type="str">/16k.html</page>
+		    <response ref="2"/>
+		    <payloadType type="str">range</payloadType>
+		    <payloadSize type="str">16536-16536</payloadSize>
+		    <payloadFile type="str">&lt;specify file&gt;</payloadFile>
+		    <cookie type="NoneType">None</cookie>
+		    <customPayloadId type="int">-1</customPayloadId>
+		    <Md5Option type="int">3</Md5Option>
+		    <chunkSize type="str">512-1024</chunkSize>
+		    <_apiUniqueId type="int">12628</_apiUniqueId>
+		   </item>
+		   <item ver="[1, [1, [0, [0]]]]" type="ixWebPageObject">
+		    <page type="str">/32k.html</page>
+		    <response ref="2"/>
+		    <payloadType type="str">range</payloadType>
+		    <payloadSize type="str">32768</payloadSize>
+		    <payloadFile type="str">&lt;specify file&gt;</payloadFile>
+		    <cookie type="NoneType">None</cookie>
+		    <customPayloadId type="int">-1</customPayloadId>
+		    <Md5Option type="int">3</Md5Option>
+		    <chunkSize type="str">512-1024</chunkSize>
+		    <_apiUniqueId type="int">12629</_apiUniqueId>
+		   </item>
+		   <item ver="[1, [1, [0, [0]]]]" type="ixWebPageObject">
+		    <page type="str">/64k.html</page>
+		    <response ref="2"/>
+		    <payloadType type="str">range</payloadType>
+		    <payloadSize type="str">65536</payloadSize>
+		    <payloadFile type="str">&lt;specify file&gt;</payloadFile>
+		    <cookie type="NoneType">None</cookie>
+		    <customPayloadId type="int">-1</customPayloadId>
+		    <Md5Option type="int">3</Md5Option>
+		    <chunkSize type="str">512-1024</chunkSize>
+		    <_apiUniqueId type="int">12630</_apiUniqueId>
+		   </item>
+		   <item ver="[1, [1, [0, [0]]]]" type="ixWebPageObject">
+		    <page type="str">/128k.html</page>
+		    <response ref="2"/>
+		    <payloadType type="str">range</payloadType>
+		    <payloadSize type="str">131072</payloadSize>
+		    <payloadFile type="str">&lt;specify file&gt;</payloadFile>
+		    <cookie type="NoneType">None</cookie>
+		    <customPayloadId type="int">-1</customPayloadId>
+		    <Md5Option type="int">3</Md5Option>
+		    <chunkSize type="str">512-1024</chunkSize>
+		    <_apiUniqueId type="int">12631</_apiUniqueId>
+		   </item>
+		   <item ver="[1, [1, [0, [0]]]]" type="ixWebPageObject">
+		    <page type="str">/256k.html</page>
+		    <response ref="2"/>
+		    <payloadType type="str">range</payloadType>
+		    <payloadSize type="str">262144</payloadSize>
+		    <payloadFile type="str">&lt;specify file&gt;</payloadFile>
+		    <cookie type="NoneType">None</cookie>
+		    <customPayloadId type="int">-1</customPayloadId>
+		    <Md5Option type="int">3</Md5Option>
+		    <chunkSize type="str">512-1024</chunkSize>
+		    <_apiUniqueId type="int">12632</_apiUniqueId>
+		   </item>
+		   <item ver="[1, [1, [0, [0]]]]" type="ixWebPageObject">
+		    <page type="str">/512k.html</page>
+		    <response ref="2"/>
+		    <payloadType type="str">range</payloadType>
+		    <payloadSize type="str">524288</payloadSize>
+		    <payloadFile type="str">&lt;specify file&gt;</payloadFile>
+		    <cookie type="NoneType">None</cookie>
+		    <customPayloadId type="int">-1</customPayloadId>
+		    <Md5Option type="int">3</Md5Option>
+		    <chunkSize type="str">512-1024</chunkSize>
+		    <_apiUniqueId type="int">12633</_apiUniqueId>
+		   </item>
+		   <item ver="[1, [1, [0, [0]]]]" type="ixWebPageObject">
+		    <page type="str">/1024k.html</page>
+		    <response ref="2"/>
+		    <payloadType type="str">range</payloadType>
+		    <payloadSize type="str">1048576</payloadSize>
+		    <payloadFile type="str">&lt;specify file&gt;</payloadFile>
+		    <cookie type="NoneType">None</cookie>
+		    <customPayloadId type="int">-1</customPayloadId>
+		    <Md5Option type="int">3</Md5Option>
+		    <chunkSize type="str">512-1024</chunkSize>
+		    <_apiUniqueId type="int">12634</_apiUniqueId>
+		   </item>
+		  </webPageList>
+		  <ServerCiphers type="str">DEFAULT</ServerCiphers>
+		  <privateKeyPassword type="str"></privateKeyPassword>
+		  <privateKey type="str"></privateKey>
+		  <certificate type="str"></certificate>
+		  <caCert type="str"></caCert>
+		  <enableDHsupport type="int">0</enableDHsupport>
+		  <enableSslSendCloseNotify type="int">0</enableSslSendCloseNotify>
+		  <dhParams type="str"></dhParams>
+		  <tcpCloseOption type="int">0</tcpCloseOption>
+		  <docrootfile type="str"></docrootfile>
+		  <customPayloadList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixCustomPayloadList" itemtype="ixCustomPayloadObject">
+		   <item ver="[0, [1, [0, [0]]]]" type="ixCustomPayloadObject">
+		    <id type="int">0</id>
+		    <name type="str">AsciiCustomPayload</name>
+		    <payloadPosition type="str">Start With</payloadPosition>
+		    <payloadmode type="int">0</payloadmode>
+		    <asciiPayloadValue type="str">Ixia-Ixload-Http-Server-Custom-Payload</asciiPayloadValue>
+		    <hexPayloadValue type="str"></hexPayloadValue>
+		    <repeat type="int">0</repeat>
+		    <offset type="int">1</offset>
+		    <readOnly type="bool">True</readOnly>
+		    <_apiUniqueId type="int">12636</_apiUniqueId>
+		   </item>
+		   <item ver="[0, [1, [0, [0]]]]" type="ixCustomPayloadObject">
+		    <id type="int">1</id>
+		    <name type="str">HexCustomPayload</name>
+		    <payloadPosition type="str">Start With</payloadPosition>
+		    <payloadmode type="int">1</payloadmode>
+		    <asciiPayloadValue type="str"></asciiPayloadValue>
+		    <hexPayloadValue type="str">49 78 69 61 2d 49 78 6c 6f 61 64 2d 48 74 74 70 2d 53 65 72 76 65 72 2d 43 75 73 74 6f 6d 2d 50 61 79 6c 6f 61 64</hexPayloadValue>
+		    <repeat type="int">0</repeat>
+		    <offset type="int">1</offset>
+		    <readOnly type="bool">True</readOnly>
+		    <_apiUniqueId type="int">12637</_apiUniqueId>
+		   </item>
+		  </customPayloadList>
+		  <enableMD5Checksum type="bool">False</enableMD5Checksum>
+		  <integrityCheckOption type="str">Custom MD5</integrityCheckOption>
+		  <uniqueID type="int">4</uniqueID>
+		  <enableChunkEncoding type="bool">False</enableChunkEncoding>
+		  <docrootChunkSize type="str">512-1024</docrootChunkSize>
+		  <urlPageSize type="int">1024</urlPageSize>
+		  <enableChunkedRequest type="bool">False</enableChunkedRequest>
+		  <enableNewSslSupport type="bool">False</enableNewSslSupport>
+		  <_apiUniqueId type="int">12622</_apiUniqueId>
+		  <commandIdCounter type="int">0</commandIdCounter>
+		  <networkPluginSettings ver="[0]" type="ixNetworkActivityPluginSupport">
+		   <serializedNetworkSettingsMap ver="[0, [0, [0]]]" type="ixOrderedDict">
+		    <_dict type="list"/>
+		   </serializedNetworkSettingsMap>
+		   <protocolName type="str">HTTP</protocolName>
+		  </networkPluginSettings>
+		 </item>
+		</agentList>
+	       </traffic>
+	       <network ver="[15, [1, [5, [1, [0, [0]]]]]]" type="ixNetworkGroup">
+		<resourceSyncTimeStamp type="NoneType">None</resourceSyncTimeStamp>
+		<name type="str">Network2</name>
+		<role type="str">Server</role>
+		<networkType type="str">none</networkType>
+		<aggregation type="int">0</aggregation>
+		<lineSpeed type="str">Default</lineSpeed>
+		<cpuAggregation type="bool">False</cpuAggregation>
+		<chassisChain ref="3"/>
+		<cardType type="str">Ixia Virtual Load Module</cardType>
+		<activePortList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="_portListSequenceContainer" itemtype="ixConfig"/>
+		<portList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="_portListSequenceContainer" itemtype="ixConfig">
+		 <item ver="[3, [1, [1, [0, [0]]]]]" type="ixPort">
+		  <chassisId type="int">1</chassisId>
+		  <cardId type="int">2</cardId>
+		  <portId type="int">1</portId>
+		  <enableCapture type="bool">False</enableCapture>
+		  <cardType type="str">Ixia Virtual Load Module</cardType>
+		  <portPersistentSetting ver="[0, [1, [0, [0]]]]" type="ixPortPersistentSetting">
+		   <viewFilter ver="[0, [1, [0, [0]]]]" type="ixViewFilter">
+		    <filterString type="str"></filterString>
+		   </viewFilter>
+		  </portPersistentSetting>
+		  <analyzerPartialCapture type="str">False;20</analyzerPartialCapture>
+		  <name type="str"></name>
+		  <afmPort type="NoneType">None</afmPort>
+		 </item>
+		</portList>
+		<comment type="str"></comment>
+		<networkRangeList ver="[0, [2, [0, [3, [0, [0, [0], [0]], [0]]]]]]" type="ixNetworkRangeListSequenceContainer" itemtype="ixNetworkRange">
+		 <item ver="[13, [1, [1, [1, [0, [0]]]]]]" oid="4" type="ixNetworkRange">
+		  <_smRangeObjectId type="str">91a11d2e-7c41-44d1-9761-856482f980ec</_smRangeObjectId>
+		  <name type="str">Network Range IP-R2 in Network2 (10.10.0.10+1)</name>
+		  <rangeGroup ver="[3, [0, [1, [0, [0]]]]]" oid="5" type="ixIpDistributionGroup">
+		   <name type="str">DistGroup1</name>
+		   <ipDistributionMethod type="str">consecutiveIps</ipDistributionMethod>
+		   <_apiUniqueId type="int">12612</_apiUniqueId>
+		   <_networkRangeList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixWeakrefSequenceContainer" itemtype="ixBasicNetworkRange">
+		    <item ref="4"/>
+		   </_networkRangeList>
+		   <_rangeGroupObjectId type="str">1a39f42b-d2ca-4ece-9413-93a61165f24d</_rangeGroupObjectId>
+		   <_smPluginObjectId type="str">ce4191ca-8fae-4993-bdec-36355fb9eb0a</_smPluginObjectId>
+		  </rangeGroup>
+		  <enableStats type="bool">False</enableStats>
+		 </item>
+		</networkRangeList>
+		<layerPlugins type="NoneType">None</layerPlugins>
+		<stack type="NoneType">None</stack>
+		<rangeGroupList ver="[1, [0, [0, [3, [0, [0, [0], [0]], [0]]]]]]" type="ixIpDistributionGroupList" itemtype="ixIpDistributionGroup">
+		 <item ref="5"/>
+		</rangeGroupList>
+		<dynamicControlPlaneSetting type="int">0</dynamicControlPlaneSetting>
+		<linkLayerOptions type="int">0</linkLayerOptions>
+		<ipSourcePortFrom type="int">1024</ipSourcePortFrom>
+		<ipSourcePortTo type="int">65535</ipSourcePortTo>
+		<emulatedRouterGateway type="str">0.0.0.0</emulatedRouterGateway>
+		<emulatedRouterSubnet type="str">255.255.0.0</emulatedRouterSubnet>
+		<emulatedRouterGatewayIPv6 type="str">::</emulatedRouterGatewayIPv6>
+		<emulatedRouterSubnetIPv6 type="str">FFFF:FFFF:FFFF:FFFF:FFFF:FFFF::0</emulatedRouterSubnetIPv6>
+		<emulatedRouterIpAddressPool ver="[3, [0, [0, [0], [0]], [0]]]" type="ixConfigSequenceContainer" itemtype="ixEmulatedRouterIpAddressRange"/>
+		<macMappingMode type="int">0</macMappingMode>
+		<arpSettings ver="[0, [1, [0, [0]]]]" type="ixArpSettings">
+		 <gratuitousArp type="bool">True</gratuitousArp>
+		 <processGratArp type="bool">False</processGratArp>
+		</arpSettings>
+		<dnsParameters ver="[1, [1, [0, [0]]]]" type="ixDns">
+		 <enable type="int">0</enable>
+		 <cacheTimeout type="int">30000</cacheTimeout>
+		 <serverList ver="[3, [0, [0, [0], [0]], [0]]]" type="ixConfigSequenceContainer" itemtype="_ixDnsServerItem"/>
+		 <suffixList ver="[3, [0, [0, [0], [0]], [0]]]" type="ixConfigSequenceContainer" itemtype="_ixDnsSuffixItem"/>
+		</dnsParameters>
+		<tcpParameters ver="[0, [1, [0, [0]]]]" type="ixTcpParameters">
+		 <tcpParametersFull ver="[4, [1, [0, [0]]]]" oid="6" type="ixTcpParametersFull">
+		  <enableCongestionNotification type="bool">False</enableCongestionNotification>
+		  <enableTimeStamp type="bool">True</enableTimeStamp>
+		  <timeWaitRecycle type="bool">True</timeWaitRecycle>
+		  <timeWaitReuse type="bool">False</timeWaitReuse>
+		  <enableTxBwLimit type="bool">False</enableTxBwLimit>
+		  <txBwLimitUnit type="int">0</txBwLimitUnit>
+		  <txBwLimit type="int">1024</txBwLimit>
+		  <enableRxBwLimit type="bool">False</enableRxBwLimit>
+		  <rxBwLimitUnit type="int">0</rxBwLimitUnit>
+		  <rxBwLimit type="int">1024</rxBwLimit>
+		  <finTimeout type="int">60</finTimeout>
+		  <keepAliveInterval type="int">75</keepAliveInterval>
+		  <keepAliveProbes type="int">9</keepAliveProbes>
+		  <keepAliveTime type="int">7200</keepAliveTime>
+		  <synRetries type="int">5</synRetries>
+		  <synAckRetries type="int">5</synAckRetries>
+		  <retransmitRetries type="int">5</retransmitRetries>
+		  <transmitBuffer type="int">4096</transmitBuffer>
+		  <receiveBuffer type="int">4096</receiveBuffer>
+		  <tcpSack type="bool">True</tcpSack>
+		  <windowScaling type="bool">False</windowScaling>
+		  <rtoMin type="int">200</rtoMin>
+		  <rtoMax type="int">120000</rtoMax>
+		 </tcpParametersFull>
+		 <tcpParametersFull ref="6"/>
+		</tcpParameters>
+		<impairment ver="[5, [1, [0, [0]]]]" type="ixImpairment">
+		 <enable type="bool">False</enable>
+		 <addDelay type="bool">False</addDelay>
+		 <addReorder type="bool">False</addReorder>
+		 <addDrop type="bool">False</addDrop>
+		 <addDuplicate type="bool">False</addDuplicate>
+		 <randomizeSeed type="bool">False</randomizeSeed>
+		 <delay type="int">1</delay>
+		 <reorder type="int">1</reorder>
+		 <reorderLength type="int">1</reorderLength>
+		 <sourcePort type="int">0</sourcePort>
+		 <destinationPort type="int">0</destinationPort>
+		 <drop type="int">1</drop>
+		 <duplicate type="int">1</duplicate>
+		 <jitter type="int">0</jitter>
+		 <gap type="int">1</gap>
+		 <destinationIp type="str">any</destinationIp>
+		 <typeOfService type="str">any</typeOfService>
+		 <protocol type="str">any</protocol>
+		 <addFragmentation type="bool">False</addFragmentation>
+		 <fragmentationType type="str">FragmentationPercent</fragmentationType>
+		 <fragmentPercent type="int">50</fragmentPercent>
+		 <mtu type="int">1000</mtu>
+		 <fragmentSequenceSkip type="int">1</fragmentSequenceSkip>
+		 <fragmentSequenceLength type="int">1</fragmentSequenceLength>
+		 <_seed type="int">1</_seed>
+		</impairment>
+		<_portGroupId type="str">26d829db-f268-4207-8179-019f0d7cc4c7</_portGroupId>
+		<_smExternalLinks ver="[0, [1, [0, [0]]]]" type="_smExternalLinkersMap">
+		 <externalLinks type="dict"/>
+		</_smExternalLinks>
+		<smVersion type="int">1</smVersion>
+	       </network>
+	       <activityParameters ver="[2, [0, [0, [3, [0, [0, [0], [0]], [0]]]]]]" type="ixActivityParametersList" itemtype="ixActivityParameters">
+		<item ver="[0, [19, [1, [1, [0, [0]]]]]]" type="ixActivity">
+		 <agent ref="7"/>
+		 <protocolAndType type="str">HTTP Server</protocolAndType>
+		 <name type="str">HTTPServer1</name>
+		 <enable type="bool">True</enable>
+		 <timeline ver="[0, [2, [2, [1, [1, [0, [0]]]]]]]" oid="8" type="ixMatchLongestTimeline"/>
+		 <customParameters type="NoneType">None</customParameters>
+		 <role type="str">Server</role>
+		 <activeRole type="str">Server</activeRole>
+		 <objectivePercent type="float">100.0</objectivePercent>
+		 <_apiUniqueId type="int">12640</_apiUniqueId>
+		 <_objectiveValue type="int">100</_objectiveValue>
+		 <timelineScale type="float">1.0</timelineScale>
+		</item>
+	       </activityParameters>
+	       <timeline ref="8"/>
+	       <communityCapture ver="[0, [1, [0, [0]]]]" type="ixViewCommunityCapture">
+		<captureViewOptions ref="9"/>
+		<filter ver="[0, [1, [0, [0]]]]" type="ixViewFilter">
+		 <filterString type="str"></filterString>
+		</filter>
+		<portList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="_portListSequenceContainer" itemtype="ixConfig"/>
+		<enable type="bool">False</enable>
+		<_apiUniqueId type="int">12621</_apiUniqueId>
+	       </communityCapture>
+	       <payload type="NoneType">None</payload>
+	       <activityIpWiring ver="[0, [1, [0, [0]]]]" oid="10" type="ixRangeAgentEndpointWiring">
+		<rangeAgentConnections type="list"/>
+		<_apiUniqueId type="int">12609</_apiUniqueId>
+		<rangeAgentDict ver="[0, [0, [0]]]" type="ixOrderedDict">
+		 <_dict type="list">
+		  <item type="tuple">
+		   <item ref="4"/>
+		   <item ver="[0, [1, [0, [0]]]]" type="ixRangeAgentWiring">
+		    <range ref="4"/>
+		    <agentEndpointConnections type="list"/>
+		    <agentConnectionsDict ver="[0, [0, [0]]]" type="ixOrderedDict">
+		     <_dict type="list">
+		      <item type="tuple">
+		       <item ref="7"/>
+		       <item ver="[0, [1, [0, [0]]]]" type="ixAgentEndpointWiring">
+			<agent ref="7"/>
+			<endpoints type="list"/>
+			<endpointsDict ver="[0, [0, [0]]]" type="ixOrderedDict">
+			 <_dict type="list">
+			  <item type="tuple">
+			   <item type="str">HTTP Server</item>
+			   <item ver="[0, [1, [0, [0]]]]" type="ixEndpoint">
+			    <endpointName type="str">HTTP Server</endpointName>
+			    <isAvailable type="bool">True</isAvailable>
+			   </item>
+			  </item>
+			 </_dict>
+			</endpointsDict>
+		       </item>
+		      </item>
+		     </_dict>
+		    </agentConnectionsDict>
+		   </item>
+		  </item>
+		 </_dict>
+		</rangeAgentDict>
+	       </activityIpWiring>
+	       <tcpAccelerationAllowedFlag type="bool">True</tcpAccelerationAllowedFlag>
+	       <iterations type="int">1</iterations>
+	       <standbyTime type="int">0</standbyTime>
+	       <offlineTime type="int">0</offlineTime>
+	       <sustainTime type="int">0</sustainTime>
+	       <iterationTime type="int">0</iterationTime>
+	       <totalTime type="int">1</totalTime>
+	       <_apiUniqueId type="int">12608</_apiUniqueId>
+	       <isVisible type="bool">True</isVisible>
+	       <activityIpWiring ref="10"/>
+	       <_portOperationModesAllowed type="dict">
+		<item>
+		 <key type="int">0</key>
+		 <value type="bool">True</value>
+		</item>
+		<item>
+		 <key type="int">1</key>
+		 <value type="bool">True</value>
+		</item>
+		<item>
+		 <key type="int">2</key>
+		 <value type="bool">False</value>
+		</item>
+		<item>
+		 <key type="int">3</key>
+		 <value type="bool">True</value>
+		</item>
+		<item>
+		 <key type="int">4</key>
+		 <value type="bool">True</value>
+		</item>
+		<item>
+		 <key type="int">8</key>
+		 <value type="bool">True</value>
+		</item>
+	       </_portOperationModesAllowed>
+	       <_tcpAccelerationAllowed type="dict">
+		<item>
+		 <key type="int">0</key>
+		 <value type="bool">True</value>
+		</item>
+		<item>
+		 <key type="int">1</key>
+		 <value type="bool">True</value>
+		</item>
+	       </_tcpAccelerationAllowed>
+	      </destinationCommunity>
+	      <destinationAgentName type="str">HTTPServer1</destinationAgentName>
+	      <portRangeList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixIntRangeList" itemtype="ixIntRange">
+	       <item ver="[1, [1, [0, [0]]]]" type="ixIntRange">
+		<intRange type="str">80</intRange>
+		<iStartingValue type="int">80</iStartingValue>
+		<iCount type="int">1</iCount>
+	       </item>
+	      </portRangeList>
+	      <count type="int">1</count>
+	     </item>
+	    </destinations>
+	    <flowPercentage type="float">100.0</flowPercentage>
+	    <maxSessions type="int">3</maxSessions>
+	    <httpVersion type="int">0</httpVersion>
+	    <keepAlive type="int">0</keepAlive>
+	    <maxPersistentRequests type="int">1</maxPersistentRequests>
+	    <followHttpRedirects type="int">0</followHttpRedirects>
+	    <enableCookieSupport type="int">0</enableCookieSupport>
+	    <maxPipeline type="int">1</maxPipeline>
+	    <urlStatsCount type="int">10</urlStatsCount>
+	    <enableHttpProxy type="int">0</enableHttpProxy>
+	    <httpProxy type="str">0.0.0.0</httpProxy>
+	    <enableHttpsProxy type="int">0</enableHttpsProxy>
+	    <httpsProxy type="str">0.0.0.0</httpsProxy>
+	    <browserEmulation type="int">3</browserEmulation>
+	    <browserEmulationName type="str">Custom1</browserEmulationName>
+	    <enableSsl type="int">0</enableSsl>
+	    <sslVersion type="int">3</sslVersion>
+	    <sslReuseMethod type="int">0</sslReuseMethod>
+	    <sequentialSessionReuse type="int">0</sequentialSessionReuse>
+	    <enablesslRecordSize type="int">0</enablesslRecordSize>
+	    <validateCertificate type="int">0</validateCertificate>
+	    <sslRecordSize type="str">16384</sslRecordSize>
+	    <enableSslSendCloseNotify type="int">0</enableSslSendCloseNotify>
+	    <enableUnidirectionalClose type="int">0</enableUnidirectionalClose>
+	    <privateKeyPassword type="str"></privateKeyPassword>
+	    <privateKey type="str"></privateKey>
+	    <certificate type="str"></certificate>
+	    <caCert type="str"></caCert>
+	    <clientCiphers type="str">DEFAULT</clientCiphers>
+	    <enableEsm type="int">0</enableEsm>
+	    <enablePerConnCookieSupport type="int">0</enablePerConnCookieSupport>
+	    <perHeaderPercentDist type="int">0</perHeaderPercentDist>
+	    <enablemetaRedirectSupport type="int">0</enablemetaRedirectSupport>
+	    <esm type="int">1460</esm>
+	    <enableVlanPriority type="int">0</enableVlanPriority>
+	    <vlanPriority type="int">0</vlanPriority>
+	    <enableTos type="int">0</enableTos>
+	    <tos type="int">0</tos>
+	    <precedenceTOS type="int">0</precedenceTOS>
+	    <delayTOS type="int">0</delayTOS>
+	    <throughputTOS type="int">0</throughputTOS>
+	    <reliabilityTOS type="int">0</reliabilityTOS>
+	    <commandTimeout type="int">600</commandTimeout>
+	    <commandTimeout_ms type="int">0</commandTimeout_ms>
+	    <enableConsecutiveIpsPerSession type="int">0</enableConsecutiveIpsPerSession>
+	    <enableAchieveCCFirst type="int">0</enableAchieveCCFirst>
+	    <enableTrafficDistributionForCC type="int">0</enableTrafficDistributionForCC>
+	    <contentLengthDeviationTolerance type="int">0</contentLengthDeviationTolerance>
+	    <actionList ver="[1, [1, [0, [0, [3, [0, [0, [0], [0]], [0]]]]]]]" type="ixHttpCommandList" itemtype="ixConfig">
+	     <item ver="[0, [0, [0, [0, [1, [0, [0]]]]]]]" type="ixStartCommand">
+	      <commandId type="int">-2</commandId>
+	      <commandType type="str">START</commandType>
+	      <cmdName type="str">Start</cmdName>
+	      <outputList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixCommandOutputList" itemtype="ixCommandOutput">
+	       <item ver="[1, [1, [0, [0]]]]" type="ixCommandOutput">
+		<name type="str">Output1</name>
+		<outputType type="int">0</outputType>
+		<destCmdId type="int">1</destCmdId>
+		<destinationCommandIdx type="int">1</destinationCommandIdx>
+	       </item>
+	      </outputList>
+	     </item>
+	     <item ver="[0, [0, [2, [1, [0, [0]]]]], [0, [0, [1, [0, [0]]]]]]" type="ixHttpCommand">
+	      <commandId type="int">1</commandId>
+	      <commandType type="str">GET</commandType>
+	      <cmdName type="str">Get 1</cmdName>
+	      <outputList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixCommandOutputList" itemtype="ixCommandOutput">
+	       <item ver="[1, [1, [0, [0]]]]" type="ixCommandOutput">
+		<name type="str">Output1</name>
+		<outputType type="int">0</outputType>
+		<destCmdId type="int">-3</destCmdId>
+		<_apiUniqueId type="int">12603</_apiUniqueId>
+		<destinationCommandIdx type="int">2</destinationCommandIdx>
+	       </item>
+	      </outputList>
+	      <destination type="str">Traffic2_HTTPServer1:80</destination>
+	      <pageObject type="str">/1b.html</pageObject>
+	      <abort type="str">None</abort>
+	      <arguments type="str"></arguments>
+	      <namevalueargs type="str"></namevalueargs>
+	      <profile type="int">-1</profile>
+	      <enableDi type="int">0</enableDi>
+	      <sendMD5ChkSumHeader type="int">0</sendMD5ChkSumHeader>
+	      <sendingChunkSize type="str">None</sendingChunkSize>
+	      <sslProfile type="int">-1</sslProfile>
+	      <_apiUniqueId type="int">12600</_apiUniqueId>
+	     </item>
+	     <item ver="[0, [0, [0, [0, [1, [0, [0]]]]]]]" type="ixStopCommand">
+	      <commandId type="int">-3</commandId>
+	      <commandType type="str">STOP</commandType>
+	      <cmdName type="str">Stop</cmdName>
+	      <outputList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixCommandOutputList" itemtype="ixCommandOutput"/>
+	     </item>
+	    </actionList>
+	    <headerList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixwebHttpHeaderList" itemtype="_httpHeaderString">
+	     <item ver="[1, [0, [0, [0], [0], [0]]], [1, [0, [0]]]]" type="_httpHeaderString">
+	      <data type="str">Accept: */*</data>
+	      <_apiUniqueId type="int">12604</_apiUniqueId>
+	     </item>
+	     <item ver="[1, [0, [0, [0], [0], [0]]], [1, [0, [0]]]]" type="_httpHeaderString">
+	      <data type="str">Accept-Language: en-us</data>
+	      <_apiUniqueId type="int">12605</_apiUniqueId>
+	     </item>
+	     <item ver="[1, [0, [0, [0], [0], [0]]], [1, [0, [0]]]]" type="_httpHeaderString">
+	      <data type="str">Accept-Encoding: gzip, deflate</data>
+	      <_apiUniqueId type="int">12606</_apiUniqueId>
+	     </item>
+	     <item ver="[1, [0, [0, [0], [0], [0]]], [1, [0, [0]]]]" type="_httpHeaderString">
+	      <data type="str">User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)</data>
+	      <_apiUniqueId type="int">12607</_apiUniqueId>
+	     </item>
+	    </headerList>
+	    <profileList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixHttpCommandProfileList" itemtype="ixHttpCommandProfile"/>
+	    <sslProfileList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixHttpCommandSSLProfileList" itemtype="ixHttpCommandSSLProfile"/>
+	    <cookieJarSize type="int">10</cookieJarSize>
+	    <cookieRejectProbability type="float">0.0</cookieRejectProbability>
+	    <ipPreference type="int">2</ipPreference>
+	    <tcpCloseOption type="int">0</tcpCloseOption>
+	    <piggybackAck type="int">1</piggybackAck>
+	    <enableLargeHeader type="int">0</enableLargeHeader>
+	    <maxHeaderLen type="int">1024</maxHeaderLen>
+	    <useAllIPs type="int">0</useAllIPs>
+	    <enableDecompressSupport type="int">0</enableDecompressSupport>
+	    <enableIntegrityCheckSupport type="int">0</enableIntegrityCheckSupport>
+	    <enableCRCCheckSupport type="int">0</enableCRCCheckSupport>
+	    <uniqueID type="int">2</uniqueID>
+	    <disableDnsResolutionCache type="int">0</disableDnsResolutionCache>
+	    <httpsTunnel type="str">0.0.0.0</httpsTunnel>
+	    <enableHttpsTunnel type="int">0</enableHttpsTunnel>
+	    <exactTransactions type="int">0</exactTransactions>
+	    <_apiUniqueId type="int">12595</_apiUniqueId>
+	    <uniqueID type="int">2</uniqueID>
+	    <commandIdCounter type="int">1</commandIdCounter>
+	    <networkPluginSettings ver="[0]" type="ixNetworkActivityPluginSupport">
+	     <serializedNetworkSettingsMap ver="[0, [0, [0]]]" type="ixOrderedDict">
+	      <_dict type="list"/>
+	     </serializedNetworkSettingsMap>
+	     <protocolName type="str">HTTP</protocolName>
+	    </networkPluginSettings>
+	   </item>
+	  </agentList>
+	 </traffic>
+	 <network ver="[15, [1, [5, [1, [0, [0]]]]]]" type="ixNetworkGroup">
+	  <resourceSyncTimeStamp type="NoneType">None</resourceSyncTimeStamp>
+	  <name type="str">Network1</name>
+	  <role type="str">Client</role>
+	  <networkType type="str">none</networkType>
+	  <aggregation type="int">0</aggregation>
+	  <lineSpeed type="str">Default</lineSpeed>
+	  <cpuAggregation type="bool">False</cpuAggregation>
+	  <chassisChain ref="3"/>
+	  <cardType type="str">Ixia Virtual Load Module</cardType>
+	  <activePortList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="_portListSequenceContainer" itemtype="ixConfig"/>
+	  <portList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="_portListSequenceContainer" itemtype="ixConfig">
+	   <item ver="[3, [1, [1, [0, [0]]]]]" type="ixPort">
+	    <chassisId type="int">1</chassisId>
+	    <cardId type="int">1</cardId>
+	    <portId type="int">1</portId>
+	    <enableCapture type="bool">False</enableCapture>
+	    <cardType type="str">Ixia Virtual Load Module</cardType>
+	    <portPersistentSetting ver="[0, [1, [0, [0]]]]" type="ixPortPersistentSetting">
+	     <viewFilter ver="[0, [1, [0, [0]]]]" type="ixViewFilter">
+	      <filterString type="str"></filterString>
+	     </viewFilter>
+	    </portPersistentSetting>
+	    <analyzerPartialCapture type="str">False;20</analyzerPartialCapture>
+	    <name type="str"></name>
+	    <afmPort type="NoneType">None</afmPort>
+	   </item>
+	  </portList>
+	  <comment type="str"></comment>
+	  <networkRangeList ver="[0, [2, [0, [3, [0, [0, [0], [0]], [0]]]]]]" type="ixNetworkRangeListSequenceContainer" itemtype="ixNetworkRange">
+	   <item ver="[13, [1, [1, [1, [0, [0]]]]]]" oid="11" type="ixNetworkRange">
+	    <_smRangeObjectId type="str">bb61b2ad-a7eb-459d-90fa-91bfc7211981</_smRangeObjectId>
+	    <name type="str">Network Range IP-R1 in Network1 (192.168.0.1+1)</name>
+	    <rangeGroup ver="[3, [0, [1, [0, [0]]]]]" oid="12" type="ixIpDistributionGroup">
+	     <name type="str">DistGroup1</name>
+	     <ipDistributionMethod type="str">consecutiveIps</ipDistributionMethod>
+	     <_apiUniqueId type="int">12591</_apiUniqueId>
+	     <_networkRangeList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixWeakrefSequenceContainer" itemtype="ixBasicNetworkRange">
+	      <item ref="11"/>
+	     </_networkRangeList>
+	     <_rangeGroupObjectId type="str">3c54b5b0-9e47-46a8-a327-489be6064ef8</_rangeGroupObjectId>
+	     <_smPluginObjectId type="str">346a1c05-25d3-484a-9a2a-9921edffc6f4</_smPluginObjectId>
+	    </rangeGroup>
+	    <enableStats type="bool">False</enableStats>
+	   </item>
+	  </networkRangeList>
+	  <layerPlugins type="NoneType">None</layerPlugins>
+	  <stack type="NoneType">None</stack>
+	  <rangeGroupList ver="[1, [0, [0, [3, [0, [0, [0], [0]], [0]]]]]]" type="ixIpDistributionGroupList" itemtype="ixIpDistributionGroup">
+	   <item ref="12"/>
+	  </rangeGroupList>
+	  <dynamicControlPlaneSetting type="int">0</dynamicControlPlaneSetting>
+	  <linkLayerOptions type="int">0</linkLayerOptions>
+	  <ipSourcePortFrom type="int">1024</ipSourcePortFrom>
+	  <ipSourcePortTo type="int">65535</ipSourcePortTo>
+	  <emulatedRouterGateway type="str">0.0.0.0</emulatedRouterGateway>
+	  <emulatedRouterSubnet type="str">255.255.0.0</emulatedRouterSubnet>
+	  <emulatedRouterGatewayIPv6 type="str">::</emulatedRouterGatewayIPv6>
+	  <emulatedRouterSubnetIPv6 type="str">FFFF:FFFF:FFFF:FFFF:FFFF:FFFF::0</emulatedRouterSubnetIPv6>
+	  <emulatedRouterIpAddressPool ver="[3, [0, [0, [0], [0]], [0]]]" type="ixConfigSequenceContainer" itemtype="ixEmulatedRouterIpAddressRange"/>
+	  <macMappingMode type="int">0</macMappingMode>
+	  <arpSettings ver="[0, [1, [0, [0]]]]" type="ixArpSettings">
+	   <gratuitousArp type="bool">True</gratuitousArp>
+	   <processGratArp type="bool">False</processGratArp>
+	  </arpSettings>
+	  <dnsParameters ver="[1, [1, [0, [0]]]]" type="ixDns">
+	   <enable type="bool">False</enable>
+	   <cacheTimeout type="int">30000</cacheTimeout>
+	   <serverList ver="[3, [0, [0, [0], [0]], [0]]]" type="ixConfigSequenceContainer" itemtype="_ixDnsServerItem"/>
+	   <suffixList ver="[3, [0, [0, [0], [0]], [0]]]" type="ixConfigSequenceContainer" itemtype="_ixDnsSuffixItem"/>
+	  </dnsParameters>
+	  <tcpParameters ver="[0, [1, [0, [0]]]]" type="ixTcpParameters">
+	   <tcpParametersFull ver="[4, [1, [0, [0]]]]" oid="13" type="ixTcpParametersFull">
+	    <enableCongestionNotification type="bool">False</enableCongestionNotification>
+	    <enableTimeStamp type="bool">True</enableTimeStamp>
+	    <timeWaitRecycle type="bool">True</timeWaitRecycle>
+	    <timeWaitReuse type="bool">False</timeWaitReuse>
+	    <enableTxBwLimit type="bool">False</enableTxBwLimit>
+	    <txBwLimitUnit type="int">0</txBwLimitUnit>
+	    <txBwLimit type="int">1024</txBwLimit>
+	    <enableRxBwLimit type="bool">False</enableRxBwLimit>
+	    <rxBwLimitUnit type="int">0</rxBwLimitUnit>
+	    <rxBwLimit type="int">1024</rxBwLimit>
+	    <finTimeout type="int">60</finTimeout>
+	    <keepAliveInterval type="int">75</keepAliveInterval>
+	    <keepAliveProbes type="int">9</keepAliveProbes>
+	    <keepAliveTime type="int">7200</keepAliveTime>
+	    <synRetries type="int">5</synRetries>
+	    <synAckRetries type="int">5</synAckRetries>
+	    <retransmitRetries type="int">5</retransmitRetries>
+	    <transmitBuffer type="int">4096</transmitBuffer>
+	    <receiveBuffer type="int">4096</receiveBuffer>
+	    <tcpSack type="bool">True</tcpSack>
+	    <windowScaling type="bool">False</windowScaling>
+	    <rtoMin type="int">200</rtoMin>
+	    <rtoMax type="int">120000</rtoMax>
+	   </tcpParametersFull>
+	   <tcpParametersFull ref="13"/>
+	  </tcpParameters>
+	  <impairment ver="[5, [1, [0, [0]]]]" type="ixImpairment">
+	   <enable type="bool">False</enable>
+	   <addDelay type="bool">False</addDelay>
+	   <addReorder type="bool">False</addReorder>
+	   <addDrop type="bool">False</addDrop>
+	   <addDuplicate type="bool">False</addDuplicate>
+	   <randomizeSeed type="bool">False</randomizeSeed>
+	   <delay type="int">1</delay>
+	   <reorder type="int">1</reorder>
+	   <reorderLength type="int">1</reorderLength>
+	   <sourcePort type="int">0</sourcePort>
+	   <destinationPort type="int">0</destinationPort>
+	   <drop type="int">1</drop>
+	   <duplicate type="int">1</duplicate>
+	   <jitter type="int">0</jitter>
+	   <gap type="int">1</gap>
+	   <destinationIp type="str">any</destinationIp>
+	   <typeOfService type="str">any</typeOfService>
+	   <protocol type="str">any</protocol>
+	   <addFragmentation type="bool">False</addFragmentation>
+	   <fragmentationType type="str">FragmentationPercent</fragmentationType>
+	   <fragmentPercent type="int">50</fragmentPercent>
+	   <mtu type="int">1000</mtu>
+	   <fragmentSequenceSkip type="int">1</fragmentSequenceSkip>
+	   <fragmentSequenceLength type="int">1</fragmentSequenceLength>
+	   <_seed type="int">1</_seed>
+	  </impairment>
+	  <_portGroupId type="str">54a8e589-a5c8-4ddb-b314-66e468526da4</_portGroupId>
+	  <_smExternalLinks ver="[0, [1, [0, [0]]]]" type="_smExternalLinkersMap">
+	   <externalLinks type="dict"/>
+	  </_smExternalLinks>
+	  <smVersion type="int">1</smVersion>
+	 </network>
+	 <activityParameters ver="[2, [0, [0, [3, [0, [0, [0], [0]], [0]]]]]]" type="ixActivityParametersList" itemtype="ixActivityParameters">
+	  <item ver="[0, [19, [1, [1, [0, [0]]]]]]" type="ixActivity">
+	   <agent ref="14"/>
+	   <protocolAndType type="str">HTTP Client</protocolAndType>
+	   <name type="str">HTTPClient1</name>
+	   <enable type="bool">True</enable>
+	   <timeline ver="[2, [1, [1, [0, [0]]]]]" oid="15" type="ixTimeline">
+	    <name type="str">Timeline1</name>
+	    <iterationTime type="int">45</iterationTime>
+	    <totalTime type="int">45</totalTime>
+	    <iterations type="int">1</iterations>
+	    <standbyTime type="int">0</standbyTime>
+	    <offlineTime type="int">0</offlineTime>
+	    <sustainTime type="int">20</sustainTime>
+	    <rampUpType type="int">0</rampUpType>
+	    <rampUpValue type="int">2</rampUpValue>
+	    <rampUpInterval type="int">1</rampUpInterval>
+	    <rampUpTime type="int">5</rampUpTime>
+	    <rampDownTime type="int">20</rampDownTime>
+	    <rampDownValue type="int">0</rampDownValue>
+	    <timelineType type="int">0</timelineType>
+	   </timeline>
+	   <customParameters type="NoneType">None</customParameters>
+	   <role type="str">Client</role>
+	   <activeRole type="str">Client</activeRole>
+	   <objectivePercent type="float">100.0</objectivePercent>
+	   <objectiveType type="str">simulatedUsers</objectiveType>
+	   <objectiveValue type="int">10</objectiveValue>
+	   <userObjectiveType type="str">simulatedUsers</userObjectiveType>
+	   <userObjectiveValue type="long">10</userObjectiveValue>
+	   <constraintType type="str">ConnectionRateConstraint</constraintType>
+	   <constraintValue type="int">100</constraintValue>
+	   <timerGranularity type="int">100</timerGranularity>
+	   <enableConstraint type="bool">False</enableConstraint>
+	   <secondaryConstraintType type="str">TransactionRateConstraint</secondaryConstraintType>
+	   <secondaryConstraintValue type="int">100</secondaryConstraintValue>
+	   <secondaryEnableConstraint type="bool">False</secondaryEnableConstraint>
+	   <portMapPolicy type="str">portPairs</portMapPolicy>
+	   <concurrentObjectiveBehavior type="int">1</concurrentObjectiveBehavior>
+	   <cpsObjectiveBehavior type="int">0</cpsObjectiveBehavior>
+	   <userIpMapping type="str">1:1</userIpMapping>
+	   <destinationIpMapping type="str">Consecutive</destinationIpMapping>
+	   <playlists ver="[1, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixPlaylistList" itemtype="ixPlaylist"/>
+	   <_apiUniqueId type="int">12598</_apiUniqueId>
+	   <_objectiveValue type="int">10</_objectiveValue>
+	   <timelineScale type="float">1.0</timelineScale>
+	  </item>
+	 </activityParameters>
+	 <timeline ref="15"/>
+	 <communityCapture ver="[0, [1, [0, [0]]]]" type="ixViewCommunityCapture">
+	  <captureViewOptions ref="9"/>
+	  <filter ver="[0, [1, [0, [0]]]]" type="ixViewFilter">
+	   <filterString type="str"></filterString>
+	  </filter>
+	  <portList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="_portListSequenceContainer" itemtype="ixConfig"/>
+	  <enable type="bool">False</enable>
+	  <_apiUniqueId type="int">12593</_apiUniqueId>
+	 </communityCapture>
+	 <payload type="NoneType">None</payload>
+	 <activityIpWiring ver="[0, [1, [0, [0]]]]" oid="16" type="ixRangeAgentEndpointWiring">
+	  <rangeAgentConnections type="list"/>
+	  <_apiUniqueId type="int">12588</_apiUniqueId>
+	  <rangeAgentDict ver="[0, [0, [0]]]" type="ixOrderedDict">
+	   <_dict type="list">
+	    <item type="tuple">
+	     <item ref="11"/>
+	     <item ver="[0, [1, [0, [0]]]]" type="ixRangeAgentWiring">
+	      <range ref="11"/>
+	      <agentEndpointConnections type="list"/>
+	      <agentConnectionsDict ver="[0, [0, [0]]]" type="ixOrderedDict">
+	       <_dict type="list">
+		<item type="tuple">
+		 <item ref="14"/>
+		 <item ver="[0, [1, [0, [0]]]]" type="ixAgentEndpointWiring">
+		  <agent ref="14"/>
+		  <endpoints type="list"/>
+		  <endpointsDict ver="[0, [0, [0]]]" type="ixOrderedDict">
+		   <_dict type="list">
+		    <item type="tuple">
+		     <item type="str">HTTP Client</item>
+		     <item ver="[0, [1, [0, [0]]]]" type="ixEndpoint">
+		      <endpointName type="str">HTTP Client</endpointName>
+		      <isAvailable type="bool">True</isAvailable>
+		     </item>
+		    </item>
+		   </_dict>
+		  </endpointsDict>
+		 </item>
+		</item>
+	       </_dict>
+	      </agentConnectionsDict>
+	     </item>
+	    </item>
+	   </_dict>
+	  </rangeAgentDict>
+	 </activityIpWiring>
+	 <tcpAccelerationAllowedFlag type="bool">True</tcpAccelerationAllowedFlag>
+	 <iterations type="int">1</iterations>
+	 <standbyTime type="int">0</standbyTime>
+	 <offlineTime type="int">0</offlineTime>
+	 <sustainTime type="int">20</sustainTime>
+	 <iterationTime type="int">45</iterationTime>
+	 <totalTime type="int">45</totalTime>
+	 <portMapPolicy type="str">portPairs</portMapPolicy>
+	 <objectiveType type="str">simulatedUsers</objectiveType>
+	 <objectiveValue type="int">10</objectiveValue>
+	 <rampUpType type="int">0</rampUpType>
+	 <rampUpValue type="int">2</rampUpValue>
+	 <rampUpInterval type="int">1</rampUpInterval>
+	 <rampUpTime type="int">5</rampUpTime>
+	 <rampDownTime type="int">20</rampDownTime>
+	 <userObjectiveType type="str">simulatedUsers</userObjectiveType>
+	 <userObjectiveValue type="long">10</userObjectiveValue>
+	 <totalUserObjectiveValue type="long">100</totalUserObjectiveValue>
+	 <_apiUniqueId type="int">12587</_apiUniqueId>
+	 <isVisible type="bool">True</isVisible>
+	 <activityIpWiring ref="16"/>
+	 <_portOperationModesAllowed type="dict">
+	  <item>
+	   <key type="int">0</key>
+	   <value type="bool">True</value>
+	  </item>
+	  <item>
+	   <key type="int">1</key>
+	   <value type="bool">True</value>
+	  </item>
+	  <item>
+	   <key type="int">2</key>
+	   <value type="bool">False</value>
+	  </item>
+	  <item>
+	   <key type="int">3</key>
+	   <value type="bool">True</value>
+	  </item>
+	  <item>
+	   <key type="int">4</key>
+	   <value type="bool">True</value>
+	  </item>
+	  <item>
+	   <key type="int">8</key>
+	   <value type="bool">True</value>
+	  </item>
+	 </_portOperationModesAllowed>
+	 <_tcpAccelerationAllowed type="dict">
+	  <item>
+	   <key type="int">0</key>
+	   <value type="bool">True</value>
+	  </item>
+	  <item>
+	   <key type="int">1</key>
+	   <value type="bool">True</value>
+	  </item>
+	 </_tcpAccelerationAllowed>
+	</item>
+       </elementList>
+       <_apiUniqueId type="int">12584</_apiUniqueId>
+      </item>
+      <item ver="[0, [1, [0, [0]]]]" type="ixTrafficColumn">
+       <name type="str">DUT</name>
+       <elementList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixScenarioElementList" itemtype="ixScenarioElement"/>
+       <_apiUniqueId type="int">12585</_apiUniqueId>
+      </item>
+      <item ver="[0, [1, [0, [0]]]]" type="ixTrafficColumn">
+       <name type="str">Terminate</name>
+       <elementList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixScenarioElementList" itemtype="ixScenarioElement">
+	<item ref="17"/>
+       </elementList>
+       <_apiUniqueId type="int">12586</_apiUniqueId>
+      </item>
+     </columnList>
+     <links ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixActivityLinkList" itemtype="ixActivityLink"/>
+     <appMixList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixAppMixList" itemtype="ixAppMix"/>
+     <_apiUniqueId type="int">12583</_apiUniqueId>
+    </item>
+   </scenarioList>
+   <currentUniqueIDForAgent type="int">4</currentUniqueIDForAgent>
+   <enableNetworkDiagnostics type="bool">False</enableNetworkDiagnostics>
+   <showNetworkDiagnosticsFromApplyConfig type="bool">False</showNetworkDiagnosticsFromApplyConfig>
+   <showNetworkDiagnosticsAfterRunStops type="bool">False</showNetworkDiagnosticsAfterRunStops>
+   <resetNetworkDiagnosticsAtStartRun type="bool">False</resetNetworkDiagnosticsAtStartRun>
+   <enableNetworkDiagnosticsLogging type="bool">False</enableNetworkDiagnosticsLogging>
+   <enableTcpAdvancedStats type="bool">False</enableTcpAdvancedStats>
+   <enableFrameSizeDistributionStats type="bool">False</enableFrameSizeDistributionStats>
+   <isFrameSizeDistributionViewSupported type="bool">False</isFrameSizeDistributionViewSupported>
+   <statViewThroughputUnits type="str">Kbps</statViewThroughputUnits>
+   <totalUserObjectiveInfoList ver="[0, [3, [0, [0, [0], [0]], [0]]]]" type="ixTotalUserObjectiveInfoList" itemtype="ixTotalUserObjectiveInfo"/>
+   <activitiesGroupedByObjective type="bool">False</activitiesGroupedByObjective>
+   <eventHandlerSettings ver="[0, [1, [0, [0]]]]" type="ixEventHandlerSettings">
+    <disabledEventClasses type="str"></disabledEventClasses>
+    <disabledPorts type="str"></disabledPorts>
+    <_apiUniqueId type="int">12641</_apiUniqueId>
+   </eventHandlerSettings>
+   <allowMixedObjectiveTypes type="bool">False</allowMixedObjectiveTypes>
+   <networkProtocolOptions type="NoneType">None</networkProtocolOptions>
+   <seedForRandomBehavior type="int">0</seedForRandomBehavior>
+   <csvThroughputScalingFactor type="long">0</csvThroughputScalingFactor>
+   <reporterThroughputScalingFactor type="long">0</reporterThroughputScalingFactor>
+   <profileDirectory ver="[2, [1, [0, [0]]]]" type="ixProfileDirectory">
+    <categoryList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixProfileCategoryList" itemtype="ixProfileCategory">
+     <item ver="[0, [1, [0, [0]]]]" type="ixProfileCategory">
+      <name type="str">Playlist</name>
+      <categoryId type="str">playlist</categoryId>
+      <profileList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixProfileList" itemtype="ixProfile"/>
+      <pm ver="[0, [1, [0.1, [1, [0, [0]]]]]]" type="#Plugins.profile.Playlist.ixPropertyMap_PlaylistCategory$ixPropertyMap_PlaylistCategory"/>
+      <temporaryProfileList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixProfileList" itemtype="ixProfile"/>
+     </item>
+     <item ver="[0, [1, [0, [0]]]]" type="ixProfileCategory">
+      <name type="str">Random Data</name>
+      <categoryId type="str">rdge</categoryId>
+      <profileList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixProfileList" itemtype="ixProfile"/>
+      <pm ver="[0, [1, [0.1, [1, [0, [0]]]]]]" type="#Plugins.profile.RandomData.ixPropertyMap_RandomDataCategory$ixPropertyMap_RandomDataCategory">
+       <startcore type="int">0</startcore>
+       <totalcores type="int">1</totalcores>
+      </pm>
+      <temporaryProfileList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixProfileList" itemtype="ixProfile"/>
+     </item>
+     <item ver="[0, [1, [0, [0]]]]" type="ixProfileCategory">
+      <name type="str">Real File</name>
+      <categoryId type="str">realfile</categoryId>
+      <profileList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixProfileList" itemtype="ixProfile"/>
+      <pm type="NoneType">None</pm>
+      <temporaryProfileList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixProfileList" itemtype="ixProfile"/>
+     </item>
+     <item ver="[0, [1, [0, [0]]]]" type="ixProfileCategory">
+      <name type="str">Unified File System</name>
+      <categoryId type="str">ufs</categoryId>
+      <profileList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixProfileList" itemtype="ixProfile"/>
+      <pm type="NoneType">None</pm>
+      <temporaryProfileList ver="[0, [0, [3, [0, [0, [0], [0]], [0]]]]]" type="ixProfileList" itemtype="ixProfile"/>
+     </item>
+    </categoryList>
+    <_profileMru type="str"></_profileMru>
+   </profileDirectory>
+   <communityList type="NoneType">None</communityList>
+   <autoUpdateAppFlowsToLatest type="bool">True</autoUpdateAppFlowsToLatest>
+   <downgradeAppLibFlowsToLatestValidVersion type="bool">True</downgradeAppLibFlowsToLatestValidVersion>
+   <_apiUniqueId type="int">12582</_apiUniqueId>
+   <lastStatViewerConfiguration type="str"></lastStatViewerConfiguration>
+   <statManagerOptions ver="[1, [1, [0, [0]]]]" type="ixStatManagerOptions">
+    <pollingInterval type="int">2</pollingInterval>
+    <allowCsvLogging type="bool">False</allowCsvLogging>
+    <enableDataStore type="bool">False</enableDataStore>
+    <svConfiguration type="str">begin 666 &lt;data&gt;&#10;M&gt;)SMG7MSX[81P+^*QIUDTFD@ 2!(@KI'QF?[+FY\9X_E7#)3=S(@'C8;F51)&#10;MRH]V^MT+D)1$291\:7.\_+$WXR,)[&quot;X&gt;!/:'A63XY7&gt;/=]/!O&lt;Z+)$M?'9 A&#10;M/OCN]&lt;M)*&lt;J/B7[0^2HK&amp; 9XB(&gt;4^@=60!&lt;N]2PIRL$/^NG5@9B5R6,BAL7]&#10;M&lt;.8TBE*G4@];&lt;C_E8F:SK/+1^8&gt;KDP]7@]'KEQ&gt;7)Q-[&gt;WAU&gt;OYA\_F7D^/3&#10;MJ\,W9R&lt;NX^C\_9O3#R?'RZ*+Y=VG5&amp;&quot;K\-&lt;OW^;ZGW,K\S2X%].Y?G5 #ZJ&quot;&#10;MBONS[.8F26\6Z6_%M-!5WE5RIR=/J7RC;\5]DN4+&quot;;S,+4IQ-[O(M4RJFC7Y&#10;M7I5_&lt;I/;RKANO7J:Z44&gt;J?+.;3=/,Z$N\JS4LFSI7N5SO5&amp;Q[Q.E=.H,%=MU&#10;M/$E%/-7'HA23,LOUML#%JG?:]6!=VGM+LA4ZGY&gt;S&gt;;GLR??S:9G,IIMMJX2.&#10;M)\^(O1&gt;/;M@5MGY'\Z+,[M[9=W:[E D69;Y-IOI&quot;E,N&lt;H_'UCX5MT_4_'N?7&#10;MQYF&lt;W^FT+*Y/[6&quot;P_YW93KT.AF$U='EX?:D+6WIQ_?W5U&lt;4O%!,?1]3_A7B&gt;&#10;M[]&lt;]&lt;#C5&gt;5DLK@,[.])B_%@DKPYNRW(V'HT&gt;'AZ&amp;#]XPRV]&amp;%&amp;,R^OG]V43&gt;&#10;MZCN!DM2^?MNM!TLM];Q65&gt;AH4&gt;JQ-L+6K^KQ/4^OSRCR!E5W#8P=AT?3Q#9Z&#10;M&lt;)%9(R]';&lt;%]6A.=VV'W:5I7MWDVO[FU+[(VL&quot;$_6J_JQN-1GC4#/]?:YFX\&#10;M7PJ59.^L_=E&amp;1I*6K^G+D;N\'.V4JAO_-LOOYE,QT65II\ARN/[[ZS\]'K^P&#10;M_QV^^/J?\ZQ\\;'V9_7#N+Z0H5_??+LE[1K0R/YME?GWU&gt;U_5K&gt;U%[ ^X'*&gt;&#10;M;M;CZVGY8LW5+DK&amp;]&lt;W 3HQ,68TF8UX:1(+Z_KNO;\H7K9I94TTIIZG)[%M,&#10;MQ#3YEW!&gt;XXVX:0W96OV3QVU3D]7@_33]6FJ]CH.!J^7=+V73&amp;W;()-(ZMUFQ&#10;M*5=+NO9\$'?:Y;I[XA)'[=1NG2-1ZILL?W(2SFN-W+Q&gt;ZK9SM_6/S,W&quot;ES@!&#10;MZT&lt;JG_%3EO]:S(34UXXG**E&lt;B+U&lt;ZEE6)-8K/J'#B]/KPCKZJ2ZN99::Y*9V&#10;M*,/\T52%;YCNKKO.%VVSGFM9YU7JMM;QO.J.P6AG]O&lt;/S?C&gt;(S-Y3L95XSS^&#10;MA^/0O2[V27V?W-Q.[4^Y4VI)F_+4DJ1,3*)S)RFY&quot;7E$)&amp;*,&gt;8B),$(&lt;&quot;X($&#10;M)C'Q&amp;;=75?7)+@/;1=EQUAY&quot;]A'CJ++1RME6&lt;_&quot;8G!Z[S DBR$&gt;4(.XQ#_,H&#10;MBA -*+.(H)C;VR B ?=L58F= )7EEG)GA&gt;S STNMSE,GX7&quot;#L+7I7Q%O[ 5C&#10;M3(8\]&amp;G$_;]@/L9X4=DUK1UV,[N&gt;L1(#.\_':3)MYFII5PO---[Q0FIO^5[(&#10;MVR35BUXY^O#FY!3]]&gt;&lt;?Z]';)?*,I4.EW.K&amp;29*(#FT_6&gt; 20E9J)'3)0XKM&#10;M92N5A&amp;PMU&lt;+:_&gt;&quot;A%ZQ2C&gt;9X/*:^I\&gt;A)FI,&gt;:3''B7A5UM&quot;!C,ZYH*'XY K&#10;M/99*ZJ\(W932*HK&amp;1(5L[$7,C+4)_*^(MR7%8S4601B.?4X#*^K+K_QU=SS:&#10;MU1?;O7;Z^$&amp;7#];'+$!DI5;KD\I8E\@&gt;0Y=ZJD51O:1ZO3-P2_7!R&gt;&amp;ZL9;8&#10;M'F,M;VC=]4TN[@;.DQ6#;QYY\.&gt;M517:+&amp;6WRSNM/*@=UWFK65X=5)# ;\QT&#10;MR'2[GA_?3Z285LVQLQ$O_6&lt;K?5MQ&lt;M_*_B&amp;V-')J:ZF=TZW5*[_36G,QU;OZ&#10;MJ\K[%':V&amp;%L7=3YSBX =(^\HFTZM3W&gt;+_@J7NA3VS=9&gt;=B-OI_*9%GFJE5MW&#10;M.#GC@H&amp;V@8W\G7;&gt;3K.':BU7=)I9S]YIQ;+!258+4B=8&gt;;^6F&lt;W\?8::0'&amp;?&#10;MK4V1W&gt;9L%)?);'J:VI%L[%*BVV*GU$ZCE]F\U)&lt;BO&gt;FVMI'=9&gt;9NYMS2U7*X&#10;M;'9]5_ZN&lt;;EWO-7C4CVE;M3:Z+QC=; F\M&amp;MD;&gt;$EE-ZQT+72=?1TS*F_Q^V&#10;M$YH0Q5WJC80]H55[^\#Y@&gt;Z(OMX-:.(1^W;F=VZS8K29\&quot;Y/U%&amp;U&gt;+1=8.Q,&#10;MM#(=:&lt;[ZSW=3F[F\V]ZB6&amp;X2N#5PX2+W.I!7N_8'U/;V0I:Z15:SW!(;NP._&#10;M-NFG:;7B:8*;]2(O[$&quot;TJ4UTG^A\/;ZWM7Y&amp;8I**67&amp;;E59R4&lt;+/+F):15#Y&#10;MS'0-).=_AX?-!M!J[VK887!0VE8UBZ7?H-:LJ;)Z5;R(C CA,3&gt;2(:X50\PW&#10;M,&gt;(RB)!6E#*#8R%E$\)MA'WU7EIWX%0W:5[H=],L%M.NBK_)LNE*N5Z);BET&#10;MVRT6;:M?]WI_I.7*:DW43?%NH](-2%G-R[:]29G;BJQ,+OIU&lt;#3Y6%EOZ&gt;TT&#10;M7 4\&gt;XSNF:Z+,G8O86WFE;9QG(T3/Z7B&quot;X,+G9U&amp;W9+IG4YU+MRK&gt;)\I_4P_&#10;M=^ITF\]F.K4CL]F&gt;?694K GOM=?U M&lt;MXK;%_&gt;\MN4FM0[ MLF1S;NH9FQOB&#10;M.[I5I(&gt;SV?3I]%-MUSVP0ZV3;;_%(6RCJG%.ZZYL\K'1F&amp;A'::WJH=KXM$KV&#10;M@WZP8I=N&lt;]3&amp;W&gt;E5EMU,._9MK8P;(JF;#VWUJG7U_N%5=F(CY%Q?9@_;^O\'&#10;M)2OU&gt;J-O)R?;FXG 2&gt;#D&amp;B&gt;CD-L@C2'L:X(8E@3% 1:(AB2(.2&amp;4, *&lt;[)63&#10;M[&gt;D*G 1. B&lt;_*R&lt;W/SX#0@(AVX2,A%01EQ'&quot;..*(L4&quot;B*++ C&amp;4&lt;4C_0OHPI&#10;M$+('0FY.5&amp; CL!'8^+G8Z#X966S9H,'J,^&lt;_+!Y770%\[)./6.N0&amp;&gt;XAQCV!&#10;MF)8&amp;B&lt;#S4.Q1I2/-X\&quot;'&quot;/(S\W'79 5$ B(!D?T@LK4\74Y @&quot;7 &lt;@V6RB=2&#10;M8L^&amp;D#X-$*/:(!Z$ @62Q9[1?F2D %CV&quot;&lt;NN:0O8!&amp;P&quot;-GO&quot;9B[20M2_5W-I&#10;MIP8$F,#,=6:&amp;GC*$88Z$UCYB41@B3HA!F'E!I(W/#?&amp;!F;TR&lt;W/. C !F #,&#10;MWH$)K 16;GQ8*2,NM2(H(C1$+,04Q2IF-MQD.J0&gt;C7W!@95?B)6 2&lt; D8+(G&#10;M3)X)=XY&quot; O$D,'+S*Z^2^R:F DEIN(TG,4/&lt;(Q1I(F)C-!-&amp;8F!DGXQ&lt;SE4 &#10;M)  2 -D/(,GCX[&lt;#^O@X$*D:&gt;/9ZJ8N97:0&quot;,8&amp;8FY]:&lt;AI3*3@*#)6(Q4(A&#10;M$08^TIK)*(KB(%8&amp;B-DG,7=/7D H(!00V@]&quot;JZ&gt;W(IG.&lt;Z F4'.#FM0PZ7-/&#10;MH2!2'F*:&lt;Q3K4-DXTP1A% LL*'S7IU=JKLU7 &quot;6 $D#9#RB/;N?IKX.3YAS-&#10;MP3&gt;+U&gt;J? 9H S35H^E)03XH(*2_6B$6QC^(XY(A+CQ@O,@H;&quot;#5[A&gt;;.N0L &#10;M!8 &quot;0+\40*OF #^!G^O\Y$0%DE&quot;*J)'8!ITJM/R,.3*224V(P5X(_/S,_*PF&#10;ML0=X!#P&quot;'GOZ3NR1?&lt;C25,/78H&amp;*'50T1@:,1CX*94018UZ$.%42:9^;2!J?&#10;M!2%\Y:?7J')CQ@(L 98 R_Y@&quot;1]: BD[21EI+(0Q(8HP#Q&quot;3+$!&lt;,!_%U&quot;@6&#10;M&quot;)^R, 92]DU*^,P2, F8[!&gt;3%@^#'R_/_K&quot;$A.-@OP@@/&lt;.T+ZF/(NIYB.$P&#10;M0I%VOT&gt;BC?*%U)P*^,,BO0*RF:C 1F CL/&amp;SLK'YRP1P: ]@\CE,2AV&amp;,5&lt;&quot;&#10;M&gt;=0=#1N3&amp;$6&amp;$1M,^M3C)*;&quot;9X#)'C&quot;Y&gt;\X&quot;, &amp;8 ,Q^@'E^X;0G@_&gt;ZO,T4&#10;MT!)HN7Z&amp;NK#_M 6EHL*&amp;DIPR%.L@1&quot;H*&quot;)5&lt;,2(BH.7GI64U=8&amp;)P$1@8N]!&#10;M),2/0,1U(C*/:M_S?&quot;1T]3U6PA!G48&quot;\V.&lt;AB0C6%.+'+Q4_0N@(F 1,]H1)&#10;M!P'89 5(=FVR1A*'.*!(Q*%&quot;C&quot;F&amp;A(I&quot;%$&lt;FXCH*I @U0+)/2*XF*R 2$ F(&#10;M[ &gt;1R\.O;%): B8!D^O?:578][4.$/6(1HP8C2)*!3(B-E[$ T(I_$YDKYA&lt;&#10;MG[&quot; 2D EH+(?5,))/$#-3Z0F&quot;3T12XU\;5G)%*&lt;H,IY$1'-?\RC&amp;,:5 S3ZI&#10;M&quot;2?Q $ !H'\X@,))/,#/#GYJ0Y34@B),,48L9A3QP.&lt;(&amp;S^F/I$JQB'P\_/R&#10;MLYK$!/ (&gt; 0\]H-'.!(=F+@GIC2QI[%G(4A]:F-*$B'!XQ!12G' L,:Q@B/1&#10;M&gt;XTIX4AT &quot;6 \DM\^Q6.K -4[D&amp;E[V,O$-)#OL8&quot;,:IC%(N0(A'8L))[-L&lt;'&#10;M5/:*2CBR#F )L/QBL(2@$DC924K&amp;B3*$1LB+(@\Q#RLD/,R1\6(N&quot;#:!]N%P&#10;MU]Y)&quot;3$E8!(PV2\FX&lt;@Z &amp;0'(+$2AOD10X$-*MV9K@1Q'7,D*%7&lt;HX$?&gt;A!*&#10;M]@I(.+(.V AL_&quot;QLK&quot;Y%Y&lt;?/T^E3]41&lt;_EF2_JI5]=R45NO:VXG%HQTJJ[NB&#10;M,__,DL4!,9O/!JZ5KPXJ:P=+KVD!L9Y_-+?(N3L89+G2&gt;&lt;4/(:4U=J;O]?35&#10;M :W:W58XUD98[!1+%;RALEF&quot;\RM[A*N65O*KZR2]F]6K!]&amp;,I.)^.*O!J2U0&#10;MATZ@!=CV&lt;L)EU&gt;2?Y_5L;&amp;&amp;OL)G29E9#KWF^%WE=T\9QV:0&amp;-&gt;Y7R&gt;\7Z:7E&#10;M&gt;Y.N=&quot;'S9%:N,-0&quot;D)MFM\E4Y3H=C!8IHZ:@=KE*WS^CT)(8M6O^NXQ%UTYW&#10;*64[1U_\%18L=$   &#10; &#10;end&#10;</svConfiguration>
+   </statManagerOptions>
+   <currentUniqueIDForAgent type="int">4</currentUniqueIDForAgent>
+   <_scenarioElementFactory ver="[0, [1, [0, [0]]]]" type="ixScenarioElementFactory">
+    <singletonDict type="dict"/>
+    <referenceCountDict type="dict">
+     <item>
+      <key type="str">qovCoprocessor</key>
+      <value type="int">0</value>
+     </item>
+     <item>
+      <key type="str">Impairment</key>
+      <value type="int">0</value>
+     </item>
+     <item>
+      <key type="str">asrCoprocessor</key>
+      <value type="int">0</value>
+     </item>
+    </referenceCountDict>
+   </_scenarioElementFactory>
+  </item>
+ </testList>
+</root>

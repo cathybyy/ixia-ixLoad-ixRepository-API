@@ -30,7 +30,8 @@ namespace eval IXIA {
                 return ""
         }        
         
-        set latestKey      [ lindex $versionKey end ]
+        #set latestKey      [ lindex $versionKey end ]
+        set latestKey      [ lindex $versionKey 0 ]
         set mutliVKeyIndex [ lsearch $versionKey "Multiversion" ]
         if { $mutliVKeyIndex > 0 } {
            set latestKey   [ lindex $versionKey [ expr $mutliVKeyIndex - 2 ] ]
@@ -321,7 +322,7 @@ namespace eval IXIA {
     #        raise error if failed
     #--
     proc getNetwork { networkName } {
-        set tag "proc GetActivity [info script]"
+        set tag "proc getNetwork [info script]"
         Deputs "----- TAG: $tag -----"
  
         set activeTest [ getActiveTest ]
@@ -340,6 +341,51 @@ namespace eval IXIA {
             }
         }   
         error "Network not found..."
+    }
+    
+    #--
+    # Get Network Traffic by given name
+    #--
+    #Parameters:
+    #      name: Network or Traffic name
+    #Return:
+    #        NetTraffic object if got success
+    #        raise error if failed
+    #--
+    proc getNetTraffic { name } {
+        set tag "proc getNetTraffic [info script]"
+        Deputs "----- TAG: $tag -----"
+ 
+        set activeTest [ getActiveTest ]
+        set clientCnt [ $activeTest clientCommunityList.indexCount ]    
+        for { set index 0 } { $index < $clientCnt } { incr index } {
+            set clientNetName [ $activeTest clientCommunityList($index).network.name ]
+            if { $name == $clientNetName } {
+                return [ $activeTest clientCommunityList($index) ]
+            }
+        }      
+        set serverCnt [ $activeTest serverCommunityList.indexCount ]
+        for { set index 0 } { $index < $serverCnt } { incr index } {
+            set serverNetName [ $activeTest serverCommunityList($index).network.name ] 
+            if { $name == $serverNetName } {
+                return [ $activeTest serverCommunityList($index) ]
+            }
+        }
+        
+        for { set index 0 } { $index < $clientCnt } { incr index } {
+            set clientTrafficName [ $activeTest clientCommunityList($index).traffic.name ]
+            if { $name == $clientTrafficName } {
+                return [ $activeTest clientCommunityList($index) ]
+            }
+        }      
+        set serverCnt [ $activeTest serverCommunityList.indexCount ]
+        for { set index 0 } { $index < $serverCnt } { incr index } {
+            set serverTrafficName [ $activeTest serverCommunityList($index).traffic.name ] 
+            if { $name == $serverTrafficName } {
+                return [ $activeTest serverCommunityList($index) ]
+            }
+        } 
+        error "NetTraffic not found..."
     }
     
     #--
@@ -369,6 +415,7 @@ namespace eval IXIA {
     #         -dns_server: server ip 
     #         -ipsec_remote_gateway: ipsec remote gateway
     #         -ipsec_local_gateway : ipsec local gateway
+    #         -enable    : enable network, true/false
     #
     #Return  :
     #          0 , if got success
@@ -452,6 +499,10 @@ namespace eval IXIA {
                 }
                 -arp_response {
                     set arpresponse $value
+                }
+                -enable {
+                    set netTraffic [ getNetTraffic $networkName ]
+                    $netTraffic config -enable $value
                 }
             }
         }      
@@ -1065,7 +1116,7 @@ namespace eval IXIA {
         set activeTest [ getActiveTest ]
         $activeTest clearGridStats
         
-        $IXIA::testController run $activeTest
+        $IXIA::testController run $activeTest -repository $IXIA::repository
     }
     
     #--
@@ -1077,6 +1128,10 @@ namespace eval IXIA {
         set tag "proc stop [info script]"
         Deputs "----- TAG: $tag -----"
         $IXIA::testController stopRun
+        
+        # Wait for test really stopped
+        waitForTestStop
+        Deputs " proc  stop over "
     }
         
     #--
@@ -1094,7 +1149,19 @@ namespace eval IXIA {
         Deputs "  proc  waitForTestStop over  "
         return 1   
     }
-   
+
+    #--
+    # Generate test report
+    #--
+    # Args:
+    #       -deltailedReport: Whether to generate detailed report, default value is '1'
+    #       -format: Which type of the report you want to generate, default is 'PDF;HTML'
+    proc generateReport { {deltailedReport 1} {format "PDF;HTML"} } {
+        set tag "proc generateReport [info script]"
+        Deputs "----- TAG: $tag -----"
+        $IXIA::testController generateReport -detailedReport $deltailedReport -format $format
+    }
+    
     #--
     # Select the stats for testing
     #--

@@ -34,8 +34,10 @@ namespace eval IXIA {
         set IXIA::StatsList(http_client_throughput)                 [list "HTTP Client" "HTTP Bytes Received" "kSum"]
         set IXIA::StatsList(http_client_transactions)               [list "HTTP Client" "HTTP Transactions" "kSum"]                                              
         set IXIA::StatsList(http_client_transactions_bytes_sent)    [list "HTTP Client" "HTTP Bytes Sent" "kSum"]
+        set IXIA::StatsList(http_client_connection_rate)            [list "HTTP Client" "HTTP Connection Rate" "kSum"]
         # ==
-
+    
+        # [list "http_client_connection_rate"           [list "HTTP Client" "HTTP Connection Rate" "kSum"] ] \
         # [list "http_client_latency"                   [list "HTTP Client" "HTTP Connect Time (ms)" "kWeightedAverage"] ] \
         # [list "http_client_latency_ttfb"              [list "HTTP Client" "HTTP Time To First Byte (ms)" "kWeightedAverage"] ] \
         # [list "http_client_latency_ttlb"              [list "HTTP Client" "HTTP Time To Last Byte (ms)" "kWeightedAverage"] ] \
