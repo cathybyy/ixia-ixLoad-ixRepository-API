@@ -66,7 +66,7 @@ while { 1 } {
 # -- If you choose to get final result, please use waitForTestStop and then get the result
 #set waitx [IXIA::waitForTestStop]
 IXIA::stop
-IXIA::generateReport
+#IXIA::generateReport
 
 
 
