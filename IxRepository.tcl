@@ -24,19 +24,18 @@ namespace eval IXIA {
 
     proc GetEnvTcl { product } {       
         set productKey     "HKEY_LOCAL_MACHINE\\SOFTWARE\\Ixia Communications\\$product"
-        if { [ catch {
-                set versionKey     [ registry keys $productKey ]
-        } err ] } {
-                return ""
-        }        
+        set versionKey     [ registry keys $productKey ]
+        set latestKey      [ lindex $versionKey end ]      
         
-        #set latestKey      [ lindex $versionKey end ]
-        set latestKey      [ lindex $versionKey 0 ]
-        set mutliVKeyIndex [ lsearch $versionKey "Multiversion" ]
-        if { $mutliVKeyIndex > 0 } {
-           set latestKey   [ lindex $versionKey [ expr $mutliVKeyIndex - 2 ] ]
+        if { $latestKey == "Multiversion" } {
+            set latestKey   [ lindex $versionKey [ expr [ llength $versionKey ] - 2 ] ]
+            if { $latestKey == "InstallInfo" } {
+                set latestKey   [ lindex $versionKey [ expr [ llength $versionKey ] - 3 ] ]
+            }
+        } elseif { $latestKey == "InstallInfo" } {
+            set latestKey   [ lindex $versionKey [ expr [ llength $versionKey ] - 2 ] ]
         }
-        set installInfo    [ append productKey \\ $latestKey \\ InstallInfo ]            
+        set installInfo    [ append productKey \\ $latestKey \\ InstallInfo ]           
         return             "[ registry get $installInfo  HOMEDIR ]/TclScripts/bin/ixiawish.tcl"   
     }    
     
@@ -66,6 +65,8 @@ namespace eval IXIA {
     variable stats              [list]
     variable stats_info_list    {}
     variable SelectedStats      {}
+    variable logFile            ""
+    variable captureStart       false
     
     #--
     # Load the repository
@@ -347,12 +348,12 @@ namespace eval IXIA {
     # Get Network Traffic by given name
     #--
     #Parameters:
-    #      name: Network or Traffic name
+    #      trafficName: Network or Traffic name
     #Return:
     #        NetTraffic object if got success
     #        raise error if failed
     #--
-    proc getNetTraffic { name } {
+    proc getNetTraffic { trafficName } {
         set tag "proc getNetTraffic [info script]"
         Deputs "----- TAG: $tag -----"
  
@@ -360,28 +361,28 @@ namespace eval IXIA {
         set clientCnt [ $activeTest clientCommunityList.indexCount ]    
         for { set index 0 } { $index < $clientCnt } { incr index } {
             set clientNetName [ $activeTest clientCommunityList($index).network.name ]
-            if { $name == $clientNetName } {
+            if { $trafficName == $clientNetName } {
                 return [ $activeTest clientCommunityList($index) ]
             }
         }      
         set serverCnt [ $activeTest serverCommunityList.indexCount ]
         for { set index 0 } { $index < $serverCnt } { incr index } {
             set serverNetName [ $activeTest serverCommunityList($index).network.name ] 
-            if { $name == $serverNetName } {
+            if { $trafficName == $serverNetName } {
                 return [ $activeTest serverCommunityList($index) ]
             }
         }
         
         for { set index 0 } { $index < $clientCnt } { incr index } {
             set clientTrafficName [ $activeTest clientCommunityList($index).traffic.name ]
-            if { $name == $clientTrafficName } {
+            if { $trafficName == $clientTrafficName } {
                 return [ $activeTest clientCommunityList($index) ]
             }
         }      
         set serverCnt [ $activeTest serverCommunityList.indexCount ]
         for { set index 0 } { $index < $serverCnt } { incr index } {
             set serverTrafficName [ $activeTest serverCommunityList($index).traffic.name ] 
-            if { $name == $serverTrafficName } {
+            if { $trafficName == $serverTrafficName } {
                 return [ $activeTest serverCommunityList($index) ]
             }
         } 
@@ -1075,7 +1076,8 @@ namespace eval IXIA {
     proc save { repPath {overwrite 1}} {
         set tag "proc save [info script]"
         Deputs "----- TAG: $tag -----"
-        return [ $IXIA::repository write -destination $repPath -overwrite $overwrite]
+        $IXIA::repository write -destination $repPath -overwrite $overwrite
+        return 0
     }
     
     #--
@@ -1087,14 +1089,45 @@ namespace eval IXIA {
     
         set activeTest [ getActiveTest ]    
         $IXIA::testController applyConfig $activeTest
+        return 0
     }
     
     #--
-    # run test
+    # Run test
     #--
-    proc run {} {
+    # Parameters: |key, value|
+    #       - resultDir: Results path
+    #       - forceOwnership: Force to take port ownership, default is true
+    #       - resetPorts£ºReset port before test, default is true
+    # Return:
+    #        0 if got success
+    #        raise error if failed 
+    #-- 
+    proc run { args } {
         set tag "proc run [info script]"
         Deputs "----- TAG: $tag -----"
+        Deputs "----- ARGS: $args -----"
+        
+        # Param collection --
+        set resultDir ""
+        set forceOwnership true
+        set resetPorts true
+        foreach { key value } $args {
+            set key [string tolower $key]
+            Deputs "config $key---$value"
+            switch -exact -- $key {
+                -resultDir {
+                    set resultDir $value
+                }
+                -forceOwnership {
+                    set forceOwnership $value
+                }
+                -resetPorts {
+                    set resetPorts $value
+                }
+            }
+        }
+        
         set IXIA::stats_info_list {}
         
         set chassisChain [ $IXIA::repository cget -chassisChain ]
@@ -1103,20 +1136,26 @@ namespace eval IXIA {
         set activeTest    [ getActiveTest ]
         set testName    [ $activeTest cget -name ]
         
-        $IXIA::testController setResultDir "Result/${repName}/${testName}"
+        if { $resultDir != "" } {
+            set resultDir [ file join $resultDir ${repName}/${testName} ]
+        } else {
+            set resultDir [ file join [ file dirname [ info script ] ] Result/${repName}/${testName} ]
+        }
+        $IXIA::testController setResultDir $resultDir
         $activeTest config \
             -enableNetworkDiagnostics                    false \
             -statsRequired                               true \
             -showNetworkDiagnosticsAfterRunStops         false \
             -showNetworkDiagnosticsFromApplyConfig       false \
-            -enableForceOwnership                        true \
-            -enableResetPorts                            true \
+            -enableForceOwnership                        $forceOwnership \
+            -enableResetPorts                            $resetPorts \
             -enableReleaseConfigAfterRun                 true
         
         set activeTest [ getActiveTest ]
         $activeTest clearGridStats
         
         $IXIA::testController run $activeTest -repository $IXIA::repository
+        return 0
     }
     
     #--
@@ -1131,13 +1170,21 @@ namespace eval IXIA {
         
         # Wait for test really stopped
         waitForTestStop
+        
+        if { $IXIA::captureStart } {
+            if {$::ixCaptureMonitor == ""} {
+                Deputs "Waiting for last capture data to arrive."
+                vwait ::ixCaptureMonitor
+            } 
+        }
         Deputs " proc  stop over "
+        return 0
     }
         
     #--
     # Wait for the test stopped
-    # RETURN: if run successfully 1
-    #           etherwise 0
+    # RETURN: if run successfully 0
+    #           raise error if it failed
     #--
     proc waitForTestStop {} {
         set tag "proc waitForTestStop [info script]"
@@ -1147,7 +1194,7 @@ namespace eval IXIA {
         ${IXIA::NS}::StopCollector
         
         Deputs "  proc  waitForTestStop over  "
-        return 1   
+        return 0   
     }
 
     #--
@@ -1160,6 +1207,7 @@ namespace eval IXIA {
         set tag "proc generateReport [info script]"
         Deputs "----- TAG: $tag -----"
         $IXIA::testController generateReport -detailedReport $deltailedReport -format $format
+        return 0
     }
     
     #--
@@ -1213,10 +1261,12 @@ namespace eval IXIA {
             } err ] } {
                 Deputs "Add stats $statSourceType $statName error:$err"
             }
+            incr count
         }
  
         ${IXIA::NS}::StartCollector -command IXIA::collectStats -interval $interval
-        incr count
+        
+        return 0
     }
     
     ####################################################################################
@@ -1417,7 +1467,7 @@ namespace eval IXIA {
     }   
     
     ####################################################################################
-    # Proc Name        : get the protocol instatntStats stats collected after running  
+    # Proc Name        : get the protocol instantStats stats collected after running  
     #
     # Parameters       : none
     # Return Value     :   all original State value and average value 
@@ -1429,7 +1479,9 @@ namespace eval IXIA {
     #
     #####################################################################################
     proc getInstantStats { proItem } {
-        Deputs "in --------proc----getInstantStats-----------------"
+        set tag "proc collectStats [info script]"
+        Deputs "----- TAG: $tag -----"
+        
         set statslist $IXIA::stats_info_list
         set statslen [llength $statslist]
         if { $statslen == 0 } {
@@ -1483,21 +1535,98 @@ namespace eval IXIA {
     }
     
     #--
+    # Start Capture
+    #--
+    # Parameters: |key, value|
+    #       - bufferMemoryPercentage: Percentage of the available memory on the Ixia port allocated for capturing pack
+    #       - resultDir: Result path
+    # Return:
+    #        0 if got success
+    #        raise error if failed 
+    #--  
+    proc startCapture { args } {
+        set tag "proc startCapture [info script]"
+        Deputs "----- TAG: $tag -----"
+        
+        # Param collection --
+        set resultDir ""
+        foreach { key value } $args {
+            set key [string tolower $key]
+            Deputs "config $key---$value"
+            switch -exact -- $key {
+                -bufferMemoryPercentage {
+                    set bufferMemoryPercentage $value
+                }
+                -resultDir {
+                    set resultDir $value
+                }
+            }
+        }
+        
+        set activeTest [ getActiveTest ]
+        if { [ info exists bufferMemoryPercentage ] } {
+            $activeTest captureViewOptions.config -allocatedBufferMemoryPercentage $bufferMemoryPercentage
+        }
+        
+        # Enable traffic capture
+        set repName    [ $IXIA::repository cget -name ]
+        set testName    [ $activeTest cget -name ]
+        if { $resultDir != "" } {
+            set resultDir [ file join $resultDir ${repName}/${testName} ]
+        } else {
+            set resultDir [ file join [ file dirname [ info script ] ] Result/${repName}/${testName} ]
+        }
+        
+        set clientCnt [ $activeTest clientCommunityList.indexCount ]    
+        for { set i 0 } { $i < $clientCnt } { incr i } {
+            set clientNet [ $activeTest clientCommunityList($i).network ]
+            set portCnt [ llength [ $clientNet cget -portList ] ]
+            for { set j 0 } { $j < $portCnt } { incr j } {
+                $clientNet portList($j).setPortCaptureEnable True
+                $clientNet portList($j).setPortCaptureFileName [ file join $resultDir [ $clientNet cget -name ]_$j.cap ]
+            }
+        }      
+        set serverCnt [ $activeTest serverCommunityList.indexCount ]
+        for { set i 0 } { $i < $serverCnt } { incr i } {
+            set serverNet [ $activeTest serverCommunityList($i).network ] 
+            set portCnt [ llength [ $serverNet cget -portList ] ]
+            for { set j 0 } { $j < $portCnt } { incr j } {
+                $serverNet portList($j).setPortCaptureEnable True
+                $serverNet portList($j).setPortCaptureFileName [ file join $resultDir [ $serverNet cget -name ]_$j.cap ]
+            }
+        }
+        set IXIA::captureStart true
+        return 0
+    }
+    
+    #--
     # Debug puts
     #--
     proc Deputs { value } {
+        set timeVal  [ clock format [ clock seconds ] -format %D-%T ]
+        set clickVal [ clock clicks ]
+        set msg "\[TIME:$timeVal\]$value"
+        puts $msg
         if { $IXIA::Debug } {
-            set timeVal  [ clock format [ clock seconds ] -format %D-%T ]
-            set clickVal [ clock clicks ]
-            puts "\[TIME:$timeVal\]$value"
+            if { [ file exists $IXIA::logFile ] } { 
+                set fid [open $IXIA::logFile a]
+            } else {
+                set fid [open $IXIA::logFile w] 
+            }
+            puts $fid $msg
+            close $fid
         }
     }
     
     #--
     # Enable debug puts
     #--
-    proc IxDebugOn { { log 0 } } {
+    proc IxDebugOn { { logPath {C:/Windows/Temp/ixlogfile} } } {
         set IXIA::Debug 1
+        set timeVal  [ clock format [ clock seconds ] -format %Y-%m-%d-%H-%M-%S ]
+        set IXIA::logFile [ file join $logPath ${timeVal}.txt ]
+
+        return 0
     } 
       
     #--

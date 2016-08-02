@@ -61,7 +61,7 @@ IXIA::configNetwork Network2  -mac 00:02:02:02:02:02 \
 IXIA::configHttpServerAgent HTTPServer1  -httpPort 81  \
                         -acceptSslConnections true  
 IXIA::configHttpServerWebPage HTTPServer1 0 -page /1k.html  \
-                        -chunkSize 1024  
+                        -payloadsize 1024  
 IXIA::configHttpServerWebPage HTTPServer1 1 -page /4k.html  \
                         -chunkSize 1024
 IXIA::save [file join [pwd] $restoreDir/IxLoad-HTTP.rxf]

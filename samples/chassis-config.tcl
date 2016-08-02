@@ -2,7 +2,7 @@ lappend ::auto_path [file dirname [pwd]]
 
 puts "Loading IXIA libraries"
 #package require IxRepository
-source {Z:\Ixia\Workspace\ixia-ixLoad-ixRepository-API\IxRepository.tcl}
+source {C:\Ixia\Workspace\ixia-ixLoad-ixRepository-API\IxRepository.tcl}
 
 puts "Connecting to Serveer..."
 IXIA::connect
@@ -11,11 +11,11 @@ puts "Loading configuration file: [pwd]/configs/HTTP.rxf"
 IXIA::loadRepository "[pwd]/configs/HTTP.rxf"
 
 puts "Configure Chassis..."
-IXIA::configRepository -chassis [list "172.16.174.137"]
+IXIA::configRepository -chassis [list "172.16.174.133"]
 
 puts "Configure Network..."
-IXIA::configNetwork Network1 -port [list "172.16.174.137/1/1"]
-IXIA::configNetwork Network2 -port [list "172.16.174.137/2/1"]
+IXIA::configNetwork Network1 -port [list "172.16.174.133/1/1"]
+IXIA::configNetwork Network2 -port [list "172.16.174.133/2/1"]
 
 #IXIA::save [file join [pwd] Result/Configs/PortMapping-HTTP.rxf]
 

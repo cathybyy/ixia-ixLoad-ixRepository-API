@@ -143,7 +143,7 @@ namespace eval IXIA {
    #            - maxpersistentrequests, Transaction/TCP, default 0
    #            - keepalive   ,true or false
    #            - maxsessions ,TCP/User,default 1
-   #            - esm         ,effictive Send MSS ,default 64
+   #            - esm         ,effective Send MSS ,default 64
    #            - maxpipeline ,max pipe line,default 1
    #            - 
    #Return  :
@@ -241,7 +241,7 @@ namespace eval IXIA {
    #--
    #Parameters:
    #         -- actName , activity name , such as "HTTPServer1"
-   #         -- clrflag ,flag to clear the webPage List, if it is 0, then clear the action list
+   #         -- clrflag ,flag to clear the webPage List, if it is 0, then clear the webPage list
    #         -- args , |key, value| , parameters of PageObject
    #            - page      ,page name ,such as "/1k.html"
    #            - payloadSize ,page size,default 1024
