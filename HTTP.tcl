@@ -138,13 +138,16 @@ namespace eval IXIA {
    #Parameters: 
    #         -- actName , activity name , such as "HTTPClient1"
    #         -- args  |key, value|
-   #            - enablessl   ,enable ssl or not , ture or false
+   #            - enablessl   ,enable ssl or not , true or false
+   #            - certificate ,certification of ssl
+   #            - privateKey ,ssl private key
    #            - httpversion ,http version, can be  0 or 1 
    #            - maxpersistentrequests, Transaction/TCP, default 0
    #            - keepalive   ,true or false
    #            - maxsessions ,TCP/User,default 1
    #            - esm         ,effective Send MSS ,default 64
    #            - maxpipeline ,max pipe line,default 1
+   #            - enablecookie ,enable cookie or not, true or false  
    #            - 
    #Return  :
    #          0 , if got success   
@@ -163,6 +166,21 @@ namespace eval IXIA {
                set enablessl $value
                Deputs "actObj agent.config  -enableSsl $enablessl"
                $actObj agent.config  -enableSsl $enablessl 
+            }
+            -certificate {
+               set certificate $value
+               Deputs "actObj agent.config  -certificate $certificate"
+               $actObj agent.config  -certificate $certificate 
+            }
+            -privatekey {
+               set privateKey $value
+               Deputs "actObj agent.config  -privateKey $privateKey"
+               $actObj agent.config  -privateKey $privateKey 
+            }
+            -enablecookie {
+               set enableCookieSupport $value
+               Deputs "actObj agent.config  -enableCookieSupport $enableCookieSupport"
+               $actObj agent.config  -enableCookieSupport $enableCookieSupport 
             }
              -httpversion {
                set httpversion $value
@@ -210,6 +228,8 @@ namespace eval IXIA {
    #         -- args  |key, value|
    #            - httpport              ,server port,default 80
    #            - acceptsslconnections  ,enable ssl or not , ture or false
+   #            - certificate ,certification of ssl
+   #            - privateKey ,ssl private key
    #Return  :
    #          0 , if got success   
    #          raise error if failed 
@@ -227,9 +247,20 @@ namespace eval IXIA {
                Deputs "actObj agent.config  -httpPort $value"
                $actObj agent.config  -httpPort $value
             }
+            -certificate {
+               set certificate $value
+               Deputs "actObj agent.config  -certificate $certificate"
+               $actObj agent.config  -certificate $certificate 
+            }
+            -privatekey {
+               set privateKey $value
+               Deputs "actObj agent.config  -privateKey $privateKey"
+               $actObj agent.config  -privateKey $privateKey 
+            }
             -acceptsslconnections {
-               Deputs "actObj agent.config  -acceptSslConnections $value"
-               $actObj agent.config  -acceptSslConnections $value
+               set acceptsslconnections $value
+               Deputs "actObj agent.config  -acceptSslConnections $acceptsslconnections"
+               $actObj agent.config  -acceptSslConnections $acceptsslconnections
             }            
          }
       }
