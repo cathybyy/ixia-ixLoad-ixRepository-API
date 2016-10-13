@@ -1180,6 +1180,7 @@ namespace eval IXIA {
     #       - Args , |key, value|
     #         -- enableconstraint  , true or false
     #         -- constraintvalue   , constraint value,the minimum is 1
+    #         -- constrainttype   , constraint type,can be None,ConnectionRateConstraint, TransactionRateConstraint,ThroughputKbpsConstraint,ThroughputMbpsConstraint,ThroughputGbpsConstraint
     #         -- userobjectivetype ,  user objective type ,can be simulatedUsers,connectionRate,connectionAttemptRate,
     #                                 transactionRate ,concurrentSessions ,throughputKbps ,throughputMbps,
     #                                 throughputGbps
@@ -1197,17 +1198,43 @@ namespace eval IXIA {
  
         set actObj [ getActivity $actName ]
        
-        # Param collection --         
+        # Param collection --
+        set enableconstraint true
         foreach { key value } $args {
             set key [string tolower $key]
             Deputs "config $key --$value"
             switch -exact -- $key {
                 -enableconstraint {
-                    set enable_constraint $value
+                    set enableconstraint $value
                     $actObj config -enableConstraint $value
-                       Deputs "$actObj config -enableConstraint $value"
+                    Deputs "$actObj config -enableConstraint $value"
+                }
+                -constrainttype {
+                    if {[string tolower $value] == "none"} {
+                        $actObj config -enableConstraint false
+                        Deputs "$actObj config -enableConstraint false"
+                    } else {
+                        $actObj config -enableConstraint true
+                        if {[string tolower $value] == "connectionrateconstraint"} {
+                            $actObj config -constraintType ConnectionRateConstraint
+                            Deputs "$actObj config -constraintType ConnectionRateConstraint"
+                        } elseif {[string tolower $value] == "transactionrateconstraint"} {
+                            $actObj config -constraintType TransactionRateConstraint
+                            Deputs "$actObj config -constraintType TransactionRateConstraint"
+                        } elseif {[string tolower $value] == "throughputkbpsconstraint"} {
+                            $actObj config -constraintType ThroughputKbpsConstraint
+                            Deputs "$actObj config -constraintType ThroughputKbpsConstraint"
+                        } elseif {[string tolower $value] == "throughputmbpsconstraint"} {
+                            $actObj config -constraintType ThroughputMbpsConstraint
+                            Deputs "$actObj config -constraintType ThroughputMbpsConstraint"
+                        } elseif {[string tolower $value] == "throughputgbpsconstraint"} {
+                            $actObj config -constraintType ThroughputGbpsConstraint
+                            Deputs "$actObj config -constraintType ThroughputGbpsConstraint"
+                        }            
+                    }
                 }
                 -constraintvalue {
+                    $actObj config -enableConstraint true
                     $actObj config -constraintValue $value
                     Deputs "$actObj config -constraintValue $value"
                 }
@@ -1232,7 +1259,7 @@ namespace eval IXIA {
             }
         }
        
-        if {[info exists enable_constraint] == 0} {
+        if { !$enableconstraint } {
             $actObj config -enableConstraint false
         }
         return 0
