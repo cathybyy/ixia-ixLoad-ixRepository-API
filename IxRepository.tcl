@@ -24,18 +24,18 @@ namespace eval IXIA {
 
     proc GetEnvTcl { product } {       
         set productKey     "HKEY_LOCAL_MACHINE\\SOFTWARE\\Ixia Communications\\$product"
-        if { [ catch {
-                set versionKey     [ registry keys $productKey ]
-        } err ] } {
-                return ""
-        }        
+        set versionKey     [ registry keys $productKey ]
+        set latestKey      [ lindex $versionKey end ]      
         
-        set latestKey      [ lindex $versionKey end ]
-        set mutliVKeyIndex [ lsearch $versionKey "Multiversion" ]
-        if { $mutliVKeyIndex > 0 } {
-           set latestKey   [ lindex $versionKey [ expr $mutliVKeyIndex - 2 ] ]
+        if { $latestKey == "Multiversion" } {
+            set latestKey   [ lindex $versionKey [ expr [ llength $versionKey ] - 2 ] ]
+            if { $latestKey == "InstallInfo" } {
+                set latestKey   [ lindex $versionKey [ expr [ llength $versionKey ] - 3 ] ]
+            }
+        } elseif { $latestKey == "InstallInfo" } {
+            set latestKey   [ lindex $versionKey [ expr [ llength $versionKey ] - 2 ] ]
         }
-        set installInfo    [ append productKey \\ $latestKey \\ InstallInfo ]            
+        set installInfo    [ append productKey \\ $latestKey \\ InstallInfo ]           
         return             "[ registry get $installInfo  HOMEDIR ]/TclScripts/bin/ixiawish.tcl"   
     }    
     
@@ -45,6 +45,8 @@ namespace eval IXIA {
         source [ GetEnvTcl IxOS ]
         package require IxTclHal
         package require Mpexpr
+    } else {
+        catch { package require IxTclHal }
     }
     
     # Must make sure IxLoad is installed properly
@@ -65,6 +67,12 @@ namespace eval IXIA {
     variable stats              [list]
     variable stats_info_list    {}
     variable SelectedStats      {}
+    variable logFile            ""
+    variable captureStart       false
+    variable loginUser          ""
+    variable portList           [list]
+    variable loginToHal         false
+    variable chassisIp          ""
     
     #--
     # Load the repository
@@ -248,16 +256,16 @@ namespace eval IXIA {
     #--
     #Parameters:
     #       actName: activity name
+    #       end: options, indicate that we return the leaf object, default is false,  true/false 
     #Return:
     #       activity object if got success
     #       raise error if failed 
     #--
-    proc getActivity { actName } {
+    proc getActivity { actName { end false } } {
         set tag "proc GetActivity [info script]-->find <$actName> "
         Deputs "----- TAG: $tag -----"
  
         set activeTest [ getActiveTest ]
-    
         set clientCnt [ $activeTest clientCommunityList.indexCount ]    
         for { set index 0 } { $index < $clientCnt } { incr index } {
             set actCnt [ $activeTest clientCommunityList($index).activityList.indexCount ]
@@ -265,6 +273,22 @@ namespace eval IXIA {
                 set clientActName [ $activeTest clientCommunityList($index).activityList($actIndex).cget -name ]
                 if { $clientActName == $actName } {
                     return [ $activeTest clientCommunityList($index).activityList.getItem $actIndex ]
+                } 
+            }
+            
+            set comm [$activeTest clientCommunityList($index)]
+            set networkActCnt [$comm networkActivityList.indexCount]
+            for { set actIndex 0 } { $actIndex < $networkActCnt } { incr actIndex } {
+                set subActCnt [ $comm networkActivityList($actIndex).subActivities.indexCount ]
+                for { set subActIndex 0 } { $subActIndex < $subActCnt } { incr subActIndex } {
+                    set subActName [ $comm networkActivityList($actIndex).subActivities($subActIndex).cget -name ]
+                    if { $subActName == $actName } {
+                        if { $end } {
+                            return [ $comm networkActivityList($actIndex).subActivities.getItem $subActIndex ]
+                        } else {
+                            return [ $comm networkActivityList($actIndex) ]
+                        }
+                    }
                 }
             }
         }
@@ -278,7 +302,23 @@ namespace eval IXIA {
                     return [ $activeTest serverCommunityList($index).activityList.getItem $actIndex ]
                 }
             }
-        }   
+            
+            set comm [$activeTest serverCommunityList($index)]
+            set networkActCnt [$comm networkActivityList.indexCount]
+            for { set actIndex 0 } { $actIndex < $networkActCnt } { incr actIndex } {
+                set subActCnt [ $comm networkActivityList($actIndex).subActivities.indexCount ]
+                for { set subActIndex 0 } { $subActIndex < $subActCnt } { incr subActIndex } {
+                    set subActName [ $comm networkActivityList($actIndex).subActivities($subActIndex).cget -name ]
+                    if { $subActName == $actName } {
+                        if { $end } {
+                            return [ $comm networkActivityList($actIndex).subActivities.getItem $subActIndex ]
+                        } else {
+                            return [ $comm networkActivityList($actIndex) ]
+                        }
+                    }
+                }
+            }
+        }
         error "Activity not found..."
     }
          
@@ -321,7 +361,7 @@ namespace eval IXIA {
     #        raise error if failed
     #--
     proc getNetwork { networkName } {
-        set tag "proc GetActivity [info script]"
+        set tag "proc getNetwork [info script]"
         Deputs "----- TAG: $tag -----"
  
         set activeTest [ getActiveTest ]
@@ -340,6 +380,172 @@ namespace eval IXIA {
             }
         }   
         error "Network not found..."
+    }
+    
+    #--
+    # Get UE object by given name
+    #--
+    #Parameters:
+    #      ueName: network name
+    #Return:
+    #        ue object if got success
+    #        raise error if failed
+    #--
+    proc getUE { ueName } {
+        set tag "proc getUE [info script]"
+        Deputs "----- TAG: $tag -----"
+ 
+        set activeTest [ getActiveTest ]
+        set clientCnt [ $activeTest clientCommunityList.indexCount ]    
+        for { set index 0 } { $index < $clientCnt } { incr index } {
+            set network [ $activeTest clientCommunityList($index).network ]
+            set ethernet_1 [ $network getL1Plugin ]
+            set mac_vlan_1 [$ethernet_1 childrenList(0)]
+            set ip_1 [$mac_vlan_1 childrenList(0) ]         
+            set enb_1 [$ip_1 childrenList(0)]
+            set ue [$enb_1 ueRangeList(0)]
+            if { $ueName == [$ue cget -name] } {
+                return $ue
+            }
+        }      
+        set serverCnt [ $activeTest serverCommunityList.indexCount ]
+        for { set index 0 } { $index < $serverCnt } { incr index } {
+            set network  [ $activeTest serverCommunityList($index).network ]
+            set ethernet_1 [ $network getL1Plugin ]
+            set mac_vlan_1 [$ethernet_1 childrenList(0)]
+            set ip_1 [$mac_vlan_1 childrenList(0) ]         
+            set enb_1 [$ip_1 childrenList(0)]
+            set ue [$enb_1 ueRangeList(0)]
+            if { $ueName == [$ue cget -name] } {
+                return $ue
+            }
+        }   
+        error "UE not found..."
+    }
+    
+    #--
+    # Config UE param
+    #--
+    #Parameters:
+    #      ueName: network name 
+    #      args: |key, value|
+    #         -enable      : enable or disable ue range, true/false
+    #         -count        : The total number of ues to be created for this range
+    #         -ip_type       : IP type, IPv4/IPv6
+    #         -mss          : The maximum segment size
+    #         -publish_stats : enable collection of interface stats on this range
+    #         -enable_ue_cycling  : enable ue cycling for this range
+    #         -ue_cycling_count   : The total number of UEs available for UE Cycling 
+    #
+    #Return  :
+    #          0 , if got success
+    #          raise error if failed
+    #--
+    proc configUE { ueName args } {     
+        set ue [ getUE $ueName ]
+        Deputs "ue:$ue"
+        set tag "proc configUE [info script]"
+        Deputs "----- TAG: $tag -----"
+    
+        # Param collection --
+        foreach { key value } $args {
+            set key [string tolower $key]
+            Deputs "config $key---$value"      
+            switch -exact -- $key {
+                -count {
+                    set count $value
+                }
+                -ip_type {
+                    set ip_type $value
+                }
+                -mss {
+                    set mss $value
+                }
+                -publish_stats {
+                    set publish_stats $value
+                }
+                -enable_ue_cycling {
+                    set enable_ue_cycling $value
+                }
+                -ue_cycling_count {
+                    set ue_cycling_count $value
+                }
+                -enable {
+                    set enable $value
+                }
+            }
+        }      
+              
+        if {[info exists count]} {                            
+            $ue config -count $count
+        }
+        if {[info exists ip_type]} {                            
+            $ue config -ipType $ip_type
+        }
+        if {[info exists mss]} {                            
+            $ue config -mss $mss
+        }
+        if {[info exists publish_stats]} {                            
+            $ue config -publishStats $publish_stats
+        }
+        if {[info exists enable_ue_cycling]} {                            
+            $ue config -identityCycling $enable_ue_cycling
+        }
+        if {[info exists ue_cycling_count]} {                            
+            $ue config -identityCount $ue_cycling_count
+        }
+        if {[info exists enable]} {                            
+            $ue config -enable $enable
+        }
+        
+        Deputs "configUE over"
+        
+        return 0
+    }
+    
+    #--
+    # Get Network Traffic by given name
+    #--
+    #Parameters:
+    #      trafficName: Network or Traffic name
+    #Return:
+    #        NetTraffic object if got success
+    #        raise error if failed
+    #--
+    proc getNetTraffic { trafficName } {
+        set tag "proc getNetTraffic [info script]"
+        Deputs "----- TAG: $tag -----"
+ 
+        set activeTest [ getActiveTest ]
+        set clientCnt [ $activeTest clientCommunityList.indexCount ]    
+        for { set index 0 } { $index < $clientCnt } { incr index } {
+            set clientNetName [ $activeTest clientCommunityList($index).network.name ]
+            if { $trafficName == $clientNetName } {
+                return [ $activeTest clientCommunityList($index) ]
+            }
+        }      
+        set serverCnt [ $activeTest serverCommunityList.indexCount ]
+        for { set index 0 } { $index < $serverCnt } { incr index } {
+            set serverNetName [ $activeTest serverCommunityList($index).network.name ] 
+            if { $trafficName == $serverNetName } {
+                return [ $activeTest serverCommunityList($index) ]
+            }
+        }
+        
+        for { set index 0 } { $index < $clientCnt } { incr index } {
+            set clientTrafficName [ $activeTest clientCommunityList($index).traffic.name ]
+            if { $trafficName == $clientTrafficName } {
+                return [ $activeTest clientCommunityList($index) ]
+            }
+        }      
+        set serverCnt [ $activeTest serverCommunityList.indexCount ]
+        for { set index 0 } { $index < $serverCnt } { incr index } {
+            set serverTrafficName [ $activeTest serverCommunityList($index).traffic.name ] 
+            if { $trafficName == $serverTrafficName } {
+                return [ $activeTest serverCommunityList($index) ]
+            }
+        } 
+        error "NetTraffic not found..."
     }
     
     #--
@@ -369,6 +575,7 @@ namespace eval IXIA {
     #         -dns_server: server ip 
     #         -ipsec_remote_gateway: ipsec remote gateway
     #         -ipsec_local_gateway : ipsec local gateway
+    #         -enable    : enable network, true/false
     #
     #Return  :
     #          0 , if got success
@@ -452,6 +659,10 @@ namespace eval IXIA {
                 }
                 -arp_response {
                     set arpresponse $value
+                }
+                -enable {
+                    set netTraffic [ getNetTraffic $networkName ]
+                    $netTraffic config -enable $value
                 }
             }
         }      
@@ -969,10 +1180,13 @@ namespace eval IXIA {
     #       - Args , |key, value|
     #         -- enableconstraint  , true or false
     #         -- constraintvalue   , constraint value,the minimum is 1
-    #         -- userobjectivetype ,  objective type ,can be simulatedUsers,connectionRate,connectionAttemptRate,
+    #         -- constrainttype   , constraint type,can be None,ConnectionRateConstraint, TransactionRateConstraint,ThroughputKbpsConstraint,ThroughputMbpsConstraint,ThroughputGbpsConstraint
+    #         -- userobjectivetype ,  user objective type ,can be simulatedUsers,connectionRate,connectionAttemptRate,
     #                                 transactionRate ,concurrentSessions ,throughputKbps ,throughputMbps,
     #                                 throughputGbps
-    #         -- userobjectivevalue,  objective value,
+    #         -- userobjectivevalue,  user objective value,
+    #         -- objectivetype,       objective type can be Subscribers/s or Active Subscribers
+    #         -- objectivevalue,      objective value
     #Return :
     #      0 if it got success
     #      raise error if it failed
@@ -984,17 +1198,43 @@ namespace eval IXIA {
  
         set actObj [ getActivity $actName ]
        
-        # Param collection --         
+        # Param collection --
+        set enableconstraint true
         foreach { key value } $args {
             set key [string tolower $key]
             Deputs "config $key --$value"
             switch -exact -- $key {
                 -enableconstraint {
-                    set enable_constraint $value
+                    set enableconstraint $value
                     $actObj config -enableConstraint $value
-                       Deputs "$actObj config -enableConstraint $value"
+                    Deputs "$actObj config -enableConstraint $value"
+                }
+                -constrainttype {
+                    if {[string tolower $value] == "none"} {
+                        $actObj config -enableConstraint false
+                        Deputs "$actObj config -enableConstraint false"
+                    } else {
+                        $actObj config -enableConstraint true
+                        if {[string tolower $value] == "connectionrateconstraint"} {
+                            $actObj config -constraintType ConnectionRateConstraint
+                            Deputs "$actObj config -constraintType ConnectionRateConstraint"
+                        } elseif {[string tolower $value] == "transactionrateconstraint"} {
+                            $actObj config -constraintType TransactionRateConstraint
+                            Deputs "$actObj config -constraintType TransactionRateConstraint"
+                        } elseif {[string tolower $value] == "throughputkbpsconstraint"} {
+                            $actObj config -constraintType ThroughputKbpsConstraint
+                            Deputs "$actObj config -constraintType ThroughputKbpsConstraint"
+                        } elseif {[string tolower $value] == "throughputmbpsconstraint"} {
+                            $actObj config -constraintType ThroughputMbpsConstraint
+                            Deputs "$actObj config -constraintType ThroughputMbpsConstraint"
+                        } elseif {[string tolower $value] == "throughputgbpsconstraint"} {
+                            $actObj config -constraintType ThroughputGbpsConstraint
+                            Deputs "$actObj config -constraintType ThroughputGbpsConstraint"
+                        }            
+                    }
                 }
                 -constraintvalue {
+                    $actObj config -enableConstraint true
                     $actObj config -constraintValue $value
                     Deputs "$actObj config -constraintValue $value"
                 }
@@ -1006,10 +1246,20 @@ namespace eval IXIA {
                     $actObj config -userObjectiveValue $value
                     Deputs "$actObj config -userObjectiveValue $value"
                 }
+                -objectivetype {
+                    $actObj setPrimaryObjectiveType $value
+                    Deputs "$actObj setPrimaryObjectiveType {Active Subscribers}"
+                }
+                -objectivevalue {
+                    set obj [getActivity $actName true]
+                    set endObj [$obj cget -primaryObjective]
+                    $endObj config -objectiveValue $value
+                    Deputs "$endObj config -objectiveValue $value"
+                }
             }
         }
        
-        if {[info exists enable_constraint] == 0} {
+        if { !$enableconstraint } {
             $actObj config -enableConstraint false
         }
         return 0
@@ -1024,7 +1274,8 @@ namespace eval IXIA {
     proc save { repPath {overwrite 1}} {
         set tag "proc save [info script]"
         Deputs "----- TAG: $tag -----"
-        return [ $IXIA::repository write -destination $repPath -overwrite $overwrite]
+        $IXIA::repository write -destination $repPath -overwrite $overwrite
+        return 0
     }
     
     #--
@@ -1036,36 +1287,74 @@ namespace eval IXIA {
     
         set activeTest [ getActiveTest ]    
         $IXIA::testController applyConfig $activeTest
+        return 0
     }
     
     #--
-    # run test
+    # Run test
     #--
-    proc run {} {
+    # Parameters: |key, value|
+    #       - resultDir: Results path
+    #       - forceOwnership: Force to take port ownership, default is true
+    #       - resetPorts£ºReset port before test, default is true
+    # Return:
+    #        0 if got success
+    #        raise error if failed 
+    #-- 
+    proc run { args } {
         set tag "proc run [info script]"
         Deputs "----- TAG: $tag -----"
+        Deputs "----- ARGS: $args -----"
+        
+        # Param collection --
+        set resultDir ""
+        set forceOwnership true
+        set resetPorts true
+        foreach { key value } $args {
+            set key [string tolower $key]
+            Deputs "config $key---$value"
+            switch -exact -- $key {
+                -resultDir {
+                    set resultDir $value
+                }
+                -forceOwnership {
+                    set forceOwnership $value
+                }
+                -resetPorts {
+                    set resetPorts $value
+                }
+            }
+        }
+        
         set IXIA::stats_info_list {}
         
         set chassisChain [ $IXIA::repository cget -chassisChain ]
+        #$chassisChain setLoginName $::tcl_platform(user)
         $chassisChain refresh
         set repName    [ $IXIA::repository cget -name ]
         set activeTest    [ getActiveTest ]
         set testName    [ $activeTest cget -name ]
         
-        $IXIA::testController setResultDir "Result/${repName}/${testName}"
+        if { $resultDir != "" } {
+            set resultDir [ file join $resultDir ${repName}/${testName} ]
+        } else {
+            set resultDir [ file join [ file dirname [ info script ] ] Result/${repName}/${testName} ]
+        }
+        $IXIA::testController setResultDir $resultDir
         $activeTest config \
             -enableNetworkDiagnostics                    false \
             -statsRequired                               true \
             -showNetworkDiagnosticsAfterRunStops         false \
             -showNetworkDiagnosticsFromApplyConfig       false \
-            -enableForceOwnership                        true \
-            -enableResetPorts                            true \
+            -enableForceOwnership                        $forceOwnership \
+            -enableResetPorts                            $resetPorts \
             -enableReleaseConfigAfterRun                 true
         
         set activeTest [ getActiveTest ]
         $activeTest clearGridStats
         
-        $IXIA::testController run $activeTest
+        $IXIA::testController run $activeTest -repository $IXIA::repository
+        return 0
     }
     
     #--
@@ -1077,12 +1366,28 @@ namespace eval IXIA {
         set tag "proc stop [info script]"
         Deputs "----- TAG: $tag -----"
         $IXIA::testController stopRun
-    }
         
+        # Wait for test really stopped
+        waitForTestStop
+        
+        if { $IXIA::captureStart } {
+            if {$::ixCaptureMonitor == ""} {
+                Deputs "Waiting for last capture data to arrive."
+                vwait ::ixCaptureMonitor
+            } 
+        }
+        Deputs " proc  stop over "
+        return 0
+    }
+       
+    proc GracefulStop {} {
+        $IXIA::testController stopRunGraceful
+    }
+ 
     #--
     # Wait for the test stopped
-    # RETURN: if run successfully 1
-    #           etherwise 0
+    # RETURN: if run successfully 0
+    #           raise error if it failed
     #--
     proc waitForTestStop {} {
         set tag "proc waitForTestStop [info script]"
@@ -1092,9 +1397,22 @@ namespace eval IXIA {
         ${IXIA::NS}::StopCollector
         
         Deputs "  proc  waitForTestStop over  "
-        return 1   
+        return 0   
     }
-   
+
+    #--
+    # Generate test report
+    #--
+    # Args:
+    #       -deltailedReport: Whether to generate detailed report, default value is '1'
+    #       -format: Which type of the report you want to generate, default is 'PDF;HTML'
+    proc generateReport { {deltailedReport 1} {format "PDF;HTML"} } {
+        set tag "proc generateReport [info script]"
+        Deputs "----- TAG: $tag -----"
+        $IXIA::testController generateReport -detailedReport $deltailedReport -format $format
+        return 0
+    }
+    
     #--
     # Select the stats for testing
     #--
@@ -1146,10 +1464,12 @@ namespace eval IXIA {
             } err ] } {
                 Deputs "Add stats $statSourceType $statName error:$err"
             }
+            incr count
         }
  
         ${IXIA::NS}::StartCollector -command IXIA::collectStats -interval $interval
-        incr count
+        
+        return 0
     }
     
     ####################################################################################
@@ -1350,7 +1670,7 @@ namespace eval IXIA {
     }   
     
     ####################################################################################
-    # Proc Name        : get the protocol instatntStats stats collected after running  
+    # Proc Name        : get the protocol instantStats stats collected after running  
     #
     # Parameters       : none
     # Return Value     :   all original State value and average value 
@@ -1362,7 +1682,9 @@ namespace eval IXIA {
     #
     #####################################################################################
     proc getInstantStats { proItem } {
-        Deputs "in --------proc----getInstantStats-----------------"
+        set tag "proc collectStats [info script]"
+        Deputs "----- TAG: $tag -----"
+        
         set statslist $IXIA::stats_info_list
         set statslen [llength $statslist]
         if { $statslen == 0 } {
@@ -1416,21 +1738,423 @@ namespace eval IXIA {
     }
     
     #--
+    # Start Capture
+    #--
+    # Parameters: |key, value|
+    #       - buffer_mem_percentage: Percentage of the available memory on the Ixia port allocated for capturing pack£¬
+    #                                 default value is 30
+    #       - result_dir: Result path
+    # Return:
+    #        0 if got success
+    #        raise error if failed 
+    #--  
+    proc startCapture { args } {
+        set tag "proc startCapture [info script]"
+        Deputs "----- TAG: $tag -----"
+        
+        # Param collection --
+        set resultDir ""
+        foreach { key value } $args {
+            set key [string tolower $key]
+            Deputs "config $key---$value"
+            switch -exact -- $key {
+                -bufferMemoryPercentage {
+                    set bufferMemoryPercentage $value
+                }
+                -result_dir {
+                    set result_dir $value
+                }
+            }
+        }
+        
+        set activeTest [ getActiveTest ]
+        # Set the capture mode to manual and preinitialize so that capture can happen anytime
+        #$activeTest captureViewOptions.config -runMode $::ixViewOptions(kRunMode_Manual)
+        
+        if { [ info exists bufferMemoryPercentage ] } {
+            $activeTest captureViewOptions.config -allocatedBufferMemoryPercentage $bufferMemoryPercentage
+        }
+        
+        # Enable traffic capture
+        set repName    [ $IXIA::repository cget -name ]
+        set testName    [ $activeTest cget -name ]
+        if { $result_dir != "" } {
+            set result_dir [ file join $resultDir ${repName}/${testName} ]
+        } else {
+            set result_dir [ file join [ file dirname [ info script ] ] Result/${repName}/${testName} ]
+        }
+        Deputs "----- Results location: $resultDir -----"
+        set clientCnt [ $activeTest clientCommunityList.indexCount ]    
+        for { set i 0 } { $i < $clientCnt } { incr i } {
+            set clientNet [ $activeTest clientCommunityList($i).network ]
+            set portCnt [ llength [ $clientNet cget -portList ] ]
+            for { set j 0 } { $j < $portCnt } { incr j } {
+                $clientNet portList($j).setPortCaptureEnable True
+                $clientNet portList($j).setPortCaptureFileName [ file join $resultDir [ $clientNet cget -name ]_$j.cap ]
+            }
+            $activeTest clientCommunityList($i).setCommunityCaptureParams $activeTest True
+            #$activeTest clientCommunityList($i).startIxViewCapture
+        }      
+        set serverCnt [ $activeTest serverCommunityList.indexCount ]
+        for { set i 0 } { $i < $serverCnt } { incr i } {
+            set serverNet [ $activeTest serverCommunityList($i).network ] 
+            set portCnt [ llength [ $serverNet cget -portList ] ]
+            for { set j 0 } { $j < $portCnt } { incr j } {
+                $serverNet portList($j).setPortCaptureEnable True
+                $serverNet portList($j).setPortCaptureFileName [ file join $resultDir [ $serverNet cget -name ]_$j.cap ]
+            }
+            $activeTest serverCommunityList($i).setCommunityCaptureParams $activeTest True
+            #$activeTest serverCommunityList($i).startIxViewCapture
+        }
+        set IXIA::captureStart true
+        return 0
+    }
+    
+    #--
+    # Start Capture
+    #--
+    #
+    # Return:
+    #        0 if got success
+    #        raise error if failed 
+    #--  
+    proc stopCapture { } {
+        set tag "proc stopCapture [info script]"
+        Deputs "----- TAG: $tag -----"
+        
+        #set activeTest [ getActiveTest ]
+        #set clientCnt [ $activeTest clientCommunityList.indexCount ]    
+        #for { set i 0 } { $i < $clientCnt } { incr i } {
+        #    $activeTest clientCommunityList($i).stopIxViewCapture
+        #}      
+        #set serverCnt [ $activeTest serverCommunityList.indexCount ]
+        #for { set i 0 } { $i < $serverCnt } { incr i } {
+        #    $activeTest serverCommunityList($i).stopIxViewCapture
+        #}
+        #if { $IXIA::captureStart } {
+        #    if {$::ixCaptureMonitor == ""} {
+        #        Deputs "Waiting for last capture data to arrive."
+        #        vwait ::ixCaptureMonitor
+        #    } 
+        #}
+        #set IXIA::captureStart false
+        return 0
+    }
+    
+        #--
+    # Start Hal Capture
+    #--
+    # Parameters: |key, value|
+    #       - mode: Capture mode, 0:capture all, 1:capture trig, 2:capture bad
+    # Return:
+    #        0 if got success
+    #        raise error if failed 
+    #--  
+    proc startHalCapture { args } {
+        set tag "proc startHalCapture [info script]"
+        Deputs "----- TAG: $tag -----"
+        
+        # Param collection --
+        set mode 0
+        foreach { key value } $args {
+            set key [string tolower $key]
+            Deputs "config $key---$value"
+            switch -exact -- $key {
+                -mode {
+                    set mode $value
+                }
+            }
+        }
+        
+        # Wait 30 secs to wait for test to initialize
+        after 30000
+        
+        # Update Hal information to start capture
+        updateHalInfo
+        
+        if { $IXIA::loginUser != "" } {
+            if { [ ixConnectToTclServer $IXIA::chassisIp ] } {
+                Deputs "Failed to connect Tcl Server: $IXIA::chassisIp:4555"
+                error "Failed to connect Tcl Server: $IXIA::chassisIp:4555"
+            }
+            ixLogin $IXIA::loginUser
+            if { [ ixConnectToChassis $IXIA::chassisIp ] } {
+                Deputs "Failed to connect Chassis: $IXIA::chassisIp"
+                error "Failed to connect Chassis: $IXIA::chassisIp"
+            }
+            
+            foreach port $IXIA::portList {
+                set chassisId [ lindex $port 0 ]
+                set cardIndex [ lindex $port 1 ]
+                set portIndex [ lindex $port 2 ]
+                eval port get $chassisId $cardIndex $portIndex
+                set owner [ eval port cget -owner ]
+                if { $IXIA::loginUser != $owner && $owner != "" } {
+                    set IXIA::loginUser $owner
+                    ixLogin $IXIA::loginUser
+                    break
+                }
+            }
+        } else {
+            Deputs "No port taking ownership during test"
+            error "No port taking ownership during test"
+        }
+        
+        #foreach port $IXIA::portList {
+        #    capture setDefault
+        #    capture get [ lindex $port 0 ] [ lindex $port 1 ] [ lindex $port 2 ]
+        #    switch $mode {
+        #        0 {
+        #            capture config -captureMode captureContinuousMode
+        #            capture config -afterTriggerFilter captureAfterTriggerConditionFilter
+        #        }
+        #        2 {
+        #            capture config -captureMode captureTriggerMode
+        #            capture config -afterTriggerFilter captureAfterTriggerConditionFilter
+        #        }
+        #        default {}
+        #    }
+        #    
+        #    if { [ capture set [ lindex $port 0 ] [ lindex $port 1 ] [ lindex $port 2 ] ] } {
+        #        Deputs "Could not write config to port: [ lindex $port 0 ] [ lindex $port 1 ] [ lindex $port 2 ] "
+        #        error "Could not write config to port: [ lindex $port 0 ] [ lindex $port 1 ] [ lindex $port 2 ]"
+        #    }
+        #    if { [ ixWriteConfigToHardware $IXIA::portList ]} {
+        #        Deputs "Could not write config to hardware"
+        #        error "Could not write config to hardware"
+        #    }
+        #}
+        
+        set timeout 0
+        while { 1 } {
+            # -- check capture status every 2 sec
+            after 2000 set wakeup 1
+            if { [ ixStartCapture IXIA::portList ] == 0 } {
+                break
+            }
+
+            # Timeout but capture not start
+            if { $timeout > 30 } {
+                Deputs "Could not start capture"
+                error "Could not start capture"
+            }
+            incr timeout
+            vwait wakeup
+        }
+
+        set IXIA::captureStart true
+        return 0
+    }
+    
+    #--
+    # Stop Hal Capture
+    #--
+    #
+    # Return:
+    #        0 if got success
+    #        raise error if failed 
+    #--  
+    proc stopHalCapture { } {
+        set tag "proc stopHalCapture [info script]"
+        Deputs "----- TAG: $tag -----"
+        
+        if { $IXIA::captureStart } {
+            if { [ ixStopCapture IXIA::portList ] != 0 } {
+                Deputs "Could not stop capture"
+            }
+        }
+        set IXIA::captureStart false
+        return 0
+    }
+    
+    #--
+    # Save Hal capture
+    #--
+    # Parameters: |key, value|
+    #       - prefix: Save capture file name's prefix
+    #       - resultDir: Result path
+    #       - user: Share server user
+    #       - password: Share server password
+    #       - pcap2xml: Convert pcap file to xml 
+    #       - keep_pcap: Keep enc file in local PC
+    # Return:
+    #        0 if got success
+    #        raise error if failed 
+    #--  
+    proc saveHalCapture { args } {
+        set tag "proc saveHalCapture [info script]"
+        Deputs "----- TAG: $tag -----"
+        
+        # Param collection --
+        set result_dir ""
+        set pcap2xml true
+        set keep_pcap true
+        set prefix "Ixia"
+        foreach { key value } $args {
+            set key [string tolower $key]
+            Deputs "config $key---$value"
+            switch -exact -- $key {
+                -result_dir {
+                    set result_dir $value
+                }
+                -prefix {
+                    set prefix $value
+                }
+                -user {
+                    set user $value
+                }
+                -password {
+                    set password $value
+                }
+                -pcap2xml {
+                    set pcap2xml $value
+                }
+                -keep_pcap {
+                    set keep_pcap $value
+                }
+            }
+        }
+        
+        set activeTest [ getActiveTest ]
+        set repName    [ $IXIA::repository cget -name ]
+        set testName    [ $activeTest cget -name ]
+        if { $result_dir == "" } {
+            set result_dir [ $IXIA::testController getRunResultDirFull ]
+        }
+        Deputs "----- Results location: $result_dir -----"
+            
+        foreach port $IXIA::portList {
+            set chassisId [ lindex $port 0 ]
+            set cardIndex [ lindex $port 1 ]
+            set portIndex [ lindex $port 2 ]
+            if { [ capture get $chassisId $cardIndex $portIndex ] } {
+                Deputs "Get capture from $chassisId $cardIndex $portIndex failed..."
+                error "Get capture from $chassisId $cardIndex $portIndex failed..."
+            }
+            set PktCnt 0
+            catch { set PktCnt [capture cget -nPackets] }
+            Deputs "Total $PktCnt packets captured"
+            
+            if { $PktCnt == 0 } {
+                return 0
+            }
+            #Get all the packet from Chassis to pc.
+            if { [ captureBuffer get $chassisId $cardIndex $portIndex 1 $PktCnt ] } {
+                Deputs "Retrieve packets from $chassisId $cardIndex $portIndex failed..."
+                error "Retrieve packets from $chassisId $cardIndex $portIndex failed..." 
+            }
+            
+            if { [ captureBuffer export C:/Windows/Temp/${prefix}_${chassisId}_${cardIndex}_${portIndex}.enc capExportSniffer4x ] != 0 } {
+                Deputs "Could not save capture"
+                error "Could not save capture"
+            } else {
+                if { [ catch {
+                    #exec cmd "/k net use * /del /y" &
+                    if { [ info exists user ] && [ info exists password ] } {
+                        catch { exec cmd "/k net use \\$IXIA::chassisIp\Temp $password /user:$user" & }
+                    } else {
+                        catch { exec cmd "/k net use \\$IXIA::chassisIp\Temp" & }
+                    }
+                    
+                    file copy -force "\\\\$IXIA::chassisIp\\Temp\\${prefix}_${chassisId}_${cardIndex}_${portIndex}.enc" $result_dir
+                    set enc [ file join $result_dir ${prefix}_${chassisId}_${cardIndex}_${portIndex}.enc ]
+                    if { $pcap2xml } {
+                        set xml [ file join $result_dir ${prefix}_${chassisId}_${cardIndex}_${portIndex}.xml ]
+                        exec tshark.exe -r $enc -T pdml > $xml
+                    }
+                    
+                    if { !$keep_pcap } {
+                        file delete -force $enc
+                    }
+                } err ] } {
+                    Deputs "Failed to transfer capture file: $err"
+                    error "Failed to transfer capture file: $err"
+                }
+            }
+        }
+        return 0
+    }
+    
+    proc updateHalInfo { { timeout 120 } } {
+        if { $IXIA::loginUser == "" } {
+            set chassisChain [ $IXIA::repository cget -chassisChain ]
+            if { [ llength $chassisChain ] == 0 } {
+                Deputs "There's no chassis added into chassis chain, please make sure add one like 192.168.0.111..."
+                error "There's no chassis added into chassis chain, please make sure add one like 192.168.0.111..."
+            }
+            set chassisChain [ lindex $chassisChain 0 ]
+            set timeout 0
+            while { $IXIA::loginUser == "" || $IXIA::chassisIp == "" || [ llength $IXIA::portList ] == 0 } {
+                if { $IXIA::chassisIp == "" } {
+                    set chassis [ lindex [ $chassisChain cget -chassisList ] ]
+                    set IXIA::chassisIp [ $chassis cget -chassisIp ]
+                }
+                if { $IXIA::loginUser == "" } {
+                    set IXIA::loginUser [ $chassisChain getLoginName ]
+                }
+                if { [ llength $IXIA::portList ] == 0 } {
+                    getPortList
+                }
+                if { $timeout > $timeout } {
+                    break
+                }
+                incr timeout
+                after 1000
+            }
+        }
+    }
+    
+    proc getPortList {} {
+        if { [ llength $IXIA::portList ] == 0 } {
+            set activeTest [ getActiveTest ]
+            set clientCnt [ $activeTest clientCommunityList.indexCount ]    
+            for { set i 0 } { $i < $clientCnt } { incr i } {
+                set clientNet [ $activeTest clientCommunityList($i).network ]
+                set portCnt [ llength [ $clientNet cget -portList ] ]
+                for { set j 0 } { $j < $portCnt } { incr j } {
+                    lappend IXIA::portList [ split [ $clientNet portList($j).getId ] . ]
+                }
+            }      
+            set serverCnt [ $activeTest serverCommunityList.indexCount ]
+            for { set i 0 } { $i < $serverCnt } { incr i } {
+                set serverNet [ $activeTest serverCommunityList($i).network ] 
+                set portCnt [ llength [ $serverNet cget -portList ] ]
+                for { set j 0 } { $j < $portCnt } { incr j } {
+                    lappend IXIA::portList [ split [ $serverNet portList($j).getId ] . ]
+                }
+            }
+        }
+        return $IXIA::portList
+    }
+    
+    #--
     # Debug puts
     #--
     proc Deputs { value } {
+        set timeVal  [ clock format [ clock seconds ] -format %D-%T ]
+        set clickVal [ clock clicks ]
+        set msg "\[TIME:$timeVal\]$value"
+        puts $msg
         if { $IXIA::Debug } {
-            set timeVal  [ clock format [ clock seconds ] -format %D-%T ]
-            set clickVal [ clock clicks ]
-            puts "\[TIME:$timeVal\]$value"
+            if { [ file exists $IXIA::logFile ] } { 
+                set fid [open $IXIA::logFile a]
+            } else {
+                set fid [open $IXIA::logFile w] 
+            }
+            puts $fid $msg
+            close $fid
         }
     }
     
     #--
     # Enable debug puts
     #--
-    proc IxDebugOn { { log 0 } } {
+    proc IxDebugOn { { logPath {C:/Windows/Temp/ixlogfile} } } {
         set IXIA::Debug 1
+        set timeVal  [ clock format [ clock seconds ] -format %Y-%m-%d-%H-%M-%S ]
+        set IXIA::logFile [ file join $logPath ${timeVal}.txt ]
+
+        return 0
     } 
       
     #--
